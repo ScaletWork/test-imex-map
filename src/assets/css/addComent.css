@@ -1,0 +1,15 @@
+.text-field {
+  background-color: none;
+  outline: none;
+  width: 80%;
+  margin-right: 5%;
+  border: 1px solid black;
+  border-radius: 2px;
+  color: red;
+}
+.field-block {
+  /* background-color: rgba(165, 42, 42, 0.2);
+  padding: 10px; */
+  /* border-radius: 20px; */
+  padding: 5px;
+}

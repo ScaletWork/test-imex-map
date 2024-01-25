@@ -6,7 +6,7 @@
   width: $sidebar-width-full;
   background-color: $white;
   position: absolute;
-  transition: .2s ease-in;
+  transition: 0.2s ease-in;
   height: 100%;
   z-index: 11;
   border-right: 1px solid rgb(229, 234, 239);
@@ -99,13 +99,12 @@
         opacity: $link-disabled;
       }
 
-      &.selected>.sidebar-link.active,
-      &.selected>.sidebar-link,
-      >.sidebar-link.active {
+      &.selected > .sidebar-link.active,
+      &.selected > .sidebar-link,
+      > .sidebar-link.active {
         background-color: $primary;
         color: $white;
       }
-
     }
   }
 

@@ -270,708 +270,682 @@
                     </div>
 
                     <input type="hidden" th:field="*{nus}" />
-                    <div class="row mb-2">
-                      <label class="block text-sm mb-1" for="order-date"
-                        >Дата, час</label
-                      >
-                      <div class="col">
-                        <input
-                          id="order-date"
-                          class="form-select"
-                          type="date"
-                          th:field="*{orderDateStr}"
-                        />
-                      </div>
-                      <div class="col">
-                        <input
-                          class="form-select"
-                          type="time"
-                          th:field="*{orderTimeStr}"
-                        />
-                      </div>
-                    </div>
+
                     <!-- First Line: Input Select -->
                     <div class="row mb-3">
-                      <div class="">
-                        <label class="mb-1">
-                          Клієнт
-                          <select
-                            id="select-client"
-                            class="form-select"
-                            th:field="*{clientCompanyFromSelector}"
-                          >
-                            <option
-                              th:each="company: ${clientCompanies}"
-                              th:value="${company.ndov}"
-                              th:text="${company.nur}"
-                              th:selected="${company.ndov.equals(transportation.clientCompany.ndov)}"
+                      <div class="col-md-6">
+                        <div class="card p-4">
+                          <label class="mb-3">
+                            Клієнт
+                            <select
+                              id="select-client"
+                              class="form-select"
+                              th:field="*{clientCompanyFromSelector}"
                             >
-                              Fererro (оплата 45 календарних днів по виставленню
-                              інвойсу, ліміт 300000 грн)
-                            </option>
-                          </select>
-                          <span
-                            hidden="hidden"
-                            id="country-current-val"
-                            th:text="${selectedCompany != null && selectedCompany.clientDto != null ? selectedCompany.clientDto.ndov : ''}"
-                          ></span>
-                        </label>
-                      </div>
-                    </div>
-                    <h5 class="card-title fw-semibold mb-4">
-                      Інформація про клієнта
-                    </h5>
-                    <div class="card p-4">
-                      <h5 class="fw-semibold mb-2">від Агротеп</h5>
-                      <div
-                        th:text="${selectedCompany.agtSummary}"
-                        class="ms-3 text-primary mb-2"
-                      >
-                        Кредитний ліміт 4000000;
-                      </div>
-                      <div class="ms-3 text-danger">
-                        борг на зараз 3527944.165872
-                      </div>
-                      <div class="table-responsive">
-                        <table class="table text-nowrap mb-0 align-middle">
-                          <tbody>
-                            <tr>
-                              <th>у ДР</th>
-                              <th>Договір</th>
-                              <th>Тип</th>
-                              <th>Закінчення</th>
-                              <th>Коментарі</th>
-                            </tr>
-                            <tr
-                              th:each="contract: ${selectedCompany.contractsAgt}"
-                            >
-                              <td class="border-bottom-0">
-                                <label><input type="radio" /></label>
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.enterNo}"
+                              <option
+                                th:each="company: ${clientCompanies}"
+                                th:value="${company.ndov}"
+                                th:text="${company.nur}"
+                                th:selected="${company.ndov.equals(transportation.clientCompany.ndov)}"
                               >
-                                -
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.contractType}"
-                              >
-                                Міжнародний
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.finishDateStr}"
-                              >
-                                31.12.2021
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.comments}"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="icon icon-tabler icon-tabler-message"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  stroke-width="2"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  data-bs-trigger="hover"
-                                  data-bs-toggle="popover"
-                                  data-bs-placement="bottom"
-                                  data-bs-content="В договорі не вказані компенсації за
-                                        простій, обговорювати це в заявках."
-                                >
-                                  <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                  />
-                                  <path d="M8 9h8" />
-                                  <path d="M8 13h6" />
-                                  <path
-                                    d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z"
-                                  />
-                                </svg>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="card p-4">
-                      <h5 class="fw-semibold mb-2">від ПВ-ТРАНС</h5>
-                      <div
-                        th:text="${selectedCompany.agtSummary}"
-                        class="ms-3 text-primary mb-2"
-                      >
-                        Кредитний ліміт 900000;
-                      </div>
-                      <div class="ms-3 text-danger">
-                        борг на зараз 451340.842309
-                      </div>
-                      <div class="table-responsive">
-                        <table class="table text-nowrap mb-0 align-middle">
-                          <tbody>
-                            <tr>
-                              <th>у ДР</th>
-                              <th>Договір</th>
-                              <th>Тип</th>
-                              <th>Закінчення</th>
-                              <th>Коментарі</th>
-                            </tr>
-
-                            <tr
-                              th:each="contract: ${selectedCompany.contractsAgt}"
-                            >
-                              <td class="border-bottom-0">
-                                <label><input type="radio" /></label>
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.enterNo}"
-                              >
-                                -
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.contractType}"
-                              >
-                                Міжнародний
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.finishDateStr}"
-                              >
-                                31.12.2021
-                              </td>
-                              <td
-                                class="border-bottom-0"
-                                th:text="${contract.comments}"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="icon icon-tabler icon-tabler-message"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  stroke-width="2"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
-                                  data-bs-trigger="hover"
-                                  data-bs-toggle="popover"
-                                  data-bs-placement="bottom"
-                                  data-bs-content="Договір підписаний з Агротеп (експедиція) В договорі не вказані компенсації за простій, обговорювати це в заявках."
-                                >
-                                  <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                  />
-                                  <path d="M8 9h8" />
-                                  <path d="M8 13h6" />
-                                  <path
-                                    d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z"
-                                  />
-                                </svg>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                    <div class="card p-4">
-                      <h5 class="card-title fw-semibold mb-3">Вантаж</h5>
-                      <div class="row mb-3">
-                        <div class="col-md-4">
-                          <label for="cargo-name">Вантаж</label>
-                          <input
-                            th:field="*{cargo}"
-                            type="text"
-                            id="cargo-name"
-                            class="form-control"
-                          />
-                        </div>
-                        <div class="col-md-4">
-                          <label for="cargo-weight">Вага, т</label>
-                          <input
-                            th:field="*{cargoWeightTons}"
-                            type="text"
-                            id="cargo-weight"
-                            class="form-control"
-                          />
-                        </div>
-                        <div class="col-md-4">
-                          <label for="select-truck-type">Тип кузова</label>
-                          <select
-                            id="select-truck-type"
-                            class="form-select"
-                            th:field="*{typeOfTruck}"
-                          >
-                            <option value="option0">---</option>
-                            <option value="реф">реф</option>
-                            <option value="тент">тент</option>
-                            <option value="2х-ярусник">2х-ярусник</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col-md-4">
-                          <label for="cargo-volume">Об'єм, м куб.</label>
-                          <input
-                            th:field="*{cargoVolumeM3}"
-                            type="text"
-                            id="cargo-volume"
-                            class="form-control"
-                          />
-                        </div>
-                        <div class="col-md-4">
-                          <label for="cargo-places-number">К-ть місць</label>
-                          <input
-                            th:field="*{cargoPlacesNumber}"
-                            type="number"
-                            id="cargo-places-number"
-                            class="form-control"
-                          />
-                        </div>
-                        <div class="col-md-4">
-                          <label for="cargo-places-type">Тип місць</label>
-                          <input
-                            id="cargo-places-type"
-                            class="form-control"
-                            th:field="*{cargoPlacesType}"
-                          />
-                        </div>
-                      </div>
-                      <div class="row mb-3">
-                        <div class="col-md-4">
-                          <label for="temperature-min"
-                            >мінімальна температура</label
-                          >
-                          <input
-                            th:field="*{temperatureMin}"
-                            type="number"
-                            id="temperature-min"
-                            class="form-control"
-                          />
-                        </div>
-                        <div class="col-md-4">
-                          <label for="temperature-max"
-                            >максимальна температура</label
-                          >
-                          <input
-                            th:field="*{temperatureMax}"
-                            type="number"
-                            id="temperature-max"
-                            class="form-control"
-                          />
-                        </div>
-                        <div class="col-md-4 pt-4">
-                          <label
-                            class="form-check-label text-nowrap"
-                            for="is-cargo-thermal-printer-needed"
-                          >
-                            <input
-                              th:field="*{isCargoThermalPrinterNeeded}"
-                              type="checkbox"
-                              class="form-check-input"
-                              id="is-cargo-thermal-printer-needed"
-                            />
-                            Потрібен роздрук термописця
+                                Fererro (оплата 45 календарних днів по
+                                виставленню інвойсу, ліміт 300000 грн)
+                              </option>
+                            </select>
+                            <span
+                              hidden="hidden"
+                              id="country-current-val"
+                              th:text="${selectedCompany != null && selectedCompany.clientDto != null ? selectedCompany.clientDto.ndov : ''}"
+                            ></span>
                           </label>
+                          <h6 class="fw-semibold mb-2" style="color: #0a58ca">
+                            АГРОТЕП
+                          </h6>
+                          <div class="row">
+                            <span
+                              th:text="${selectedCompany.agtSummary}"
+                              class="text-primary col-6"
+                            >
+                              Кредитний ліміт 4000000;
+                            </span>
+                            <span class="text-danger col-6">
+                              борг на зараз 3527944.165872
+                            </span>
+                          </div>
+                          <div class="table-responsive">
+                            <table class="table text-nowrap mb-0 align-middle">
+                              <tbody class="border-bottom">
+                                <tr>
+                                  <th>у ДР</th>
+                                  <th>Договір</th>
+                                  <th>Тип</th>
+                                  <th>Закінчення</th>
+                                  <th>Коментарі</th>
+                                </tr>
+                                <tr
+                                  th:each="contract: ${selectedCompany.contractsAgt}"
+                                >
+                                  <td class="border-bottom-0">
+                                    <label><input type="radio" /></label>
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.enterNo}"
+                                  >
+                                    -
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.contractType}"
+                                  >
+                                    Міжнародний
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.finishDateStr}"
+                                  >
+                                    31.12.2021
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.comments}"
+                                  >
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="icon icon-tabler icon-tabler-message"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
+                                      fill="none"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      data-bs-trigger="hover"
+                                      data-bs-toggle="popover"
+                                      data-bs-placement="bottom"
+                                      data-bs-content="В договорі не вказані компенсації за
+                                        простій, обговорювати це в заявках."
+                                    >
+                                      <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                      />
+                                      <path d="M8 9h8" />
+                                      <path d="M8 13h6" />
+                                      <path
+                                        d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z"
+                                      />
+                                    </svg>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                          <h6
+                            class="fw-semibold mb-2 mt-3"
+                            style="color: #dc3545"
+                          >
+                            ВП-ТРАНС
+                          </h6>
+                          <div class="row">
+                            <span
+                              th:text="${selectedCompany.agtSummary}"
+                              class="text-primary col-6"
+                            >
+                              Кредитний ліміт 4000000;
+                            </span>
+                            <span class="text-danger col-6">
+                              борг на зараз 3527944.165872
+                            </span>
+                          </div>
+                          <div class="table-responsive">
+                            <table class="table text-nowrap mb-0 align-middle">
+                              <tbody class="border-bottom">
+                                <tr>
+                                  <th>у ДР</th>
+                                  <th>Договір</th>
+                                  <th>Тип</th>
+                                  <th>Закінчення</th>
+                                  <th>Коментарі</th>
+                                </tr>
+                                <tr
+                                  th:each="contract: ${selectedCompany.contractsAgt}"
+                                >
+                                  <td class="border-bottom-0">
+                                    <label><input type="radio" /></label>
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.enterNo}"
+                                  >
+                                    -
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.contractType}"
+                                  >
+                                    Міжнародний
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.finishDateStr}"
+                                  >
+                                    31.12.2021
+                                  </td>
+                                  <td
+                                    class="border-bottom-0"
+                                    th:text="${contract.comments}"
+                                  >
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="icon icon-tabler icon-tabler-message"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
+                                      fill="none"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      data-bs-trigger="hover"
+                                      data-bs-toggle="popover"
+                                      data-bs-placement="bottom"
+                                      data-bs-content="В договорі не вказані компенсації за
+                                        простій, обговорювати це в заявках."
+                                    >
+                                      <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                      />
+                                      <path d="M8 9h8" />
+                                      <path d="M8 13h6" />
+                                      <path
+                                        d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z"
+                                      />
+                                    </svg>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
-                      <div class="row mb-4">
-                        <div class="col-md-4">
-                          <label for="border-crossing-point"
-                            >Погран. перехід</label
-                          >
-                          <select
-                            id="border-crossing-point"
-                            class="form-select"
-                            th:field="*{borderCrossingPoint}"
-                          >
-                            <option
-                              th:each="p: ${borderCrossingPoints}"
-                              th:value="${p.ndov}"
-                              th:text="${p.ndov}"
-                            ></option>
-                          </select>
-                        </div>
-                        <div class="col-md-4">
-                          <label for="customer-application-no"
-                            >Заявка замовника №</label
-                          >
-                          <input
-                            th:field="*{customerApplicationNo}"
-                            type="text"
-                            id="customer-application-no"
-                            class="form-control"
-                          />
-                        </div>
-                        <div class="col-md-4">
-                          <label for="customer-application-date">від</label>
-                          <input
-                            th:field="*{customerApplicationDateStr}"
-                            type="date"
-                            id="customer-application-date"
-                            class="form-control"
-                          />
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-check">
+                      <div class="card p-4 col-md-6 row-gap-2">
+                        <!-- <h5 class="card-title fw-semibold mb-3">Вантаж</h5> -->
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="cargo-name">Вантаж</label>
                             <input
-                              th:field="*{isCargoTir}"
-                              type="checkbox"
-                              class="form-check-input"
-                              id="is-cargo-tir"
+                              th:field="*{cargo}"
+                              type="text"
+                              id="cargo-name"
+                              class="form-control"
                             />
-                            <label class="form-check-label" for="is-cargo-tir"
-                              >TIR</label
+                          </div>
+                          <div class="col-md-4">
+                            <label for="cargo-weight">Вага, т</label>
+                            <input
+                              th:field="*{cargoWeightTons}"
+                              type="text"
+                              id="cargo-weight"
+                              class="form-control"
+                            />
+                          </div>
+                          <div class="col-md-4">
+                            <label for="select-truck-type">Тип кузова</label>
+                            <select
+                              id="select-truck-type"
+                              class="form-select"
+                              th:field="*{typeOfTruck}"
                             >
+                              <option value="option0">---</option>
+                              <option value="реф">реф</option>
+                              <option value="тент">тент</option>
+                              <option value="2х-ярусник">2х-ярусник</option>
+                            </select>
                           </div>
                         </div>
-                        <div class="col">
-                          <div class="form-check">
-                            <input
-                              th:field="*{isCargoAdr}"
-                              type="checkbox"
-                              class="form-check-input"
-                              id="is-cargo-adr"
-                            />
-                            <label
-                              class="form-check-label text-danger"
-                              for="is-cargo-adr"
-                              >ADR</label
+                        <div class="row align-items-center">
+                          <div class="col-md-4">
+                            <label for="temperature-min"
+                              >мінімальна температура</label
                             >
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-check">
                             <input
-                              th:field="*{isCargoAdr1}"
-                              type="checkbox"
-                              class="form-check-input"
-                              id="is-cargo-adr1"
+                              th:field="*{temperatureMin}"
+                              type="number"
+                              id="temperature-min"
+                              class="form-control"
                             />
-                            <label
-                              class="form-check-label text-danger"
-                              for="is-cargo-adr1"
-                              >ADR1</label
+                          </div>
+                          <div class="col-md-4">
+                            <label for="temperature-max"
+                              >максимальна температура</label
                             >
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-check">
                             <input
-                              th:field="*{isCargoCustomsServicesPaid}"
-                              type="checkbox"
-                              class="form-check-input"
-                              id="is-cargo-customs-services-paid"
+                              th:field="*{temperatureMax}"
+                              type="number"
+                              id="temperature-max"
+                              class="form-control"
                             />
+                          </div>
+                          <div class="col-md-4">
                             <label
                               class="form-check-label"
-                              for="is-cargo-customs-services-paid"
+                              for="is-cargo-thermal-printer-needed"
                             >
-                              мито
+                              <input
+                                th:field="*{isCargoThermalPrinterNeeded}"
+                                type="checkbox"
+                                class="form-check-input"
+                                id="is-cargo-thermal-printer-needed"
+                              />
+                              Потрібен роздрук
                             </label>
                           </div>
                         </div>
-                        <div class="col">
-                          <div class="form-check">
+                        <div class="row align-items-center">
+                          <div class="col-md-4">
+                            <label for="freight">Фрахт</label>
                             <input
-                              th:field="*{isPrinted}"
-                              type="checkbox"
-                              class="form-check-input"
-                              id="is-printed"
+                              th:field="*{freight}"
+                              type="number"
+                              id="freight"
+                              class="form-control"
                             />
-                            <label class="form-check-label" for="is-printed"
-                              >Роздруківка</label
-                            >
                           </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-check">
-                            <input
-                              th:field="*{isCargoStickers}"
-                              type="checkbox"
-                              class="form-check-input"
-                              id="is-cargo-stickers"
-                            />
+                          <div class="col-md-4">
+                            <label for="currency">Валюта</label>
+                            <select
+                              th:field="*{currency}"
+                              id="currency"
+                              class="form-select"
+                            >
+                              <option value="">---</option>
+                              <option value="євро">євро</option>
+                              <option value="грн">грн</option>
+                            </select>
+                          </div>
+                          <div class="col-md-4">
                             <label
                               class="form-check-label"
-                              for="is-cargo-stickers"
-                              >Стікери</label
+                              for="is-payment-in-cash"
                             >
+                              <input
+                                th:field="*{isPaymentInCash}"
+                                type="checkbox"
+                                class="form-check-input me-2"
+                                id="is-payment-in-cash"
+                              />
+                              Готівка
+                            </label>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="card p-4">
-                      <div class="row mb-3">
-                        <div class="col-md-4">
-                          <label for="freight">Фрахт</label>
-                          <input
-                            th:field="*{freight}"
-                            type="number"
-                            id="freight"
-                            class="form-control"
-                          />
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-check">
+                              <input
+                                th:field="*{isCargoTir}"
+                                type="checkbox"
+                                class="form-check-input"
+                                id="is-cargo-tir"
+                              />
+                              <label class="form-check-label" for="is-cargo-tir"
+                                >TIR</label
+                              >
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-check">
+                              <input
+                                th:field="*{isCargoAdr}"
+                                type="checkbox"
+                                class="form-check-input"
+                                id="is-cargo-adr"
+                              />
+                              <label
+                                class="form-check-label text-danger"
+                                for="is-cargo-adr"
+                                >ADR</label
+                              >
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-check">
+                              <input
+                                th:field="*{isCargoAdr1}"
+                                type="checkbox"
+                                class="form-check-input"
+                                id="is-cargo-adr1"
+                              />
+                              <label
+                                class="form-check-label text-danger"
+                                for="is-cargo-adr1"
+                                >ADR1</label
+                              >
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-check">
+                              <input
+                                th:field="*{isCargoCustomsServicesPaid}"
+                                type="checkbox"
+                                class="form-check-input"
+                                id="is-cargo-customs-services-paid"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="is-cargo-customs-services-paid"
+                              >
+                                мито
+                              </label>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-check">
+                              <input
+                                th:field="*{isPrinted}"
+                                type="checkbox"
+                                class="form-check-input"
+                                id="is-printed"
+                              />
+                              <label class="form-check-label" for="is-printed"
+                                >Роздруківка</label
+                              >
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-check">
+                              <input
+                                th:field="*{isCargoStickers}"
+                                type="checkbox"
+                                class="form-check-input"
+                                id="is-cargo-stickers"
+                              />
+                              <label
+                                class="form-check-label"
+                                for="is-cargo-stickers"
+                                >Стікери</label
+                              >
+                            </div>
+                          </div>
                         </div>
-                        <div class="col-md-4">
-                          <label for="currency">Валюта</label>
-                          <select
-                            th:field="*{currency}"
-                            id="currency"
-                            class="form-select"
-                          >
-                            <option value="">---</option>
-                            <option value="євро">євро</option>
-                            <option value="грн">грн</option>
-                          </select>
-                        </div>
-                        <div class="col-md-4 pt-4">
-                          <label
-                            class="form-check-label"
-                            for="is-payment-in-cash"
-                          >
+                        <div class="row">
+                          <div class="col-md-4">
+                            <label for="border-crossing-point"
+                              >Погран. перехід</label
+                            >
+                            <select
+                              id="border-crossing-point"
+                              class="form-select"
+                              th:field="*{borderCrossingPoint}"
+                            >
+                              <option
+                                th:each="p: ${borderCrossingPoints}"
+                                th:value="${p.ndov}"
+                                th:text="${p.ndov}"
+                              ></option>
+                            </select>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="customer-application-no"
+                              >Заявка замовника №</label
+                            >
                             <input
-                              th:field="*{isPaymentInCash}"
-                              type="checkbox"
-                              class="form-check-input me-2"
-                              id="is-payment-in-cash"
+                              th:field="*{customerApplicationNo}"
+                              type="text"
+                              id="customer-application-no"
+                              class="form-control"
                             />
-                            Готівка
-                          </label>
+                          </div>
+                          <div class="col-md-4">
+                            <label for="customer-application-date">від</label>
+                            <input
+                              th:field="*{customerApplicationDateStr}"
+                              type="date"
+                              id="customer-application-date"
+                              class="form-control"
+                            />
+                          </div>
                         </div>
-                      </div>
-                      <div class="mb-3">
-                        <label for="textarea1">Коментар</label>
-                        <textarea
-                          th:field="*{coordinatorComment}"
-                          id="textarea1"
-                          class="form-control"
-                          rows="3"
-                        ></textarea>
+                        <div class="row">
+                          <div class="col-md-12">
+                            <label for="textarea1">Коментар</label>
+                            <textarea
+                              th:field="*{coordinatorComment}"
+                              id="textarea1"
+                              class="form-control"
+                              rows="3"
+                            ></textarea>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <!-- Eighth Line: One Input Number, One Input Select, One Checkbox -->
                     <div class="" id="loadings">
-                      <div
-                        class="col-lg-12 loading-form"
-                        th:each="loading, i: *{loadings}"
-                      >
-                        <div class="card overflow-hidden">
-                          <div class="card-body p-4">
-                            <div
-                              class="card-title mb-9 fw-semibold"
-                              th:text="${loading.loadingType == null or loadingTypes.contains(loading.loadingType) ? 'Завантаження' : 'Розвантаження'}"
-                            >
-                              Завантаження
-                            </div>
+                      <div class="row" th:each="loading, i: *{loadings}">
+                        <div class="card p-4 col-md-6">
+                          <div
+                            class="card-title mb-9 fw-semibold"
+                            th:text="${loading.loadingType == null or loadingTypes.contains(loading.loadingType) ? 'Завантаження' : 'Розвантаження'}"
+                          >
+                            Маршрут
+                          </div>
 
-                            <!-- First Line: Select Input, One Input Date, One Input Time -->
-                            <div class="row mb-4">
-                              <label hidden="hidden">
-                                id
-                                <input
-                                  type="number"
-                                  th:field="*{loadings[__${i.index}__].id}"
-                                  name="loading-no"
-                                  class="form-control"
-                                />
-                              </label>
-                              <label class="col-md-3">
-                                №
-                                <input
-                                  type="number"
-                                  th:field="*{loadings[__${i.index}__].loadingNo}"
-                                  name="loading-no"
-                                  class="form-control loading-no"
-                                  required
-                                />
-                              </label>
+                          <!-- First Line: Select Input, One Input Date, One Input Time -->
+                          <div class="row mb-4">
+                            <label hidden="hidden">
+                              id
+                              <input
+                                type="number"
+                                th:field="*{loadings[__${i.index}__].id}"
+                                name="loading-no"
+                                class="form-control"
+                              />
+                            </label>
+                            <label class="col-md-3">
+                              №
+                              <input
+                                type="number"
+                                th:field="*{loadings[__${i.index}__].loadingNo}"
+                                name="loading-no"
+                                class="form-control loading-no"
+                                required
+                              />
+                            </label>
 
-                              <label class="col-md-3">
-                                Тип
-                                <select
-                                  th:field="*{loadings[__${i.index}__].loadingType}"
-                                  name="loading-type"
-                                  class="form-select loading-type"
-                                  required
-                                >
-                                  <option
-                                    th:each="t: ${loadingTypes}"
-                                    th:value="${t}"
-                                    th:text="${t.notation}"
-                                    th:selected="${loading.loadingType == t}"
-                                  >
-                                    Зав
-                                  </option>
-                                  <option
-                                    th:each="t: ${unloadingTypes}"
-                                    th:value="${t.name()}"
-                                    th:text="${t.notation}"
-                                    th:selected="${loading.loadingType == t}"
-                                  >
-                                    РозвРозм
-                                  </option>
-                                </select>
-                              </label>
-                              <label class="col-md-3">
-                                Дата
-                                <input
-                                  type="date"
-                                  th:field="*{loadings[__${i.index}__].loadingDate}"
-                                  name="loading-date"
-                                  class="form-control loading-date"
-                                  required
-                                />
-                              </label>
-                              <label class="col-md-3">
-                                Час
-                                <input
-                                  type="time"
-                                  th:field="*{loadings[__${i.index}__].loadingTime}"
-                                  name="loading-time"
-                                  class="form-control loading-time"
-                                />
-                              </label>
-                            </div>
-                            <!-- First Line: Select Input, One Input Date, One Input Time -->
-                            <!-- Second Line: One Input Text, One Select Input -->
-                            <div class="row mb-4">
-                              <label class="col-md-4">
-                                Місто
-                                <input
-                                  th:field="*{loadings[__${i.index}__].loadingCity}"
-                                  type="text"
-                                  name="loading-city"
-                                  class="form-control loading-city"
-                                />
-                              </label>
-                              <label class="col-md-4">
-                                Країна
-                                <select
-                                  th:field="*{loadings[__${i.index}__].loadingCountry}"
-                                  name="loading-country"
-                                  class="form-select"
-                                >
-                                  <option
-                                    th:each="c: ${countries}"
-                                    th:value="${c.idgmap}"
-                                    th:text="${c.nkraina}"
-                                  ></option>
-                                </select>
-                              </label>
-                              <label class="col-md-4">
-                                Область
-                                <input
-                                  th:field="*{loadings[__${i.index}__].loadingRegion}"
-                                  type="text"
-                                  name="loading-region"
-                                  class="form-control"
-                                />
-                              </label>
-                            </div>
-                            <!-- Third Line: One Input Text, One Select Input -->
-                            <div class="row mb-4">
-                              <label class="col-md-6">
-                                Пошт. код
-                                <input
-                                  th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
-                                  type="text"
-                                  name="loading-city-postal-index"
-                                  class="form-control"
-                                />
-                              </label>
-                              <label class="col-md-6">
-                                Адреса
-                                <input
-                                  th:field="*{loadings[__${i.index}__].loadingAddress}"
-                                  type="text"
-                                  name="loading-address"
-                                  class="form-control"
-                                />
-                              </label>
-                            </div>
-                            <!-- Forth Line: One Input Text, One Select Input -->
-                            <!-- Fifth Line: One Input Text, One Select Input -->
-                            <div class="row">
-                              <label class="col-md-6">
-                                Широта
-                                <input
-                                  th:field="*{loadings[__${i.index}__].loadingLatitude}"
-                                  type="text"
-                                  name="loading-latitude"
-                                  class="form-control"
-                                />
-                              </label>
-                              <label class="col-md-6">
-                                Довгота
-                                <input
-                                  th:field="*{loadings[__${i.index}__].loadingLongitude}"
-                                  type="text"
-                                  name="loading-longitude"
-                                  class="form-control"
-                                />
-                              </label>
-                            </div>
-                            <div class="col-md-4">
-                              <button
-                                type="button"
-                                class="btn btn-light mt-2 rounded-circle p-2"
-                                th:value="add-loading"
-                                th:name="add-loading"
+                            <label class="col-md-3">
+                              Тип
+                              <select
+                                th:field="*{loadings[__${i.index}__].loadingType}"
+                                name="loading-type"
+                                class="form-select loading-type"
+                                required
                               >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  class="icon icon-tabler icon-tabler-plus"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  stroke-width="2"
-                                  stroke="currentColor"
-                                  fill="none"
-                                  stroke-linecap="round"
-                                  stroke-linejoin="round"
+                                <option
+                                  th:each="t: ${loadingTypes}"
+                                  th:value="${t}"
+                                  th:text="${t.notation}"
+                                  th:selected="${loading.loadingType == t}"
                                 >
-                                  <path
-                                    stroke="none"
-                                    d="M0 0h24v24H0z"
-                                    fill="none"
-                                  />
-                                  <path d="M12 5l0 14" />
-                                  <path d="M5 12l14 0" />
-                                </svg>
-                              </button>
-                            </div>
+                                  Зав
+                                </option>
+                                <option
+                                  th:each="t: ${unloadingTypes}"
+                                  th:value="${t.name()}"
+                                  th:text="${t.notation}"
+                                  th:selected="${loading.loadingType == t}"
+                                >
+                                  РозвРозм
+                                </option>
+                              </select>
+                            </label>
+                            <label class="col-md-3">
+                              Дата
+                              <input
+                                type="date"
+                                th:field="*{loadings[__${i.index}__].loadingDate}"
+                                name="loading-date"
+                                class="form-control loading-date"
+                                required
+                              />
+                            </label>
+                            <label class="col-md-3">
+                              Час
+                              <input
+                                type="time"
+                                th:field="*{loadings[__${i.index}__].loadingTime}"
+                                name="loading-time"
+                                class="form-control loading-time"
+                              />
+                            </label>
+                          </div>
+                          <!-- First Line: Select Input, One Input Date, One Input Time -->
+                          <div class="row mb-4">
+                            <label class="col-md-12">
+                              Пункт
+                              <input
+                                id="searchTextField"
+                                type="text"
+                                size="50"
+                                placeholder="Enter a location"
+                                autocomplete="on"
+                                runat="server"
+                                class="form-control loading-time"
+                              />
+                            </label>
+                          </div>
+                          <!-- Second Line: One Input Text, One Select Input -->
+                          <div class="row mb-4">
+                            <label class="col-md-4">
+                              Місто
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingCity}"
+                                type="text"
+                                name="loading-city"
+                                class="form-control loading-city"
+                                id="city2"
+                                name="city2"
+                              />
+                            </label>
+                            <label class="col-md-4">
+                              Країна
+                              <select
+                                th:field="*{loadings[__${i.index}__].loadingCountry}"
+                                name="loading-country"
+                                class="form-select"
+                              >
+                                <option
+                                  th:each="c: ${countries}"
+                                  th:value="${c.idgmap}"
+                                  th:text="${c.nkraina}"
+                                ></option>
+                              </select>
+                            </label>
+                            <label class="col-md-4">
+                              Область
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingRegion}"
+                                type="text"
+                                name="loading-region"
+                                class="form-control"
+                              />
+                            </label>
+                          </div>
+                          <!-- Third Line: One Input Text, One Select Input -->
+                          <div class="row mb-4">
+                            <label class="col-md-6">
+                              Пошт. код
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
+                                type="text"
+                                name="loading-city-postal-index"
+                                class="form-control"
+                              />
+                            </label>
+                            <label class="col-md-6">
+                              Адреса
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingAddress}"
+                                type="text"
+                                name="loading-address"
+                                class="form-control"
+                              />
+                            </label>
+                          </div>
+                          <!-- Forth Line: One Input Text, One Select Input -->
+                          <!-- Fifth Line: One Input Text, One Select Input -->
+                          <div class="row">
+                            <label class="col-md-6">
+                              Широта
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingLatitude}"
+                                type="text"
+                                name="loading-latitude"
+                                class="form-control"
+                                id="cityLat"
+                                name="cityLat"
+                              />
+                            </label>
+                            <label class="col-md-6">
+                              Довгота
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingLongitude}"
+                                type="text"
+                                name="loading-longitude"
+                                class="form-control"
+                                id="cityLng"
+                                name="cityLng"
+                              />
+                            </label>
+                          </div>
+                          <div class="col-md-4">
+                            <button
+                              type="button"
+                              class="btn btn-light mt-2 rounded-circle p-2"
+                              th:value="add-loading"
+                              th:name="add-loading"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-plus"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path d="M12 5l0 14" />
+                                <path d="M5 12l14 0" />
+                              </svg>
+                            </button>
                           </div>
                         </div>
-                      </div>
-
-                      <div class="row" id="buttons-block">
-                        <div class="col-md-2">
+                        <div
+                          class="col-md-6 d-flex justify-content-between"
+                          id="buttons-block"
+                        >
                           <button
+                            style="max-height: 50px"
                             type="button"
                             class="btn btn-primary m-1 text-nowrap"
                           >
                             Додати в ДР
                           </button>
-                        </div>
-                        <div class="col-md-4">
                           <button
                             type="submit"
                             class="btn btn-success m-1 text-nowrap"
+                            style="max-height: 50px"
                             th:value="submit"
                             th:name="submit"
                           >
@@ -997,6 +971,42 @@
       var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover(popoverTriggerEl);
       });
+    </script>
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWaYJ47zp6qO2N4lCefOKWqvC1Il3VdQE&libraries=places"
+    ></script>
+    <script>
+      function initialize() {
+        var input = document.getElementById('searchTextField');
+        var circle = new google.maps.Circle({
+          center: new google.maps.LatLng(49.998526, 36.299138),
+          radius: 4000000,
+        });
+
+        var options = {
+          strictBounds: true,
+          bounds: circle.getBounds(),
+          types: ['(cities)'],
+        };
+
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+        google.maps.event.addListener(
+          autocomplete,
+          'place_changed',
+          function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('city2').value = place.name;
+            document.getElementById('cityLat').value =
+              place.geometry.location.lat();
+            document.getElementById('cityLng').value =
+              place.geometry.location.lng();
+            console.log(place);
+          }
+        );
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </body>
 </html>

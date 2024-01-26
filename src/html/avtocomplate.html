@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWaYJ47zp6qO2N4lCefOKWqvC1Il3VdQE&libraries=places"
+    ></script>
+    <script>
+      function initialize() {
+        var input = document.getElementById('searchTextField');
+        var circle = new google.maps.Circle({
+          center: new google.maps.LatLng(49.998526, 36.299138),
+          radius: 4000000,
+        });
+
+        var options = {
+          strictBounds: true,
+          bounds: circle.getBounds(),
+          types: ['(cities)'],
+        };
+
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+        google.maps.event.addListener(
+          autocomplete,
+          'place_changed',
+          function () {
+            var place = autocomplete.getPlace();
+            document.getElementById('city2').value = place.name;
+            document.getElementById('cityLat').value =
+              place.geometry.location.lat();
+            document.getElementById('cityLng').value =
+              place.geometry.location.lng();
+          }
+        );
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+  </head>
+  <body>
+    <input
+      id="searchTextField"
+      type="text"
+      size="50"
+      placeholder="Enter a location"
+      autocomplete="on"
+      runat="server"
+    />
+    <input type="text" id="city2" name="city2" />
+    <input type="text" id="cityLat" name="cityLat" />
+    <input type="text" id="cityLng" name="cityLng" />
+  </body>
+</html>

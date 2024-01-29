@@ -970,8 +970,17 @@
     <script>
       function initialize() {
         var input = document.getElementById('searchTextField');
+var circle = new google.maps.Circle({
+          center: new google.maps.LatLng(49.998526, 36.299138),
+          radius: 4000000,
+        });
 
-        var autocomplete = new google.maps.places.Autocomplete(input);
+        var options = {
+          strictBounds: true,
+          bounds: circle.getBounds(),
+          types: ['(cities)'],
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input,options);
 
         google.maps.event.addListener(
           autocomplete,

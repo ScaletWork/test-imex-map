@@ -55,6 +55,12 @@
       .logo-img-small {
         display: none;
       }
+      .side-wd {
+        width: 270px !important;
+      }
+      .side-hide {
+        display: block !important;
+      }
       @media (max-width: 1850px) {
         .bd-wrapper {
           margin-left: 100px;
@@ -76,6 +82,7 @@
           width: 55px;
         }
       }
+
       @media (max-width: 1200px) {
         .bd-wrapper {
           margin-left: 10px;
@@ -97,6 +104,14 @@
       @media (min-width: 1200px) {
         .header {
           width: calc(100% - 100px) !important;
+        }
+        @media (min-width: 1850px) {
+          .bd-wrapper {
+            margin-left: 270px;
+          }
+          .header {
+            width: calc(100% - 270px) !important;
+          }
         }
       }
     </style>
@@ -124,8 +139,9 @@
               <img src="assets/images/logos/dark-logo.png" width="180" alt="" />
             </div>
             <div class="text-nowrap logo-img-small">
-              <img src="assets/images/logos/favicon.png" width="180" alt="" />
+              <img src="assets/images/logos/favicon.png" id="togl-side-btn" width="180" alt="icon" style="cursor: pointer;"/>
             </div>
+
             <div
               class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"
               id="sidebarCollapse"

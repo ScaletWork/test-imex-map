@@ -815,13 +815,13 @@
                             <label class="col-md-12">
                               Пункт
                               <input
-                                id="searchTextField"
+   
                                 type="text"
                                 size="50"
                                 placeholder="Enter a location"
                                 autocomplete="on"
                                 runat="server"
-                                class="form-control loading-time"
+                                class="form-control loading-time autocomplete-input"
                               />
                             </label>
                           </div>
@@ -833,8 +833,8 @@
                                 th:field="*{loadings[__${i.index}__].loadingCity}"
                                 type="text"
                                 name="loading-city"
-                                class="form-control loading-city"
-                                id="city2"
+                                class="form-control loading-city city2"
+
                                 name="city2"
                               />
                             </label>
@@ -844,7 +844,7 @@
                               type="text"
                                 th:field="*{loadings[__${i.index}__].loadingCountry}"
                                 name="loading-country"
-                                class="form-control"
+                                class="form-control country"
                                 id="country"
                               >
                               </input>
@@ -855,8 +855,8 @@
                                 th:field="*{loadings[__${i.index}__].loadingRegion}"
                                 type="text"
                                 name="loading-region"
-                                class="form-control"
-                                id="region"
+                                class="form-control region"
+                                
                               />
                             </label>
                           </div>
@@ -865,11 +865,11 @@
                             <label class="col-md-6">
                               Пошт. код
                               <input
-                              id="postal_code"
+                              
                                 th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
                                 type="text"
                                 name="loading-city-postal-index"
-                                class="form-control"
+                                class="form-control postal_code"
                               />
                             </label>
                             <label class="col-md-6">
@@ -891,8 +891,8 @@
                                 th:field="*{loadings[__${i.index}__].loadingLatitude}"
                                 type="text"
                                 name="loading-latitude"
-                                class="form-control"
-                                id="cityLat"
+                                class="form-control cityLat"
+                                
                                 name="cityLat"
                               />
                             </label>
@@ -902,9 +902,213 @@
                                 th:field="*{loadings[__${i.index}__].loadingLongitude}"
                                 type="text"
                                 name="loading-longitude"
-                                class="form-control"
+                                class="form-control cityLng"
                                 id="cityLng"
-                                name="cityLng"
+                               
+                              />
+                            </label>
+                          </div>
+                          <div class="col-md-4">
+                            <button
+                              type="button"
+                              class="btn btn-light mt-2 rounded-circle p-2"
+                              th:value="add-loading"
+                              th:name="add-loading"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="icon icon-tabler icon-tabler-plus"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                stroke-width="2"
+                                stroke="currentColor"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              >
+                                <path
+                                  stroke="none"
+                                  d="M0 0h24v24H0z"
+                                  fill="none"
+                                />
+                                <path d="M12 5l0 14" />
+                                <path d="M5 12l14 0" />
+                              </svg>
+                            </button>
+                          </div>
+                        </div>
+                                                <div class="card p-4 col-md-6">
+                          <div
+                            class="card-title mb-9 fw-semibold"
+                            th:text="${loading.loadingType == null or loadingTypes.contains(loading.loadingType) ? 'Завантаження' : 'Розвантаження'}"
+                          >
+                            Маршрут
+                          </div>
+
+                          <!-- First Line: Select Input, One Input Date, One Input Time -->
+                          <div class="row mb-4">
+                            <label hidden="hidden">
+                              id
+                              <input
+                                type="number"
+                                th:field="*{loadings[__${i.index}__].id}"
+                                name="loading-no"
+                                class="form-control"
+                              />
+                            </label>
+                            <label class="col-md-3">
+                              №
+                              <input
+                                type="number"
+                                th:field="*{loadings[__${i.index}__].loadingNo}"
+                                name="loading-no"
+                                class="form-control loading-no"
+                                required
+                              />
+                            </label>
+
+                            <label class="col-md-3">
+                              Тип
+                              <select
+                                th:field="*{loadings[__${i.index}__].loadingType}"
+                                name="loading-type"
+                                class="form-select loading-type"
+                                required
+                              >
+                                <option
+                                  th:each="t: ${loadingTypes}"
+                                  th:value="${t}"
+                                  th:text="${t.notation}"
+                                  th:selected="${loading.loadingType == t}"
+                                >
+                                  Зав
+                                </option>
+                                <option
+                                  th:each="t: ${unloadingTypes}"
+                                  th:value="${t.name()}"
+                                  th:text="${t.notation}"
+                                  th:selected="${loading.loadingType == t}"
+                                >
+                                  РозвРозм
+                                </option>
+                              </select>
+                            </label>
+                            <label class="col-md-3">
+                              Дата
+                              <input
+                                type="date"
+                                th:field="*{loadings[__${i.index}__].loadingDate}"
+                                name="loading-date"
+                                class="form-control loading-date"
+                                required
+                              />
+                            </label>
+                            <label class="col-md-3">
+                              Час
+                              <input
+                                type="time"
+                                th:field="*{loadings[__${i.index}__].loadingTime}"
+                                name="loading-time"
+                                class="form-control loading-time"
+                              />
+                            </label>
+                          </div>
+                          <!-- First Line: Select Input, One Input Date, One Input Time -->
+                          <div class="row mb-4">
+                            <label class="col-md-12">
+                              Пункт
+                              <input
+   
+                                type="text"
+                                size="50"
+                                placeholder="Enter a location"
+                                autocomplete="on"
+                                runat="server"
+                                class="form-control loading-time autocomplete-input"
+                              />
+                            </label>
+                          </div>
+                          <!-- Second Line: One Input Text, One Select Input -->
+                          <div class="row mb-4">
+                            <label class="col-md-4">
+                              Місто
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingCity}"
+                                type="text"
+                                name="loading-city"
+                                class="form-control loading-city city2"
+
+                                name="city2"
+                              />
+                            </label>
+                            <label class="col-md-4">
+                              Країна
+                              <input
+                              type="text"
+                                th:field="*{loadings[__${i.index}__].loadingCountry}"
+                                name="loading-country"
+                                class="form-control country"
+                                id="country"
+                              >
+                              </input>
+                            </label>
+                            <label class="col-md-4">
+                              Область
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingRegion}"
+                                type="text"
+                                name="loading-region"
+                                class="form-control region"
+                                
+                              />
+                            </label>
+                          </div>
+                          <!-- Third Line: One Input Text, One Select Input -->
+                          <div class="row mb-4">
+                            <label class="col-md-6">
+                              Пошт. код
+                              <input
+                              
+                                th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
+                                type="text"
+                                name="loading-city-postal-index"
+                                class="form-control postal_code"
+                              />
+                            </label>
+                            <label class="col-md-6">
+                              Адреса
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingAddress}"
+                                type="text"
+                                name="loading-address"
+                                class="form-control"
+                              />
+                            </label>
+                          </div>
+                          <!-- Forth Line: One Input Text, One Select Input -->
+                          <!-- Fifth Line: One Input Text, One Select Input -->
+                          <div class="row">
+                            <label class="col-md-6">
+                              Широта
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingLatitude}"
+                                type="text"
+                                name="loading-latitude"
+                                class="form-control cityLat"
+                                
+                                name="cityLat"
+                              />
+                            </label>
+                            <label class="col-md-6">
+                              Довгота
+                              <input
+                                th:field="*{loadings[__${i.index}__].loadingLongitude}"
+                                type="text"
+                                name="loading-longitude"
+                                class="form-control cityLng"
+                                id="cityLng"
+                               
                               />
                             </label>
                           </div>
@@ -983,55 +1187,57 @@
       type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWaYJ47zp6qO2N4lCefOKWqvC1Il3VdQE&libraries=places"
     ></script>
-    <script>
-      function initialize() {
-        var input = document.getElementById('searchTextField');
-var circle = new google.maps.Circle({
-          center: new google.maps.LatLng(49.998526, 36.299138),
-          radius: 4000000,
-        });
 
-        var options = {
-          strictBounds: true,
-          bounds: circle.getBounds(),
-          types: ['(cities)'],
-        };
-        var autocomplete = new google.maps.places.Autocomplete(input,options);
+<script>
+  function initializeAutocomplete(inputElement) {
+    var circle = new google.maps.Circle({
+      center: new google.maps.LatLng(49.998526, 36.299138),
+      radius: 4000000,
+    });
 
-        google.maps.event.addListener(
-          autocomplete,
-          'place_changed',
-          function () {
-            var place = autocomplete.getPlace();
+    var options = {
+      strictBounds: true,
+      bounds: circle.getBounds(),
+      types: ['(cities)'],
+    };
+    var autocomplete = new google.maps.places.Autocomplete(inputElement, options);
 
-            document.getElementById('city2').value = place.name;
-            document.getElementById('cityLat').value =
-              place.geometry.location.lat();
-            document.getElementById('cityLng').value =
-              place.geometry.location.lng();
+    google.maps.event.addListener(
+      autocomplete,
+      'place_changed',
+      function () {
+        var place = autocomplete.getPlace();
 
-            // Дополнительная информация
-            var addressComponents = place.address_components;
-            for (var i = 0; i < addressComponents.length; i++) {
-              var component = addressComponents[i];
-              var types = component.types;
+        var cardElement = inputElement.closest('.card');
+        cardElement.querySelector('.city2').value = place.name;
+        cardElement.querySelector('.cityLat').value = place.geometry.location.lat();
+        cardElement.querySelector('.cityLng').value = place.geometry.location.lng();
 
-              for (var j = 0; j < types.length; j++) {
-                if (types[j] == 'country') {
-                  document.getElementById('country').value =
-                    component.short_name;
-                } else if (types[j] == 'administrative_area_level_1') {
-                  document.getElementById('region').value = component.long_name;
-                } else if (types[j] == 'postal_code') {
-                  document.getElementById('postal_code').value =
-                    component.long_name;
-                }
-              }
+        // Additional information
+        var addressComponents = place.address_components;
+        for (var i = 0; i < addressComponents.length; i++) {
+          var component = addressComponents[i];
+          var types = component.types;
+          for (var j = 0; j < types.length; j++) {
+            if (types[j] == 'country') {
+              cardElement.querySelector('.country').value = component.short_name;
+            } else if (types[j] == 'administrative_area_level_1') {
+              cardElement.querySelector('.region').value = component.long_name;
+            } else if (types[j] == 'postal_code') {
+              cardElement.querySelector('.postal_code').value = component.long_name;
             }
           }
-        );
+        }
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+    );
+  }
+
+  window.onload = function () {
+    var inputElements = document.querySelectorAll('.autocomplete-input');
+    inputElements.forEach(function(inputElement) {
+      initializeAutocomplete(inputElement);
+    });
+  };
+</script>
   </body>
 </html>

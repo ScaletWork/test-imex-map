@@ -1049,7 +1049,6 @@
                                 th:field="*{loadings[__${i.index}__].loadingCountry}"
                                 name="loading-country"
                                 class="form-control country"
-                                id="country"
                               >
                               </input>
                             </label>
@@ -1149,7 +1148,11 @@
                           <button
                             style="max-height: 50px"
                             type="button"
-                            class="btn btn-primary m-1 text-nowrap"
+                            class="btn btn-primary m-1 text-nowrap "
+                            data-bs-trigger="hover"
+                            data-bs-toggle="popover"
+                            data-bs-placement="top"
+                            data-bs-content="Наразі не активна"
                           >
                             Додати в ДР
                           </button>
@@ -1218,6 +1221,7 @@
         for (var i = 0; i < addressComponents.length; i++) {
           var component = addressComponents[i];
           var types = component.types;
+          console.log( 'country', cardElement.querySelector('.country').value);
           for (var j = 0; j < types.length; j++) {
             if (types[j] == 'country') {
               cardElement.querySelector('.country').value = component.short_name;

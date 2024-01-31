@@ -1223,7 +1223,6 @@
         for (var i = 0; i < addressComponents.length; i++) {
           var component = addressComponents[i];
           var types = component.types;
-          console.log( 'country', cardElement.querySelector('.country').value);
           for (var j = 0; j < types.length; j++) {
             if (types[j] == 'country') {
               cardElement.querySelector('.country').value = component.short_name;

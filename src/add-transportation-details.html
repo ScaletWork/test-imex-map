@@ -1190,7 +1190,7 @@
     </script>
     <script
       type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWaYJ47zp6qO2N4lCefOKWqvC1Il3VdQE&libraries=places"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWaYJ47zp6qO2N4lCefOKWqvC1Il3VdQE&libraries=places&language=uk"
     ></script>
 
 <script>
@@ -1212,7 +1212,7 @@
       'place_changed',
       function () {
         var place = autocomplete.getPlace();
-
+console.log(place);
         var cardElement = inputElement.closest('.card');
         cardElement.querySelector('.city2').value = place.name;
         cardElement.querySelector('.cityLat').value = place.geometry.location.lat();

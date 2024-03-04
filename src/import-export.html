@@ -4,15 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Agrotep</title>
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="assets/images/logos/favicon.png"
-    />
+    <link rel="stylesheet" href="assets/css/settingStyle.css" />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
-    <link rel="stylesheet" href="assets/css/modal.css" />
+    <!-- <link rel="stylesheet" href="assets/css/modal.css" /> -->
     <link rel="stylesheet" href="assets/css/addComent.css" />
+    <link rel="stylesheet" href="assets/css/settingStyle.css" />
     <style>
+      tbody,
+      thead {
+        text-wrap: wrap;
+      }
+      tr {
+        height: 30px;
+        padding: 0;
+      }
       .bd-wrapper {
         margin-left: 270px;
       }
@@ -39,7 +44,7 @@
       .side-hide {
         display: block !important;
       }
-      @media (max-width: 1850px) {
+      @media (max-width: 2850px) {
         .bd-wrapper {
           margin-left: 100px;
         }
@@ -79,11 +84,17 @@
           display: none;
         }
       }
+      @media (min-width: 900px) {
+        tbody,
+        thead {
+          text-wrap: nowrap;
+        }
+      }
       @media (min-width: 1200px) {
         .header {
           width: calc(100% - 100px) !important;
         }
-        @media (min-width: 1850px) {
+        @media (min-width: 2850px) {
           .bd-wrapper {
             margin-left: 270px;
           }
@@ -98,7 +109,7 @@
   <body>
     <!--  Body Wrapper -->
     <div
-      class="page-wrapper"
+      class="page-wrapper background"
       id="main-wrapper"
       data-layout="vertical"
       data-navbarbg="skin6"
@@ -107,7 +118,7 @@
       data-header-position="fixed"
     >
       <!-- Sidebar Start -->
-      <aside class="left-sidebar">
+      <aside class="left-sidebar background">
         <!-- Sidebar scroll-->
         <div>
           <div
@@ -117,7 +128,13 @@
               <img src="assets/images/logos/dark-logo.png" width="180" alt="" />
             </div>
             <div class="text-nowrap logo-img-small">
-              <img src="assets/images/logos/favicon.png" id="togl-side-btn" width="180" alt="icon" style="cursor: pointer;"/>
+              <img
+                src="assets/images/logos/favicon.png"
+                id="togl-side-btn"
+                width="180"
+                alt="icon"
+                style="cursor: pointer"
+              />
             </div>
 
             <div
@@ -156,7 +173,7 @@
       <!--  Main wrapper -->
       <div class="bd-wrapper">
         <!--  Header Start -->
-        <header class="app-header header">
+        <header class="app-header header background">
           <nav class="navbar navbar-expand-lg navbar-light">
             <ul class="navbar-nav">
               <li class="nav-item d-block d-xl-none">
@@ -218,6 +235,15 @@
                         <p class="mb-0 fs-3">Мої Задачі</p>
                       </a>
                       <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#settingsModal"
+                      >
+                        <i class="ti ti-settings fs-6"></i>
+                        <p class="mb-0 fs-3">Мої Налаштування</p>
+                      </a>
+                      <a
                         href="./login.html"
                         class="btn btn-outline-primary mx-3 mt-2 d-block"
                         >Вийти з системи</a
@@ -233,7 +259,7 @@
         <div class="container-fluid">
           <!--  Row 1 -->
           <div class="form-group row">
-            <div class="card w-100">
+            <div class="card w-100 background">
               <div class="card-body p-4">
                 <form style="margin-top: 50px">
                   <div class="row mb-3">
@@ -275,6 +301,8 @@
                       type="button"
                       class="btn btn-light m-1"
                       id="showModalBtn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#filtersModal"
                     >
                       Додати фільтр
                     </button>
@@ -295,12 +323,25 @@
           <!--  Row 2 -->
           <div class="row">
             <div class="col-lg-12 d-flex align-items-stretch">
-              <div class="card w-100">
+              <div class="card w-100 background">
+                <div
+                  href="javascript:void(0)"
+                  class="d-flex align-items-center gap-2 dropdown-item justify-content-end p-3"
+                >
+                  <p
+                    class="mb-0 fs-3 d-flex align-items-center cursor-pointer"
+                    data-bs-toggle="modal"
+                    data-bs-target="#settingsTableModal"
+                  >
+                    Налаштування таблиці
+                    <i class="ti ti-settings fs-6 ms-2 cu"></i>
+                  </p>
+                </div>
                 <div class="card-body p-4">
                   <span class="card-title fw-semibold p-2"> 20.12.2023 </span>
                   <div class="table-responsive mt-3">
                     <table
-                      class="table table-sm text-nowrap mb-0 align-middle fs-2"
+                      class="table table-sm text-nowrap mb-0 align-middle border-2"
                       id="your-table-id"
                     >
                       <thead>
@@ -370,7 +411,7 @@
                         </tr>
                       </thead>
                       <tbody style="color: black">
-                        <tr style="background-color: rgba(122, 0, 163, 0.325)">
+                        <tr style="background-color: #d4ace1">
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="mb-0">
                               1
@@ -403,7 +444,7 @@
                             </h6>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="mb-1">Berlin, DE - Київ, UA </span>
+                            <p class="mb-1">Berlin, DE - Київ, UA</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>Fererro, шоколад</span>
@@ -412,7 +453,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -470,13 +511,13 @@
                             <span>Ладижин, UA - London, GB</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">МХП, курка</span>
+                            <span class="">МХП, курка</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span class="mb-1">+4 +10</span>
@@ -506,13 +547,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -542,13 +583,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -571,13 +612,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -600,13 +641,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -629,13 +670,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> +12 +20 завантаження о
@@ -659,13 +700,13 @@
                             <span>Львів, UA - Одеса, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Комбінат, тнп</span>
+                            <span class="">Комбінат, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="bborder border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle"></td>
                           <td
@@ -692,7 +733,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -715,13 +756,13 @@
                             <span>Ладижин, UA - London, GB</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">МХП, курка</span>
+                            <span class="">МХП, курка</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span class="mb-1">+4 +10</span>
@@ -744,13 +785,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -773,13 +814,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -802,13 +843,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -831,13 +872,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -860,13 +901,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -889,13 +930,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> +12 +20 завантаження о
@@ -919,13 +960,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -948,13 +989,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -977,13 +1018,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -1006,13 +1047,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1035,13 +1076,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -1064,13 +1105,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span style="color: red">ADR</span> завантаження о
@@ -1100,7 +1141,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -1129,7 +1170,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -1152,13 +1193,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -1181,13 +1222,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -1210,13 +1251,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1259,10 +1300,11 @@
                     </button>
                   </div>
                 </div>
-                                  <span class="card-title fw-semibold p-2"> 20.12.2023 </span>
+                <div class="card-body p-4">
+                  <span class="card-title fw-semibold p-2"> 20.12.2023 </span>
                   <div class="table-responsive mt-3">
                     <table
-                      class="table table-sm text-nowrap mb-0 align-middle fs-2"
+                      class="table table-sm text-nowrap mb-0 align-middle"
                       id="your-table-id"
                     >
                       <thead>
@@ -1332,7 +1374,7 @@
                         </tr>
                       </thead>
                       <tbody style="color: black">
-                        <tr style="background-color: rgba(122, 0, 163, 0.325)">
+                        <tr style="background-color: #d4ace1">
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="mb-0">
                               1
@@ -1365,7 +1407,7 @@
                             </h6>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="mb-1">Berlin, DE - Київ, UA </span>
+                            <p class="mb-1">Berlin, DE - Київ, UA</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>Fererro, шоколад</span>
@@ -1374,7 +1416,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -1432,13 +1474,13 @@
                             <span>Ладижин, UA - London, GB</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">МХП, курка</span>
+                            <span class="">МХП, курка</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span class="mb-1">+4 +10</span>
@@ -1468,13 +1510,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1504,13 +1546,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -1533,13 +1575,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -1562,13 +1604,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -1591,13 +1633,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> +12 +20 завантаження о
@@ -1621,13 +1663,13 @@
                             <span>Львів, UA - Одеса, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Комбінат, тнп</span>
+                            <span class="">Комбінат, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="bborder border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle"></td>
                           <td
@@ -1654,7 +1696,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -1677,13 +1719,13 @@
                             <span>Ладижин, UA - London, GB</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">МХП, курка</span>
+                            <span class="">МХП, курка</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span class="mb-1">+4 +10</span>
@@ -1706,13 +1748,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1735,13 +1777,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1764,13 +1806,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1793,13 +1835,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1822,13 +1864,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -1851,13 +1893,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> +12 +20 завантаження о
@@ -1881,13 +1923,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -1910,13 +1952,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -1939,13 +1981,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -1968,13 +2010,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -1997,13 +2039,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <font color="red">ADR</font> завантаження о 13:30
@@ -2026,13 +2068,13 @@
                             <span>Madrid, ES - Житомир, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal"> Гансек тнп</span>
+                            <span class=""> Гансек тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span style="color: red">ADR</span> завантаження о
@@ -2062,7 +2104,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -2091,7 +2133,7 @@
                             <span>реф</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Антон Улицький</p>
+                            <p class="mb-0">Антон Улицький</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>+10 +12 завантаження о 10:00</span>
@@ -2114,13 +2156,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -2143,13 +2185,13 @@
                             <span>Київ, UA - Львів, UA</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span></span>
@@ -2172,13 +2214,13 @@
                             <span>Мілан, IT - Oslo, SE</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <span class="fw-normal">Ганекс, тнп</span>
+                            <span class="">Ганекс, тнп</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <span>тент</span>
                           </td>
                           <td class="border border-1 border-dark-subtle">
-                            <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            <p class="mb-0">Оксана Бойко</p>
                           </td>
                           <td class="border border-1 border-dark-subtle">
                             <h6 class="fw-semibold mb-1"></h6>
@@ -2224,336 +2266,1116 @@
               </div>
             </div>
           </div>
-          <div id="myModal" class="modal">
+        </div>
+        <div
+          class="modal fade"
+          id="settingsModal"
+          tabindex="-1"
+          aria-labelledby="settingsModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" style="max-width: 700px">
             <div class="modal-content">
-              <span class="close">&times;</span>
-              <h5>Назва фільтру</h5>
-              <form
-                id="modalForm"
-                class="d-flex flex-column align-items-center w-100"
-              >
-                <div class="mb-3">
-                  <label for="nameFiltr">
-                    <input class="form-control-sm" type="text" id="nameFiltr" />
-                  </label>
-                </div>
-                <div class="d-flex justify-content-evenly" style="width: 100%">
-                  <div class="d-flex flex-column flex-lg-row column-gap-4">
-                    <div style="width: 50px">
-                        <label>
-                        <input type="checkbox" id="hand_filter_from_AL" name="option1" /> AL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_AD" name="option1" /> AD
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_AM" name="option1" /> AM
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_AT" name="option1" /> AT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_AZ" name="option1" /> AZ
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_BA" name="option1" /> BA
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_BE" name="option1" /> BE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_BG" name="option1" /> BG
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_CH" name="option1" /> CH
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_CZ" name="option1" /> CZ
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_DE" name="option1" /> DE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_DK" name="option1" /> DK
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_EE" name="option1" /> EE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_ES" name="option1" /> ES
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_FI" name="option1" /> FI
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_FR" name="option1" /> FR
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_GB" name="option1" /> GB
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_GE" name="option1" /> GE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_GR" name="option1" /> GR
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_HR" name="option1" /> HR
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_HU" name="option1" /> HU
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_IE" name="option1" /> IE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_IL" name="option1" /> IL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_IT" name="option1" /> IT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_KG" name="option1" /> KG
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_KZ" name="option1" /> KZ
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_LI" name="option1" /> LI
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_LT" name="option1" /> LT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_LU" name="option1" /> LU
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_LV" name="option1" /> LV
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_MA" name="option1" /> MA
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_MD" name="option1" /> MD
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_ME" name="option1" /> ME
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_MK" name="option1" /> MK
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_NL" name="option1" /> NL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_PL" name="option1" /> PL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_PT" name="option1" /> PT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_RO" name="option1" /> RO
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_RS" name="option1" /> RS
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_SE" name="option1" /> SE
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_SI" name="option1" /> SI
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_SK" name="option1" /> SK
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_TJ" name="option1" /> TJ
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_TN" name="option1" /> TN
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_TR" name="option1" /> TR
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_UA" name="option1" /> UA
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_from_UZ" name="option1" /> UZ
-                      </label>
-                    </div>
-                  </div>
-                  <div style="width: 1px; background-color: darkgrey"></div>
-                  <div class="d-flex flex-column flex-lg-row column-gap-4">
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_AD" name="option2" /> AD
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_AL" name="option2" /> AL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_AM" name="option2" /> AM
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_AT" name="option2" /> AT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_AZ" name="option2" /> AZ
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_BA" name="option2" /> BA
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_BE" name="option2" /> BE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_BG" name="option2" /> BG
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_CH" name="option2" /> CH
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_CZ" name="option2" /> CZ
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_DE" name="option2" /> DE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_DK" name="option2" /> DK
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_EE" name="option2" /> EE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_ES" name="option2" /> ES
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_FI" name="option2" /> FI
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_FR" name="option2" /> FR
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_GB" name="option2" /> GB
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_GE" name="option2" /> GE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_GR" name="option2" /> GR
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_HR" name="option2" /> HR
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_HU" name="option2" /> HU
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_IE" name="option2" /> IE
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_IL" name="option2" /> IL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_IT" name="option2" /> IT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_KG" name="option2" /> KG
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_KZ" name="option2" /> KZ
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_LI" name="option2" /> LI
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_LT" name="option2" /> LT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_LU" name="option2" /> LU
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_LV" name="option2" /> LV
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_MA" name="option2" /> MA
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_MD" name="option2" /> MD
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_ME" name="option2" /> ME
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_MK" name="option2" /> MK
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_NL" name="option2" /> NL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_PL" name="option2" /> PL
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_PT" name="option2" /> PT
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_RO" name="option2" /> RO
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_RS" name="option2" /> RS
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_SE" name="option2" /> SE
-                      </label>
-                    </div>
-                    <div style="width: 50px">
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_SI" name="option2" /> SI
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_SK" name="option2" /> SK
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_TJ" name="option2" /> TJ
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_TN" name="option2" /> TN
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_TR" name="option2" /> TR
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_UA" name="option2" /> UA
-                      </label>
-                      <label>
-                        <input type="checkbox" id="hand_filter_to_UZ" name="option2" /> UZ
-                      </label>
-                    </div>
-                  </div>
-                </div>
+              <div class="modal-header">
+                <h4 class="modal-title fs-7" id="settingsModalLabel">
+                  Налаштування інтерфейсу
+                </h4>
                 <button
-                  class="btn btn-success mt-5"
-                  style="width: 150px"
-                  type="submit"
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body row">
+                <div class="font-size-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Розмір шрифту</h5>
+                  <label for="fs-2" class="m-2"
+                    >1<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-2"
+                      value="fs-2"
+                  /></label>
+                  <label for="fs-3" class="m-2"
+                    >2<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-size"
+                      id="fs-3"
+                      value="fs-3"
+                  /></label>
+                  <label for="fs-4" class="m-2"
+                    >3<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-4"
+                      value="fs-4"
+                  /></label>
+                  <label for="fs-5" class="m-2"
+                    >4<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-5"
+                      value="fs-5"
+                  /></label>
+                  <label for="fs-6" class="m-2"
+                    >5<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-6"
+                      value="fs-6"
+                  /></label>
+                </div>
+                <div class="fotn-weight-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Насиченість шрифту</h5>
+                  <label for="font-weight-1" class="m-2"
+                    >тонкий<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-1"
+                      value="fw-lighter"
+                  /></label>
+                  <label for="font-weight-2" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-2"
+                      value="fw-normal"
+                  /></label>
+                  <label for="font-weight-3" class="m-2"
+                    >жирний<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-3"
+                      value="fw-bolder"
+                  /></label>
+                </div>
+                <div class="background-variants-block mt-3 text-center">
+                  <h5 class="mb-3">Налаштування кольору фону</h5>
+                  <label for="background-blue" class="m-2"
+                    >синій<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-blue"
+                  /></label>
+                  <label for="background-green" class="m-2"
+                    >зелений<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-green"
+                  /></label>
+                  <label for="background-red" class="m-2"
+                    >червоний<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-red"
+                  /></label>
+                  <label for="background-lightgrey" class="m-2"
+                    >світлосірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-lightgrey"
+                  /></label>
+                  <label for="background-darkgrey" class="m-2"
+                    >темносірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-darkgrey"
+                  /></label>
+                  <label for="background-brown" class="m-2"
+                    >коричневий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-brown"
+                  /></label>
+                  <label for="background-violet" class="m-2"
+                    >фіолетовий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-violet"
+                  /></label>
+                  <label for="background-default" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="background-variant"
+                      id="background-default"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
                 >
-                  Створити фільтр
+                  Close
                 </button>
-              </form>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="settingsTableModal"
+          tabindex="-1"
+          aria-labelledby="settingsTableModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" style="max-width: 700px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title fs-7" id="settingsTableModalLabel">
+                  Налаштування інтерфейсу
+                </h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body row">
+                <div class="style-color-block text-center mt-3">
+                  <h5 class="mb-3">Налаштування вигляду таблиці</h5>
+                  <label for="colorCheckbox" class="m-2"
+                    >зафарбованість таблиці
+                    <input
+                      class="ms-1"
+                      type="checkbox"
+                      id="colorCheckbox"
+                      onchange="toggleColor()"
+                  /></label>
+                  <label for="typeTable" class="m-2"
+                    >розмір таблиці
+                    <input class="ms-1" type="checkbox" id="typeTable"
+                  /></label>
+                  <label for="borderDriver" class="m-2"
+                    >вигляд екіпажу
+                    <input class="ms-1" type="checkbox" id="borderDriver"
+                  /></label>
+                  <label for="bordersCheck" class="m-2"
+                    >рамки
+                    <input class="ms-1" type="checkbox" id="bordersCheck"
+                  /></label>
+                </div>
+                <div class="hiden-colums-block text-center mt-3">
+                  <h5 class="mb-3">Налаштування відображення колонок</h5>
+                  <label for="numberCheck" class="m-2"
+                    >нумерація
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="numberCheck"
+                  /></label>
+                  <label for="routeCheck" class="m-2"
+                    >маршрут
+                    <input checked class="ms-1" type="checkbox" id="routeCheck"
+                  /></label>
+                  <label for="clientCheck" class="m-2"
+                    >клієнт
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="clientCheck"
+                  /></label>
+                  <label for="truckTypeCheck" class="m-2"
+                    >тип авто
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="truckTypeCheck"
+                  /></label>
+                  <label for="managerCheck" class="m-2"
+                    >менеджер
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="managerCheck"
+                  /></label>
+                  <label for="infoCheck" class="m-2"
+                    >інформація
+                    <input checked class="ms-1" type="checkbox" id="infoCheck"
+                  /></label>
+                  <label for="crewCheck" class="m-2"
+                    >екіпаж
+                    <input checked class="ms-1" type="checkbox" id="crewCheck"
+                  /></label>
+                  <label for="comentCheck" class="m-2"
+                    >коментар
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="comentCheck"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Закрити
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Зберегти налаштування
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="filtersModal"
+          tabindex="-1"
+          aria-labelledby="filtersModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" style="max-width: 80vw">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title fs-5" id="filtersModalLabel">
+                  Назва фільтру
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form
+                  id="modalForm"
+                  class="d-flex flex-column align-items-center w-100"
+                >
+                  <div class="mb-3">
+                    <label for="nameFiltr">
+                      <input
+                        class="form-control-sm"
+                        type="text"
+                        id="nameFiltr"
+                      />
+                    </label>
+                  </div>
+                  <div
+                    class="d-flex justify-content-evenly"
+                    style="width: 100%"
+                  >
+                    <div class="d-flex flex-column flex-lg-row column-gap-4">
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_AL"
+                            name="option1"
+                          />
+                          AL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_AD"
+                            name="option1"
+                          />
+                          AD
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_AM"
+                            name="option1"
+                          />
+                          AM
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_AT"
+                            name="option1"
+                          />
+                          AT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_AZ"
+                            name="option1"
+                          />
+                          AZ
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_BA"
+                            name="option1"
+                          />
+                          BA
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_BE"
+                            name="option1"
+                          />
+                          BE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_BG"
+                            name="option1"
+                          />
+                          BG
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_CH"
+                            name="option1"
+                          />
+                          CH
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_CZ"
+                            name="option1"
+                          />
+                          CZ
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_DE"
+                            name="option1"
+                          />
+                          DE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_DK"
+                            name="option1"
+                          />
+                          DK
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_EE"
+                            name="option1"
+                          />
+                          EE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_ES"
+                            name="option1"
+                          />
+                          ES
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_FI"
+                            name="option1"
+                          />
+                          FI
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_FR"
+                            name="option1"
+                          />
+                          FR
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_GB"
+                            name="option1"
+                          />
+                          GB
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_GE"
+                            name="option1"
+                          />
+                          GE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_GR"
+                            name="option1"
+                          />
+                          GR
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_HR"
+                            name="option1"
+                          />
+                          HR
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_HU"
+                            name="option1"
+                          />
+                          HU
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_IE"
+                            name="option1"
+                          />
+                          IE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_IL"
+                            name="option1"
+                          />
+                          IL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_IT"
+                            name="option1"
+                          />
+                          IT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_KG"
+                            name="option1"
+                          />
+                          KG
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_KZ"
+                            name="option1"
+                          />
+                          KZ
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_LI"
+                            name="option1"
+                          />
+                          LI
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_LT"
+                            name="option1"
+                          />
+                          LT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_LU"
+                            name="option1"
+                          />
+                          LU
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_LV"
+                            name="option1"
+                          />
+                          LV
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_MA"
+                            name="option1"
+                          />
+                          MA
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_MD"
+                            name="option1"
+                          />
+                          MD
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_ME"
+                            name="option1"
+                          />
+                          ME
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_MK"
+                            name="option1"
+                          />
+                          MK
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_NL"
+                            name="option1"
+                          />
+                          NL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_PL"
+                            name="option1"
+                          />
+                          PL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_PT"
+                            name="option1"
+                          />
+                          PT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_RO"
+                            name="option1"
+                          />
+                          RO
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_RS"
+                            name="option1"
+                          />
+                          RS
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_SE"
+                            name="option1"
+                          />
+                          SE
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_SI"
+                            name="option1"
+                          />
+                          SI
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_SK"
+                            name="option1"
+                          />
+                          SK
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_TJ"
+                            name="option1"
+                          />
+                          TJ
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_TN"
+                            name="option1"
+                          />
+                          TN
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_TR"
+                            name="option1"
+                          />
+                          TR
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_UA"
+                            name="option1"
+                          />
+                          UA
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_from_UZ"
+                            name="option1"
+                          />
+                          UZ
+                        </label>
+                      </div>
+                    </div>
+                    <div style="width: 1px; background-color: darkgrey"></div>
+                    <div class="d-flex flex-column flex-lg-row column-gap-4">
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_AD"
+                            name="option2"
+                          />
+                          AD
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_AL"
+                            name="option2"
+                          />
+                          AL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_AM"
+                            name="option2"
+                          />
+                          AM
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_AT"
+                            name="option2"
+                          />
+                          AT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_AZ"
+                            name="option2"
+                          />
+                          AZ
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_BA"
+                            name="option2"
+                          />
+                          BA
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_BE"
+                            name="option2"
+                          />
+                          BE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_BG"
+                            name="option2"
+                          />
+                          BG
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_CH"
+                            name="option2"
+                          />
+                          CH
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_CZ"
+                            name="option2"
+                          />
+                          CZ
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_DE"
+                            name="option2"
+                          />
+                          DE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_DK"
+                            name="option2"
+                          />
+                          DK
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_EE"
+                            name="option2"
+                          />
+                          EE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_ES"
+                            name="option2"
+                          />
+                          ES
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_FI"
+                            name="option2"
+                          />
+                          FI
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_FR"
+                            name="option2"
+                          />
+                          FR
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_GB"
+                            name="option2"
+                          />
+                          GB
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_GE"
+                            name="option2"
+                          />
+                          GE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_GR"
+                            name="option2"
+                          />
+                          GR
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_HR"
+                            name="option2"
+                          />
+                          HR
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_HU"
+                            name="option2"
+                          />
+                          HU
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_IE"
+                            name="option2"
+                          />
+                          IE
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_IL"
+                            name="option2"
+                          />
+                          IL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_IT"
+                            name="option2"
+                          />
+                          IT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_KG"
+                            name="option2"
+                          />
+                          KG
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_KZ"
+                            name="option2"
+                          />
+                          KZ
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_LI"
+                            name="option2"
+                          />
+                          LI
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_LT"
+                            name="option2"
+                          />
+                          LT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_LU"
+                            name="option2"
+                          />
+                          LU
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_LV"
+                            name="option2"
+                          />
+                          LV
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_MA"
+                            name="option2"
+                          />
+                          MA
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_MD"
+                            name="option2"
+                          />
+                          MD
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_ME"
+                            name="option2"
+                          />
+                          ME
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_MK"
+                            name="option2"
+                          />
+                          MK
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_NL"
+                            name="option2"
+                          />
+                          NL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_PL"
+                            name="option2"
+                          />
+                          PL
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_PT"
+                            name="option2"
+                          />
+                          PT
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_RO"
+                            name="option2"
+                          />
+                          RO
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_RS"
+                            name="option2"
+                          />
+                          RS
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_SE"
+                            name="option2"
+                          />
+                          SE
+                        </label>
+                      </div>
+                      <div style="width: 50px">
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_SI"
+                            name="option2"
+                          />
+                          SI
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_SK"
+                            name="option2"
+                          />
+                          SK
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_TJ"
+                            name="option2"
+                          />
+                          TJ
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_TN"
+                            name="option2"
+                          />
+                          TN
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_TR"
+                            name="option2"
+                          />
+                          TR
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_UA"
+                            name="option2"
+                          />
+                          UA
+                        </label>
+                        <label>
+                          <input
+                            type="checkbox"
+                            id="hand_filter_to_UZ"
+                            name="option2"
+                          />
+                          UZ
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="btn btn-success mt-5"
+                    style="width: 150px"
+                    type="submit"
+                  >
+                    Створити фільтр
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -2585,6 +3407,7 @@
       });
     </script>
     <script src="assets/js/addComent.js"></script>
-    <script src="assets/js/filtrModal.js"></script>
+    <script src="assets/js/settingsStyle.js"></script>
+    <script src="assets/js/settingsTableImportExport.js"></script>
   </body>
 </html>

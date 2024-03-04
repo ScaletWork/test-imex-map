@@ -10,6 +10,7 @@
       href="assets/images/logos/favicon.png"
     />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="assets/css/settingStyle.css" />
     <style>
       .bd-wrapper {
         margin-left: 270px;
@@ -37,7 +38,7 @@
       .side-hide {
         display: block !important;
       }
-      @media (max-width: 1850px) {
+      @media (max-width: 2850px) {
         .bd-wrapper {
           margin-left: 100px;
         }
@@ -105,7 +106,7 @@
       data-header-position="fixed"
     >
       <!-- Sidebar Start -->
-      <aside class="left-sidebar">
+      <aside class="left-sidebar background">
         <!-- Sidebar scroll-->
         <div>
           <div
@@ -160,7 +161,7 @@
       <!--  Main wrapper -->
       <div class="bd-wrapper">
         <!--  Header Start -->
-        <header class="app-header header">
+        <header class="app-header header background">
           <nav class="navbar navbar-expand-lg navbar-light">
             <ul class="navbar-nav">
               <li class="nav-item d-block d-xl-none">
@@ -222,6 +223,15 @@
                         <p class="mb-0 fs-3">Мої Задачі</p>
                       </a>
                       <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#settingsModal"
+                      >
+                        <i class="ti ti-settings fs-6"></i>
+                        <p class="mb-0 fs-3">Мої Налаштування</p>
+                      </a>
+                      <a
                         href="./login.html"
                         class="btn btn-outline-primary mx-3 mt-2 d-block"
                         >Вийти з системи</a
@@ -235,15 +245,17 @@
         </header>
         <!--  Header End -->
 
-        <div class="container-fluid">
+        <div class="container-fluid background">
           <!--  Row 1 -->
           <div class="form-group row">
-            <div class="card w-100">
+            <div class="card w-100 background">
               <div class="card-body p-4">
                 <form style="margin-top: 50px">
                   <div class="card-body p-4 mt-3">
                     <div class="table-responsive">
-                      <table class="table text-nowrap mb-0 align-middle">
+                      <table
+                        class="table text-nowrap mb-0 align-middle bg-white table-sm"
+                      >
                         <tbody>
                           <tr class="border border-1">
                             <td class="border-bottom-0">
@@ -276,7 +288,7 @@
                     <div class="d-flex flex-column">
                       <div class="d-flex justify-content-around flex-wrap">
                         <div
-                          class="card p-2 d-flex flex-column"
+                          class="card p-2 d-flex flex-column background"
                           style="width: 120px"
                         >
                           <label class="form-check-label mb-2">
@@ -293,7 +305,7 @@
                           </label>
                         </div>
                         <div
-                          class="card p-2 d-flex flex-column"
+                          class="card p-2 d-flex flex-column background"
                           style="width: 120px"
                         >
                           <label class="form-check-label text-danger mb-2">
@@ -306,7 +318,7 @@
                           </label>
                         </div>
                         <div
-                          class="card p-2 d-flex flex-column"
+                          class="card p-2 d-flex flex-column background"
                           style="width: 120px"
                         >
                           <label class="form-check-label text-success mb-2">
@@ -319,7 +331,7 @@
                           </label>
                         </div>
                         <div
-                          class="card p-2 d-flex flex-column"
+                          class="card p-2 d-flex flex-column background"
                           style="width: 120px"
                         >
                           <label class="form-check-label mb-2">
@@ -332,7 +344,7 @@
                           </label>
                         </div>
                         <div
-                          class="card p-2 d-flex flex-column"
+                          class="card p-2 d-flex flex-column background"
                           style="width: 120px"
                         >
                           <label class="form-check-label text-primary mb-2">
@@ -345,7 +357,7 @@
                           </label>
                         </div>
                         <div
-                          class="card p-2 d-flex flex-column"
+                          class="card p-2 d-flex flex-column background"
                           style="width: 120px"
                         >
                           <label class="form-check-label mb-2">
@@ -358,7 +370,7 @@
                           </label>
                         </div>
                         <div
-                          class="card p-2 d-flex flex-column"
+                          class="card p-2 d-flex flex-column background"
                           style="width: 120px"
                         >
                           <label class="form-check-label mb-2">
@@ -436,10 +448,10 @@
                   <br />
                   <div class="table-responsive tab-stick">
                     <table
-                      class="table table-hover mb-0 align-middle"
+                      class="table table-hover mb-0 align-middle bg-white table-sm"
                       id="myTable"
                     >
-                      <thead class="text-dark fs-3 sticky-xxl-top bg-light">
+                      <thead class="text-dark sticky-xxl-top bg-light">
                         <tr>
                           <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Екіпаж</h6>
@@ -484,10 +496,10 @@
                           </th>
                         </tr>
                       </thead>
-                      <tbody class="fs-2">
+                      <tbody>
                         <tr class="border border-1">
                           <td class="border-bottom-0">
-                            <h6 class="mb-1 fs-2">
+                            <p class="mb-1">
                               <a
                                 href="/truck/assign/155151/to/transportation/6"
                               >
@@ -495,7 +507,7 @@
                                   >АА6539РМ/АА6897РВ</span
                                 >
                               </a>
-                            </h6>
+                            </p>
                             <a href="/truck/assign/155151/to/transportation/6">
                               <span class="text-black">Мороз А. В.</span>
                             </a>
@@ -516,20 +528,20 @@
                             </a>
                           </td>
                           <td class="border-bottom-0">
-                            <h6 class="fs-2">
+                            <p class="">
                               <a
                                 href="/truck/assign/155151/to/transportation/6"
                               >
                                 <span class="text-black">26.05, 11:53</span>
                               </a>
-                            </h6>
-                            <h6 class="fs-2">
+                            </p>
+                            <p class="">
                               <a
                                 href="/truck/assign/155151/to/transportation/6"
                               >
                                 <span class="text-black">Парк</span>
                               </a>
-                            </h6>
+                            </p>
                           </td>
                           <td class="border-bottom-0">
                             <a href="/truck/assign/155151/to/transportation/6">
@@ -602,13 +614,13 @@
                         </tr>
                         <tr class="border border-1">
                           <td class="border-bottom-0">
-                            <h6 class="mb-1 fs-2">
+                            <p class="mb-1">
                               <a href="/truck/assign/52631/to/transportation/6">
                                 <span class="text-black"
                                   >КА1697МС/АА7362ХІ</span
                                 >
                               </a>
-                            </h6>
+                            </p>
                             <a href="/truck/assign/52631/to/transportation/6">
                               <span class="text-black">Демченко Б. І.</span>
                             </a>
@@ -627,16 +639,16 @@
                             </a>
                           </td>
                           <td class="border-bottom-0">
-                            <h6 class="fs-2">
+                            <p class="">
                               <a href="/truck/assign/52631/to/transportation/6">
                                 <span class="text-black">18.01, 16:19</span>
                               </a>
-                            </h6>
-                            <h6 class="fs-2">
+                            </p>
+                            <p class="">
                               <a href="/truck/assign/52631/to/transportation/6">
                                 <span class="text-black">Парк</span>
                               </a>
-                            </h6>
+                            </p>
                           </td>
                           <td class="border-bottom-0">
                             <a href="/truck/assign/52631/to/transportation/6">
@@ -709,7 +721,7 @@
                         </tr>
                         <tr class="border border-1">
                           <td class="border-bottom-0">
-                            <h6 class="fs-2 mb-1">
+                            <p class="mb-1">
                               <a
                                 href="/truck/assign/175981/to/transportation/6"
                               >
@@ -717,7 +729,7 @@
                                   >АА9660ХН/АА1523ХК</span
                                 >
                               </a>
-                            </h6>
+                            </p>
                             <a href="/truck/assign/175981/to/transportation/6">
                               <span class="text-black">Комаренко С. В.</span>
                             </a>
@@ -1063,6 +1075,175 @@
             </div>
           </div>
         </div>
+        <div
+          class="modal fade"
+          id="settingsModal"
+          tabindex="-1"
+          aria-labelledby="settingsModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" style="max-width: 700px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title fs-7" id="settingsModalLabel">
+                  Налаштування інтерфейсу
+                </h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body row">
+                <div class="font-size-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Розмір шрифту</h5>
+                  <label for="fs-2" class="m-2"
+                    >1<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-2"
+                      value="fs-2"
+                  /></label>
+                  <label for="fs-3" class="m-2"
+                    >2<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-size"
+                      id="fs-3"
+                      value="fs-3"
+                  /></label>
+                  <label for="fs-4" class="m-2"
+                    >3<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-4"
+                      value="fs-4"
+                  /></label>
+                  <label for="fs-5" class="m-2"
+                    >4<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-5"
+                      value="fs-5"
+                  /></label>
+                  <label for="fs-6" class="m-2"
+                    >5<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-6"
+                      value="fs-6"
+                  /></label>
+                </div>
+                <div class="fotn-weight-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Насиченість шрифту</h5>
+                  <label for="font-weight-1" class="m-2"
+                    >тонкий<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-1"
+                      value="fw-lighter"
+                  /></label>
+                  <label for="font-weight-2" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-2"
+                      value="fw-normal"
+                  /></label>
+                  <label for="font-weight-3" class="m-2"
+                    >жирний<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-3"
+                      value="fw-bolder"
+                  /></label>
+                </div>
+                <div class="background-variants-block mt-3 text-center">
+                  <h5 class="mb-3">Налаштування кольору фону</h5>
+                  <label for="background-blue" class="m-2"
+                    >синій<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-blue"
+                  /></label>
+                  <label for="background-green" class="m-2"
+                    >зелений<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-green"
+                  /></label>
+                  <label for="background-red" class="m-2"
+                    >червоний<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-red"
+                  /></label>
+                  <label for="background-lightgrey" class="m-2"
+                    >світлосірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-lightgrey"
+                  /></label>
+                  <label for="background-darkgrey" class="m-2"
+                    >темносірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-darkgrey"
+                  /></label>
+                  <label for="background-brown" class="m-2"
+                    >коричневий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-brown"
+                  /></label>
+                  <label for="background-violet" class="m-2"
+                    >фіолетовий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-violet"
+                  /></label>
+                  <label for="background-default" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="background-variant"
+                      id="background-default"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
@@ -1072,7 +1253,7 @@
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
     <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
     <script src="../assets/js/dashboard.js"></script>
-
+    <script src="assets/js/settingsStyle.js"></script>
     <script>
       var rows = document
         .getElementById('myTable')

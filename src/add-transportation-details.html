@@ -14,6 +14,7 @@
       href="assets/images/logos/favicon.png"
     />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="assets/css/settingStyle.css" />
     <script defer src="assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script defer src="/assets/js/sidebarmenu.js"></script>
@@ -129,7 +130,7 @@
       data-header-position="fixed"
     >
       <!-- Sidebar Start -->
-      <aside class="left-sidebar">
+      <aside class="left-sidebar background">
         <!-- Sidebar scroll-->
         <div>
           <div
@@ -139,7 +140,13 @@
               <img src="assets/images/logos/dark-logo.png" width="180" alt="" />
             </div>
             <div class="text-nowrap logo-img-small">
-              <img src="assets/images/logos/favicon.png" id="togl-side-btn" width="180" alt="icon" style="cursor: pointer;"/>
+              <img
+                src="assets/images/logos/favicon.png"
+                id="togl-side-btn"
+                width="180"
+                alt="icon"
+                style="cursor: pointer"
+              />
             </div>
 
             <div
@@ -178,7 +185,7 @@
       <!--  Main wrapper -->
       <div class="bd-wrapper">
         <!--  Header Start -->
-        <header class="app-header header">
+        <header class="app-header header background">
           <nav class="navbar navbar-expand-lg navbar-light">
             <ul class="navbar-nav">
               <li class="nav-item d-block d-xl-none">
@@ -233,7 +240,15 @@
                         <i class="ti ti-list-check fs-6"></i>
                         <p class="mb-0 fs-3">Мої Задачі</p>
                       </a>
-
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#settingsModal"
+                      >
+                        <i class="ti ti-settings fs-6"></i>
+                        <p class="mb-0 fs-3">Мої Налаштування</p>
+                      </a>
                       <form th:action="@{/logout}" method="post">
                         <input
                           class="btn btn-outline-primary mx-3 mt-2 d-block"
@@ -251,7 +266,7 @@
 
         <!--  Header End -->
 
-        <div class="container-fluid">
+        <div class="container-fluid background">
           <form
             action="#"
             th:action="@{/transportation-details/add}"
@@ -265,8 +280,8 @@
                 class="col d-flex align-items-strech"
                 style="margin-top: 75px"
               >
-                <div class="card w-100">
-                  <div class="card-body">
+                <div class="card w-100 background">
+                  <div class="card-body background">
                     <div
                       class="d-sm-flex d-block align-items-center justify-content-between mb-9"
                     >
@@ -282,7 +297,7 @@
                     <!-- First Line: Input Select -->
                     <div class="row mb-3">
                       <div class="col-md-6">
-                        <div class="card p-4">
+                        <div class="card p-4 background">
                           <label class="mb-3">
                             Клієнт
                             <select
@@ -306,9 +321,9 @@
                               th:text="${selectedCompany != null && selectedCompany.clientDto != null ? selectedCompany.clientDto.ndov : ''}"
                             ></span>
                           </label>
-                          <h6 class="fw-semibold mb-2" style="color: #0a58ca">
+                          <p class="fw-semibold mb-2" style="color: #0a58ca">
                             АГРОТЕП
-                          </h6>
+                          </p>
                           <div class="row">
                             <span
                               th:text="${selectedCompany.agtSummary}"
@@ -391,12 +406,12 @@
                               </tbody>
                             </table>
                           </div>
-                          <h6
+                          <p
                             class="fw-semibold mb-2 mt-3"
                             style="color: #dc3545"
                           >
                             ВП-ТРАНС
-                          </h6>
+                          </p>
                           <div class="row">
                             <span
                               th:text="${selectedCompany.agtSummary}"
@@ -481,7 +496,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class="card p-4 col-md-6 row-gap-2">
+                      <div class="card p-4 col-md-6 row-gap-2 background">
                         <!-- <h5 class="card-title fw-semibold mb-3">Вантаж</h5> -->
                         <div class="row">
                           <div class="col-md-4">
@@ -734,7 +749,7 @@
                     <!-- Eighth Line: One Input Number, One Input Select, One Checkbox -->
                     <div class="" id="loadings">
                       <div class="row" th:each="loading, i: *{loadings}">
-                        <div class="card p-4 col-md-6">
+                        <div class="card p-4 col-md-6 background">
                           <div
                             class="card-title mb-9 fw-semibold"
                             th:text="${loading.loadingType == null or loadingTypes.contains(loading.loadingType) ? 'Завантаження' : 'Розвантаження'}"
@@ -815,7 +830,6 @@
                             <label class="col-md-12">
                               Пункт
                               <input
-   
                                 type="text"
                                 size="50"
                                 placeholder="Enter a location"
@@ -834,20 +848,17 @@
                                 type="text"
                                 name="loading-city"
                                 class="form-control loading-city city2"
-
-                                name="city2"
                               />
                             </label>
                             <label class="col-md-4">
                               Країна
                               <input
-                              type="text"
+                                type="text"
                                 th:field="*{loadings[__${i.index}__].loadingCountry}"
                                 name="loading-country"
                                 class="form-control country"
                                 id="country"
-                              >
-                              </input>
+                              />
                             </label>
                             <label class="col-md-4">
                               Область
@@ -856,7 +867,6 @@
                                 type="text"
                                 name="loading-region"
                                 class="form-control region"
-                                
                               />
                             </label>
                           </div>
@@ -865,7 +875,6 @@
                             <label class="col-md-6">
                               Пошт. код
                               <input
-                              
                                 th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
                                 type="text"
                                 name="loading-city-postal-index"
@@ -892,8 +901,6 @@
                                 type="text"
                                 name="loading-latitude"
                                 class="form-control cityLat"
-                                
-                                name="cityLat"
                               />
                             </label>
                             <label class="col-md-6">
@@ -904,7 +911,6 @@
                                 name="loading-longitude"
                                 class="form-control cityLng"
                                 id="cityLng"
-                               
                               />
                             </label>
                           </div>
@@ -938,7 +944,7 @@
                             </button>
                           </div>
                         </div>
-                        <div class="card p-4 col-md-6">
+                        <div class="card p-4 col-md-6 background">
                           <div
                             class="card-title mb-9 fw-semibold"
                             th:text="${loading.loadingType == null or loadingTypes.contains(loading.loadingType) ? 'Завантаження' : 'Розвантаження'}"
@@ -1019,7 +1025,6 @@
                             <label class="col-md-12">
                               Пункт
                               <input
-   
                                 type="text"
                                 size="50"
                                 placeholder="Enter a location"
@@ -1038,19 +1043,16 @@
                                 type="text"
                                 name="loading-city"
                                 class="form-control loading-city city2"
-
-                                name="city2"
                               />
                             </label>
                             <label class="col-md-4">
                               Країна
                               <input
-                              type="text"
+                                type="text"
                                 th:field="*{loadings[__${i.index}__].loadingCountry}"
                                 name="loading-country"
                                 class="form-control country"
-                              >
-                              </input>
+                              />
                             </label>
                             <label class="col-md-4">
                               Область
@@ -1059,7 +1061,6 @@
                                 type="text"
                                 name="loading-region"
                                 class="form-control region"
-                                
                               />
                             </label>
                           </div>
@@ -1068,7 +1069,6 @@
                             <label class="col-md-6">
                               Пошт. код
                               <input
-                              
                                 th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
                                 type="text"
                                 name="loading-city-postal-index"
@@ -1095,8 +1095,6 @@
                                 type="text"
                                 name="loading-latitude"
                                 class="form-control cityLat"
-                                
-                                name="cityLat"
                               />
                             </label>
                             <label class="col-md-6">
@@ -1107,7 +1105,6 @@
                                 name="loading-longitude"
                                 class="form-control cityLng"
                                 id="cityLng"
-                               
                               />
                             </label>
                           </div>
@@ -1143,14 +1140,14 @@
                         </div>
                       </div>
                       <div class="row">
-                                                <div
+                        <div
                           class="col-md-6 d-flex justify-content-between ps-0"
                           id="buttons-block"
                         >
                           <button
                             style="max-height: 50px"
                             type="button"
-                            class="btn btn-primary m-1 text-nowrap "
+                            class="btn btn-primary m-1 text-nowrap"
                             data-bs-trigger="hover"
                             data-bs-toggle="popover"
                             data-bs-placement="top"
@@ -1178,8 +1175,178 @@
             </div>
           </form>
         </div>
+        <div
+          class="modal fade"
+          id="settingsModal"
+          tabindex="-1"
+          aria-labelledby="settingsModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" style="max-width: 700px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title fs-7" id="settingsModalLabel">
+                  Налаштування інтерфейсу
+                </h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body row">
+                <div class="font-size-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Розмір шрифту</h5>
+                  <label for="fs-2" class="m-2"
+                    >1<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-2"
+                      value="fs-2"
+                  /></label>
+                  <label for="fs-3" class="m-2"
+                    >2<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-size"
+                      id="fs-3"
+                      value="fs-3"
+                  /></label>
+                  <label for="fs-4" class="m-2"
+                    >3<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-4"
+                      value="fs-4"
+                  /></label>
+                  <label for="fs-5" class="m-2"
+                    >4<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-5"
+                      value="fs-5"
+                  /></label>
+                  <label for="fs-6" class="m-2"
+                    >5<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-6"
+                      value="fs-6"
+                  /></label>
+                </div>
+                <div class="fotn-weight-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Насиченість шрифту</h5>
+                  <label for="font-weight-1" class="m-2"
+                    >тонкий<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-1"
+                      value="fw-lighter"
+                  /></label>
+                  <label for="font-weight-2" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-2"
+                      value="fw-normal"
+                  /></label>
+                  <label for="font-weight-3" class="m-2"
+                    >жирний<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-3"
+                      value="fw-bolder"
+                  /></label>
+                </div>
+                <div class="background-variants-block mt-3 text-center">
+                  <h5 class="mb-3">Налаштування кольору фону</h5>
+                  <label for="background-blue" class="m-2"
+                    >синій<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-blue"
+                  /></label>
+                  <label for="background-green" class="m-2"
+                    >зелений<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-green"
+                  /></label>
+                  <label for="background-red" class="m-2"
+                    >червоний<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-red"
+                  /></label>
+                  <label for="background-lightgrey" class="m-2"
+                    >світлосірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-lightgrey"
+                  /></label>
+                  <label for="background-darkgrey" class="m-2"
+                    >темносірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-darkgrey"
+                  /></label>
+                  <label for="background-brown" class="m-2"
+                    >коричневий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-brown"
+                  /></label>
+                  <label for="background-violet" class="m-2"
+                    >фіолетовий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-violet"
+                  /></label>
+                  <label for="background-default" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="background-variant"
+                      id="background-default"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <script src="assets/js/settingsStyle.js"></script>
     <script>
       var popoverTriggerList = [].slice.call(
         document.querySelectorAll('[data-bs-toggle="popover"]')
@@ -1193,56 +1360,64 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWaYJ47zp6qO2N4lCefOKWqvC1Il3VdQE&libraries=places&language=uk"
     ></script>
 
-<script>
-  function initializeAutocomplete(inputElement) {
-    var circle = new google.maps.Circle({
-      center: new google.maps.LatLng(49.998526, 36.299138),
-      radius: 4000000,
-    });
+    <script>
+      function initializeAutocomplete(inputElement) {
+        var circle = new google.maps.Circle({
+          center: new google.maps.LatLng(49.998526, 36.299138),
+          radius: 4000000,
+        });
 
-    var options = {
-      strictBounds: true,
-      bounds: circle.getBounds(),
-      types: ['(cities)'],
-    };
-    var autocomplete = new google.maps.places.Autocomplete(inputElement, options);
+        var options = {
+          strictBounds: true,
+          bounds: circle.getBounds(),
+          types: ['(cities)'],
+        };
+        var autocomplete = new google.maps.places.Autocomplete(
+          inputElement,
+          options
+        );
 
-    google.maps.event.addListener(
-      autocomplete,
-      'place_changed',
-      function () {
-        var place = autocomplete.getPlace();
-console.log(place);
-        var cardElement = inputElement.closest('.card');
-        cardElement.querySelector('.city2').value = place.name;
-        cardElement.querySelector('.cityLat').value = place.geometry.location.lat();
-        cardElement.querySelector('.cityLng').value = place.geometry.location.lng();
+        google.maps.event.addListener(
+          autocomplete,
+          'place_changed',
+          function () {
+            var place = autocomplete.getPlace();
+            console.log(place);
+            var cardElement = inputElement.closest('.card');
+            cardElement.querySelector('.city2').value = place.name;
+            cardElement.querySelector('.cityLat').value =
+              place.geometry.location.lat();
+            cardElement.querySelector('.cityLng').value =
+              place.geometry.location.lng();
 
-        // Additional information
-        var addressComponents = place.address_components;
-        for (var i = 0; i < addressComponents.length; i++) {
-          var component = addressComponents[i];
-          var types = component.types;
-          for (var j = 0; j < types.length; j++) {
-            if (types[j] == 'country') {
-              cardElement.querySelector('.country').value = component.short_name;
-            } else if (types[j] == 'administrative_area_level_1') {
-              cardElement.querySelector('.region').value = component.long_name;
-            } else if (types[j] == 'postal_code') {
-              cardElement.querySelector('.postal_code').value = component.long_name;
+            // Additional information
+            var addressComponents = place.address_components;
+            for (var i = 0; i < addressComponents.length; i++) {
+              var component = addressComponents[i];
+              var types = component.types;
+              for (var j = 0; j < types.length; j++) {
+                if (types[j] == 'country') {
+                  cardElement.querySelector('.country').value =
+                    component.short_name;
+                } else if (types[j] == 'administrative_area_level_1') {
+                  cardElement.querySelector('.region').value =
+                    component.long_name;
+                } else if (types[j] == 'postal_code') {
+                  cardElement.querySelector('.postal_code').value =
+                    component.long_name;
+                }
+              }
             }
           }
-        }
+        );
       }
-    );
-  }
 
-  window.onload = function () {
-    var inputElements = document.querySelectorAll('.autocomplete-input');
-    inputElements.forEach(function(inputElement) {
-      initializeAutocomplete(inputElement);
-    });
-  };
-</script>
+      window.onload = function () {
+        var inputElements = document.querySelectorAll('.autocomplete-input');
+        inputElements.forEach(function (inputElement) {
+          initializeAutocomplete(inputElement);
+        });
+      };
+    </script>
   </body>
 </html>

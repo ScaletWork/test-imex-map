@@ -36,6 +36,14 @@
       /*]]>*/
     </script>
     <style>
+      tbody,
+      thead {
+        text-wrap: wrap;
+      }
+      tr {
+        height: 30px;
+        padding: 0;
+      }
       .bd-wrapper {
         margin-left: 270px;
       }
@@ -62,7 +70,7 @@
       .side-hide {
         display: block !important;
       }
-      @media (max-width: 1850px) {
+      @media (max-width: 2850px) {
         .bd-wrapper {
           margin-left: 100px;
         }
@@ -102,11 +110,17 @@
           display: none;
         }
       }
+      @media (min-width: 900px) {
+        tbody,
+        thead {
+          text-wrap: nowrap;
+        }
+      }
       @media (min-width: 1200px) {
         .header {
           width: calc(100% - 100px) !important;
         }
-        @media (min-width: 1850px) {
+        @media (min-width: 2850px) {
           .bd-wrapper {
             margin-left: 270px;
           }

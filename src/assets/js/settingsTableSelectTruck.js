@@ -41,16 +41,16 @@ bordersCheck.addEventListener('change', function () {
   applyBordersStyle(bordersCheck.checked);
 });
 
-typeTableCheckbox.addEventListener('change', handleTypeTableCheckboxChange);
+typeTableCheckbox.addEventListener('change', function () {
+  handleTypeTableCheckboxChange(typeTableCheckbox.checked);
+});
 
 document.addEventListener('DOMContentLoaded', function () {
   checkboxes.forEach(function (checkbox, index) {
     toggleColumnVisibility(index);
   });
   applyBordersStyle(bordersCheck.checked);
-  if (typeTableCheckbox.checked) {
-    tablesAll.classList.remove('table-sm');
-  }
+  handleTypeTableCheckboxChange(typeTableCheckbox.checked);
 });
 
 function toggleColumnVisibility(index) {
@@ -79,8 +79,8 @@ function applyBordersStyle(checked) {
     });
   }
 }
-function handleTypeTableCheckboxChange() {
-  if (typeTableCheckbox.checked) {
+function handleTypeTableCheckboxChange(checked) {
+  if (checked) {
     tablesAll.classList.add('table-sm');
   } else {
     tablesAll.classList.remove('table-sm');

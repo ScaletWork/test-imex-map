@@ -13,6 +13,7 @@ const columns = [
   document.querySelectorAll('#myTable tr > *:nth-child(12)'),
   document.querySelectorAll('#myTable tr > *:nth-child(13)'),
 ];
+
 const checkboxes = [
   document.getElementById('crewCheck'),
   document.getElementById('truckTypeCheck'),
@@ -51,6 +52,21 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   applyBordersStyle(bordersCheck.checked);
   handleTypeTableCheckboxChange(typeTableCheckbox.checked);
+
+  const tcont = document.querySelector('.tcont');
+  const observer = new ResizeObserver((entries) => {
+    for (let entry of entries) {
+      const { width } = entry.contentRect;
+      // console.log(width, tcont.clientWidth);
+      if (width > tcont.clientWidth) {
+        tcont.classList.add('table-responsive');
+      } else {
+        tcont.classList.remove('table-responsive');
+      }
+    }
+  });
+
+  observer.observe(tablesAll);
 });
 
 function toggleColumnVisibility(index) {

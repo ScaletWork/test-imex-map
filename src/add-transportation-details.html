@@ -189,6 +189,18 @@
                   <span class="hide-menu">Імпорт-експорт</span>
                 </a>
               </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./notebook.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-notebook"></i>
+                  </span>
+                  <span class="hide-menu">Зошит</span>
+                </a>
+              </li>
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
@@ -299,10 +311,108 @@
                     <div
                       class="d-sm-flex d-block align-items-center justify-content-between mb-9"
                     >
-                      <div class="mb-3 mb-sm-0">
+                      <div class="mb-5 mb-sm-5">
                         <h5 class="card-title fw-semibold">
                           Нове завантаження
                         </h5>
+                      </div>
+                      <div
+                        class="accordion"
+                        id="accordionExample"
+                        style="
+                          position: absolute;
+                          z-index: 2;
+                          top: 65px;
+                          left: 0;
+                          width: calc(100% - 50px);
+                          margin-left: 30px;
+                          margin-right: 20px;
+                        "
+                      >
+                        <div class="accordion-item">
+                          <h2 class="accordion-header">
+                            <button
+                              class="accordion-button collapsed text-center background"
+                              type="button"
+                              data-bs-toggle="collapse"
+                              data-bs-target="#collapseThree"
+                              aria-expanded="false"
+                              aria-controls="collapseThree"
+                            >
+                              <i class="ti ti-hourglass-low fs-6 me-2"></i>
+                              Історія змін
+                            </button>
+                          </h2>
+                          <div
+                            id="collapseThree"
+                            class="accordion-collapse collapse"
+                            data-bs-parent="#accordionExample"
+                          >
+                            <div class="accordion-body">
+                              <p>
+                                <i
+                                  class="ti ti-circle-check fs-6 me-2"
+                                  style="color: green"
+                                ></i>
+                                10:57 10.12.2023 Антон Самусь створив нове
+                                замовлення
+                              </p>
+                              <p>
+                                <i
+                                  class="ti ti-pencil fs-6 me-2"
+                                  style="color: blue"
+                                ></i>
+                                10.12.2023 10:57 Антон Самусь відредагував
+                                замовлення
+                              </p>
+                              <p>
+                                <i
+                                  class="ti ti-truck fs-6 me-2"
+                                  style="color: green"
+                                ></i>
+                                10.12.2023 10:57 Антон Фесенюк обрав екіпаж
+                              </p>
+                              <p>
+                                <i
+                                  class="ti ti-truck-off fs-6 me-2"
+                                  style="color: red"
+                                ></i>
+                                10.12.2023 10:57 Антон Улицький відмінив екіпаж
+                              </p>
+                              <p>
+                                <i
+                                  class="ti ti-truck-return fs-6 me-2"
+                                  style="color: blue"
+                                ></i>
+                                10:57 10.12.2023 Антон Самусь змінив екіпаж на
+                                інший
+                              </p>
+                              <p>
+                                <i
+                                  class="ti ti-message-circle-2 fs-6 me-2"
+                                  style="color: gray"
+                                ></i>
+                                10.12.2023 10:57 Антон Самусь додав коментар
+                              </p>
+                              <p>
+                                <i
+                                  class="ti ti-repeat fs-6 me-2"
+                                  style="color: blue"
+                                ></i>
+                                10.12.2023 10:57 Антон Фесенюк переніс
+                                замовлення
+                              </p>
+                              <p>
+                                <i
+                                  class="ti ti-xbox-x fs-6 me-2"
+                                  style="color: red"
+                                ></i>
+                                10.12.2023 10:57 Антон Улицький відмінив
+                                замовлення
+                              </p>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
@@ -763,393 +873,494 @@
                     <!-- Eighth Line: One Input Number, One Input Select, One Checkbox -->
                     <div class="" id="loadings">
                       <div class="row" th:each="loading, i: *{loadings}">
-                        <div class="card p-4 col-md-6 background">
+                        <div class="accordion" style="max-width: 50%">
                           <div
-                            class="card-title mb-9 fw-semibold"
-                            th:text="${loading.loadingType == null or loadingTypes.contains(loading.loadingType) ? 'Завантаження' : 'Розвантаження'}"
+                            class="accordion-item border-0 card p-4 background col-md-6 loading-form w-100"
                           >
-                            Маршрут
-                          </div>
-
-                          <!-- First Line: Select Input, One Input Date, One Input Time -->
-                          <div class="row mb-4">
-                            <label hidden="hidden">
-                              id
-                              <input
-                                type="number"
-                                th:field="*{loadings[__${i.index}__].id}"
-                                name="loading-no"
-                                class="form-control"
-                              />
-                            </label>
-                            <label class="col-md-3">
-                              №
-                              <input
-                                type="number"
-                                th:field="*{loadings[__${i.index}__].loadingNo}"
-                                name="loading-no"
-                                class="form-control loading-no"
-                                required
-                              />
-                            </label>
-
-                            <label class="col-md-3">
-                              Тип
-                              <select
-                                th:field="*{loadings[__${i.index}__].loadingType}"
-                                name="loading-type"
-                                class="form-select loading-type"
-                                required
+                            <h2 class="accordion-header">
+                              <button
+                                class="background accordion-button shadow-none"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#id2"
+                                aria-expanded="true"
+                                aria-controls="id2"
                               >
-                                <option
-                                  th:each="t: ${loadingTypes}"
-                                  th:value="${t}"
-                                  th:text="${t.notation}"
-                                  th:selected="${loading.loadingType == t}"
-                                >
-                                  Зав
-                                </option>
-                                <option
-                                  th:each="t: ${unloadingTypes}"
-                                  th:value="${t.name()}"
-                                  th:text="${t.notation}"
-                                  th:selected="${loading.loadingType == t}"
-                                >
-                                  РозвРозм
-                                </option>
-                              </select>
-                            </label>
-                            <label class="col-md-3">
-                              Дата
-                              <input
-                                type="date"
-                                th:field="*{loadings[__${i.index}__].loadingDate}"
-                                name="loading-date"
-                                class="form-control loading-date"
-                                required
-                              />
-                            </label>
-                            <label class="col-md-3">
-                              Час
-                              <input
-                                type="time"
-                                th:field="*{loadings[__${i.index}__].loadingTime}"
-                                name="loading-time"
-                                class="form-control loading-time"
-                              />
-                            </label>
-                          </div>
-                          <!-- First Line: Select Input, One Input Date, One Input Time -->
-                          <div class="row mb-4">
-                            <label class="col-md-12">
-                              Пункт
-                              <input
-                                type="text"
-                                size="50"
-                                placeholder="Enter a location"
-                                autocomplete="on"
-                                runat="server"
-                                class="form-control loading-time autocomplete-input"
-                              />
-                            </label>
-                          </div>
-                          <!-- Second Line: One Input Text, One Select Input -->
-                          <div class="row mb-4">
-                            <label class="col-md-4">
-                              Місто
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingCity}"
-                                type="text"
-                                name="loading-city"
-                                class="form-control loading-city city2"
-                              />
-                            </label>
-                            <label class="col-md-4">
-                              Країна
-                              <input
-                                type="text"
-                                th:field="*{loadings[__${i.index}__].loadingCountry}"
-                                name="loading-country"
-                                class="form-control country"
-                                id="country"
-                              />
-                            </label>
-                            <label class="col-md-4">
-                              Область
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingRegion}"
-                                type="text"
-                                name="loading-region"
-                                class="form-control region"
-                              />
-                            </label>
-                          </div>
-                          <!-- Third Line: One Input Text, One Select Input -->
-                          <div class="row mb-4">
-                            <label class="col-md-6">
-                              Пошт. код
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
-                                type="text"
-                                name="loading-city-postal-index"
-                                class="form-control postal_code"
-                              />
-                            </label>
-                            <label class="col-md-6">
-                              Адреса
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingAddress}"
-                                type="text"
-                                name="loading-address"
-                                class="form-control"
-                              />
-                            </label>
-                          </div>
-                          <!-- Forth Line: One Input Text, One Select Input -->
-                          <!-- Fifth Line: One Input Text, One Select Input -->
-                          <div class="row">
-                            <label class="col-md-6">
-                              Широта
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingLatitude}"
-                                type="text"
-                                name="loading-latitude"
-                                class="form-control cityLat"
-                              />
-                            </label>
-                            <label class="col-md-6">
-                              Довгота
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingLongitude}"
-                                type="text"
-                                name="loading-longitude"
-                                class="form-control cityLng"
-                                id="cityLng"
-                              />
-                            </label>
-                          </div>
-                          <div class="col-md-4">
-                            <button
-                              type="button"
-                              class="btn btn-light mt-2 rounded-circle p-2"
-                              th:value="add-loading"
-                              th:name="add-loading"
+                                <div class="card-title mb-9 fw-semibold">
+                                  <span class="card-title">Завантаження</span>
+                                  <span
+                                    class="additional-values ms-2 me-2"
+                                  ></span>
+                                  <span class="delete-icon" title="Видалити">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="black"
+                                      class="bi bi-trash"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+                                      ></path>
+                                      <path
+                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+                                      ></path>
+                                    </svg>
+                                  </span>
+                                </div>
+                              </button>
+                            </h2>
+                            <div
+                              id="id2"
+                              class="accordion-collapse collapse border-0 show"
                             >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-plus"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <path d="M12 5l0 14" />
-                                <path d="M5 12l14 0" />
-                              </svg>
-                            </button>
+                              <div class="accordion-body p-0">
+                                <!-- First Line: Select Input, One Input Date, One Input Time -->
+                                <div class="row mb-4">
+                                  <label hidden="hidden">
+                                    id
+                                    <input
+                                      type="number"
+                                      name="loadings[0].id"
+                                      class="form-control"
+                                      id="loadings0.id"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-3">
+                                    №
+                                    <input
+                                      type="number"
+                                      name="loadings[0].loadingNo"
+                                      class="form-control loading-no"
+                                      required=""
+                                      min="1"
+                                      id="loadings0.loadingNo"
+                                      value="1"
+                                    />
+                                  </label>
+
+                                  <label class="col-md-3">
+                                    Тип
+                                    <select
+                                      name="loadings[0].loadingType"
+                                      class="form-select loading-type"
+                                      required=""
+                                      id="loadings0.loadingType"
+                                    >
+                                      <option
+                                        value="SIMPLE_LOADING"
+                                        selected="selected"
+                                      >
+                                        Зав
+                                      </option>
+                                      <option value="COMPLEX_LOADING">
+                                        ЗавЗам
+                                      </option>
+                                      <option value="SIMPLE_UNLOADING">
+                                        Розв
+                                      </option>
+                                      <option value="COMPLEX_UNLOADING">
+                                        РозвРозм
+                                      </option>
+                                    </select>
+                                  </label>
+                                  <label class="col-md-3">
+                                    Дата
+                                    <input
+                                      type="date"
+                                      name="loadings[0].loadingDate"
+                                      class="form-control loading-date"
+                                      required=""
+                                      id="loadings0.loadingDate"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-3">
+                                    Час
+                                    <input
+                                      type="time"
+                                      name="loadings[0].loadingTime"
+                                      class="form-control loading-time"
+                                      required=""
+                                      id="loadings0.loadingTime"
+                                      value="09:00:00"
+                                    />
+                                  </label>
+                                </div>
+                                <!-- First Line: Select Input, One Input Date, One Input Time -->
+                                <div class="row mb-4">
+                                  <label class="col-md-12">
+                                    Пункт
+                                    <input
+                                      type="text"
+                                      size="50"
+                                      placeholder="Enter a location"
+                                      autocomplete="off"
+                                      runat="server"
+                                      class="form-control loading-time autocomplete-input pac-target-input"
+                                      required="required"
+                                    />
+                                  </label>
+                                </div>
+                                <!-- Second Line: One Input Text, One Select Input -->
+                                <div class="row mb-4">
+                                  <label class="col-md-4">
+                                    Місто
+                                    <input
+                                      type="text"
+                                      class="form-control loading-city city2"
+                                      name="loadings[0].loadingCity"
+                                      id="loadings0.loadingCity"
+                                      value="ssss"
+                                    />
+                                  </label>
+                                  <label class="col-md-4">
+                                    Країна
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingCountry"
+                                      class="form-control country"
+                                      id="loadings0.loadingCountry"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-4">
+                                    Область
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingRegion"
+                                      class="form-control region"
+                                      id="loadings0.loadingRegion"
+                                      value=""
+                                    />
+                                  </label>
+                                </div>
+                                <!-- Third Line: One Input Text, One Select Input -->
+                                <div class="row mb-4">
+                                  <label class="col-md-6">
+                                    Пошт. код
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingCityPostalIndex"
+                                      class="form-control postal_code"
+                                      id="loadings0.loadingCityPostalIndex"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-6">
+                                    Адреса
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingAddress"
+                                      class="form-control"
+                                      id="loadings0.loadingAddress"
+                                      value=""
+                                    />
+                                  </label>
+                                </div>
+                                <!-- Forth Line: One Input Text, One Select Input -->
+                                <!-- Fifth Line: One Input Text, One Select Input -->
+                                <div class="row">
+                                  <label class="col-md-6">
+                                    Широта
+                                    <input
+                                      type="text"
+                                      class="form-control cityLat"
+                                      name="loadings[0].loadingLatitude"
+                                      id="loadings0.loadingLatitude"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-6">
+                                    Довгота
+                                    <input
+                                      type="text"
+                                      class="form-control cityLng"
+                                      name="loadings[0].loadingLongitude"
+                                      id="loadings0.loadingLongitude"
+                                      value=""
+                                    />
+                                  </label>
+                                </div>
+                                <div class="col-md-4">
+                                  <button
+                                    type="button"
+                                    class="btn btn-light mt-2 rounded-circle p-2"
+                                    value="add-loading"
+                                    name="add-loading"
+                                    style="display: none"
+                                  >
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="icon icon-tabler icon-tabler-plus"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
+                                      fill="none"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    >
+                                      <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                      ></path>
+                                      <path d="M12 5l0 14"></path>
+                                      <path d="M5 12l14 0"></path>
+                                    </svg>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                        <div class="card p-4 col-md-6 background">
+                        <div class="accordion" style="max-width: 50%">
                           <div
-                            class="card-title mb-9 fw-semibold"
-                            th:text="${loading.loadingType == null or loadingTypes.contains(loading.loadingType) ? 'Завантаження' : 'Розвантаження'}"
+                            class="w-100 card p-4 col-md-6 loading-form accordion-item background border-0"
                           >
-                            Маршрут
-                          </div>
-
-                          <!-- First Line: Select Input, One Input Date, One Input Time -->
-                          <div class="row mb-4">
-                            <label hidden="hidden">
-                              id
-                              <input
-                                type="number"
-                                th:field="*{loadings[__${i.index}__].id}"
-                                name="loading-no"
-                                class="form-control"
-                              />
-                            </label>
-                            <label class="col-md-3">
-                              №
-                              <input
-                                type="number"
-                                th:field="*{loadings[__${i.index}__].loadingNo}"
-                                name="loading-no"
-                                class="form-control loading-no"
-                                required
-                              />
-                            </label>
-
-                            <label class="col-md-3">
-                              Тип
-                              <select
-                                th:field="*{loadings[__${i.index}__].loadingType}"
-                                name="loading-type"
-                                class="form-select loading-type"
-                                required
+                            <h2 class="accordion-header">
+                              <button
+                                class="background accordion-button shadow-none"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#id1"
+                                aria-expanded="true"
+                                aria-controls="id1"
                               >
-                                <option
-                                  th:each="t: ${loadingTypes}"
-                                  th:value="${t}"
-                                  th:text="${t.notation}"
-                                  th:selected="${loading.loadingType == t}"
-                                >
-                                  Зав
-                                </option>
-                                <option
-                                  th:each="t: ${unloadingTypes}"
-                                  th:value="${t.name()}"
-                                  th:text="${t.notation}"
-                                  th:selected="${loading.loadingType == t}"
-                                >
-                                  РозвРозм
-                                </option>
-                              </select>
-                            </label>
-                            <label class="col-md-3">
-                              Дата
-                              <input
-                                type="date"
-                                th:field="*{loadings[__${i.index}__].loadingDate}"
-                                name="loading-date"
-                                class="form-control loading-date"
-                                required
-                              />
-                            </label>
-                            <label class="col-md-3">
-                              Час
-                              <input
-                                type="time"
-                                th:field="*{loadings[__${i.index}__].loadingTime}"
-                                name="loading-time"
-                                class="form-control loading-time"
-                              />
-                            </label>
-                          </div>
-                          <!-- First Line: Select Input, One Input Date, One Input Time -->
-                          <div class="row mb-4">
-                            <label class="col-md-12">
-                              Пункт
-                              <input
-                                type="text"
-                                size="50"
-                                placeholder="Enter a location"
-                                autocomplete="on"
-                                runat="server"
-                                class="form-control loading-time autocomplete-input"
-                              />
-                            </label>
-                          </div>
-                          <!-- Second Line: One Input Text, One Select Input -->
-                          <div class="row mb-4">
-                            <label class="col-md-4">
-                              Місто
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingCity}"
-                                type="text"
-                                name="loading-city"
-                                class="form-control loading-city city2"
-                              />
-                            </label>
-                            <label class="col-md-4">
-                              Країна
-                              <input
-                                type="text"
-                                th:field="*{loadings[__${i.index}__].loadingCountry}"
-                                name="loading-country"
-                                class="form-control country"
-                              />
-                            </label>
-                            <label class="col-md-4">
-                              Область
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingRegion}"
-                                type="text"
-                                name="loading-region"
-                                class="form-control region"
-                              />
-                            </label>
-                          </div>
-                          <!-- Third Line: One Input Text, One Select Input -->
-                          <div class="row mb-4">
-                            <label class="col-md-6">
-                              Пошт. код
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingCityPostalIndex}"
-                                type="text"
-                                name="loading-city-postal-index"
-                                class="form-control postal_code"
-                              />
-                            </label>
-                            <label class="col-md-6">
-                              Адреса
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingAddress}"
-                                type="text"
-                                name="loading-address"
-                                class="form-control"
-                              />
-                            </label>
-                          </div>
-                          <!-- Forth Line: One Input Text, One Select Input -->
-                          <!-- Fifth Line: One Input Text, One Select Input -->
-                          <div class="row">
-                            <label class="col-md-6">
-                              Широта
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingLatitude}"
-                                type="text"
-                                name="loading-latitude"
-                                class="form-control cityLat"
-                              />
-                            </label>
-                            <label class="col-md-6">
-                              Довгота
-                              <input
-                                th:field="*{loadings[__${i.index}__].loadingLongitude}"
-                                type="text"
-                                name="loading-longitude"
-                                class="form-control cityLng"
-                                id="cityLng"
-                              />
-                            </label>
-                          </div>
-                          <div class="col-md-4">
-                            <button
-                              type="button"
-                              class="btn btn-light mt-2 rounded-circle p-2"
-                              th:value="add-loading"
-                              th:name="add-loading"
+                                <div class="card-title mb-9 fw-semibold">
+                                  <span class="card-title">Завантаження</span>
+                                  <span
+                                    class="additional-values ms-2 me-2"
+                                  ></span>
+                                  <span class="delete-icon" title="Видалити">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      width="16"
+                                      height="16"
+                                      fill="black"
+                                      class="bi bi-trash"
+                                      viewBox="0 0 16 16"
+                                    >
+                                      <path
+                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"
+                                      ></path>
+                                      <path
+                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"
+                                      ></path>
+                                    </svg>
+                                  </span>
+                                </div>
+                              </button>
+                            </h2>
+                            <div
+                              id="id1"
+                              class="accordion-collapse collapse border-0 show"
                             >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="icon icon-tabler icon-tabler-plus"
-                                width="24"
-                                height="24"
-                                viewBox="0 0 24 24"
-                                stroke-width="2"
-                                stroke="currentColor"
-                                fill="none"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                              >
-                                <path
-                                  stroke="none"
-                                  d="M0 0h24v24H0z"
-                                  fill="none"
-                                />
-                                <path d="M12 5l0 14" />
-                                <path d="M5 12l14 0" />
-                              </svg>
-                            </button>
+                              <div class="accordion-body p-0">
+                                <!-- First Line: Select Input, One Input Date, One Input Time -->
+                                <div class="row mb-4">
+                                  <label hidden="hidden">
+                                    id
+                                    <input
+                                      type="number"
+                                      name="loadings[0].id"
+                                      class="form-control"
+                                      id="loadings0.id"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-3">
+                                    №
+                                    <input
+                                      type="number"
+                                      name="loadings[0].loadingNo"
+                                      class="form-control loading-no"
+                                      required=""
+                                      min="1"
+                                      id="loadings0.loadingNo"
+                                      value="1"
+                                    />
+                                  </label>
+
+                                  <label class="col-md-3">
+                                    Тип
+                                    <select
+                                      name="loadings[0].loadingType"
+                                      class="form-select loading-type"
+                                      required=""
+                                      id="loadings0.loadingType"
+                                    >
+                                      <option
+                                        value="SIMPLE_LOADING"
+                                        selected="selected"
+                                      >
+                                        Зав
+                                      </option>
+                                      <option value="COMPLEX_LOADING">
+                                        ЗавЗам
+                                      </option>
+                                      <option value="SIMPLE_UNLOADING">
+                                        Розв
+                                      </option>
+                                      <option value="COMPLEX_UNLOADING">
+                                        РозвРозм
+                                      </option>
+                                    </select>
+                                  </label>
+                                  <label class="col-md-3">
+                                    Дата
+                                    <input
+                                      type="date"
+                                      name="loadings[0].loadingDate"
+                                      class="form-control loading-date"
+                                      required=""
+                                      id="loadings0.loadingDate"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-3">
+                                    Час
+                                    <input
+                                      type="time"
+                                      name="loadings[0].loadingTime"
+                                      class="form-control loading-time"
+                                      required=""
+                                      id="loadings0.loadingTime"
+                                      value="09:00:00"
+                                    />
+                                  </label>
+                                </div>
+                                <!-- First Line: Select Input, One Input Date, One Input Time -->
+                                <div class="row mb-4">
+                                  <label class="col-md-12">
+                                    Пункт
+                                    <input
+                                      type="text"
+                                      size="50"
+                                      placeholder="Enter a location"
+                                      autocomplete="off"
+                                      runat="server"
+                                      class="form-control loading-time autocomplete-input pac-target-input"
+                                      required="required"
+                                    />
+                                  </label>
+                                </div>
+                                <!-- Second Line: One Input Text, One Select Input -->
+                                <div class="row mb-4">
+                                  <label class="col-md-4">
+                                    Місто
+                                    <input
+                                      type="text"
+                                      class="form-control loading-city city2"
+                                      name="loadings[0].loadingCity"
+                                      id="loadings0.loadingCity"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-4">
+                                    Країна
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingCountry"
+                                      class="form-control country"
+                                      id="loadings0.loadingCountry"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-4">
+                                    Область
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingRegion"
+                                      class="form-control region"
+                                      id="loadings0.loadingRegion"
+                                      value=""
+                                    />
+                                  </label>
+                                </div>
+                                <!-- Third Line: One Input Text, One Select Input -->
+                                <div class="row mb-4">
+                                  <label class="col-md-6">
+                                    Пошт. код
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingCityPostalIndex"
+                                      class="form-control postal_code"
+                                      id="loadings0.loadingCityPostalIndex"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-6">
+                                    Адреса
+                                    <input
+                                      type="text"
+                                      name="loadings[0].loadingAddress"
+                                      class="form-control"
+                                      id="loadings0.loadingAddress"
+                                      value=""
+                                    />
+                                  </label>
+                                </div>
+                                <!-- Forth Line: One Input Text, One Select Input -->
+                                <!-- Fifth Line: One Input Text, One Select Input -->
+                                <div class="row">
+                                  <label class="col-md-6">
+                                    Широта
+                                    <input
+                                      type="text"
+                                      class="form-control cityLat"
+                                      name="loadings[0].loadingLatitude"
+                                      id="loadings0.loadingLatitude"
+                                      value=""
+                                    />
+                                  </label>
+                                  <label class="col-md-6">
+                                    Довгота
+                                    <input
+                                      type="text"
+                                      class="form-control cityLng"
+                                      name="loadings[0].loadingLongitude"
+                                      id="loadings0.loadingLongitude"
+                                      value=""
+                                    />
+                                  </label>
+                                </div>
+                                <div class="col-md-4">
+                                  <button
+                                    type="button"
+                                    class="btn btn-light mt-2 rounded-circle p-2"
+                                    value="add-loading"
+                                    name="add-loading"
+                                    style="display: none"
+                                  >
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="icon icon-tabler icon-tabler-plus"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
+                                      fill="none"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                    >
+                                      <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                      ></path>
+                                      <path d="M12 5l0 14"></path>
+                                      <path d="M5 12l14 0"></path>
+                                    </svg>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1432,6 +1643,47 @@
           initializeAutocomplete(inputElement);
         });
       };
+    </script>
+    <script>
+      var accordionButtons = document.querySelectorAll('.accordion-button');
+      for (var i = 1; i < accordionButtons.length; i++) {
+        var button = accordionButtons[i];
+        var form = button.closest('.accordion-item');
+        const dib = form.querySelector('.accordion-collapse');
+
+        var loadingDateValue = form.querySelector('.loading-date').value;
+        var loadingCityValue = form.querySelector('.city2').value;
+        var loadingCountryValue = form.querySelector('.country').value;
+        if (loadingCityValue) {
+          dib.classList.remove('show');
+          button.classList.add('collapsed');
+          const span = button.querySelector('.additional-values');
+          const data = button.closest('.accordion-item');
+          const date = data.querySelector('.loading-date').value;
+          const city = data.querySelector('.city2').value;
+          const country = data.querySelector('.country').value;
+
+          span.innerHTML = `
+                <span>Дата: ${date},  Місто: ${city}, Країна: ${country}</span>
+            `;
+        }
+        button.addEventListener('click', function (event) {
+          var additionalValuesSpan =
+            event.delegateTarget.querySelector('.additional-values'); // Знаходимо span в межах цієї форми
+          if (event.delegateTarget.classList.contains('collapsed')) {
+            const data = event.target.closest('.accordion-item');
+            const date = data.querySelector('.loading-date').value;
+            const city = data.querySelector('.city2').value;
+            const country = data.querySelector('.country').value;
+
+            additionalValuesSpan.innerHTML = `
+                <span>Дата: ${date},  Місто: ${city}, Країна: ${country}</span>
+            `;
+          } else {
+            additionalValuesSpan.innerHTML = '';
+          }
+        });
+      }
     </script>
   </body>
 </html>

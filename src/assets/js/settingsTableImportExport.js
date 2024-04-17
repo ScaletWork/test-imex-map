@@ -3,6 +3,9 @@ const borderDriverCheckbox = document.getElementById('borderDriver');
 const tablesAll = document.querySelectorAll('table');
 const tables = document.querySelectorAll('tbody');
 const bordersCheck = document.getElementById('bordersCheck');
+const hideBtn = document.querySelector('.hide-all');
+const showBtn = document.querySelector('.show-all');
+const accordion = document.querySelectorAll('.accordion-table');
 // Отримання всіх стовбців
 const columns = [
   document.querySelectorAll('tr > *:nth-child(1)'),
@@ -174,3 +177,21 @@ function handleTypeTableCheckboxChange() {
     });
   }
 }
+hideBtn.addEventListener('click', () => {
+  accordion.forEach((accordionItem) => {
+    const bodyAccardeon = accordionItem.querySelector('.accordion-collapse');
+    const btnAccardeon = accordionItem.querySelector('.accordion-button');
+    btnAccardeon.classList.add('collapsed');
+    bodyAccardeon.classList.remove('show');
+    console.log(bodyAccardeon, btnAccardeon);
+  });
+});
+showBtn.addEventListener('click', () => {
+  accordion.forEach((accordionItem) => {
+    const bodyAccardeon = accordionItem.querySelector('.accordion-collapse');
+    const btnAccardeon = accordionItem.querySelector('.accordion-button');
+    btnAccardeon.classList.remove('collapsed');
+    bodyAccardeon.classList.add('show');
+    console.log(bodyAccardeon, btnAccardeon);
+  });
+});

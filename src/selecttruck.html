@@ -82,12 +82,12 @@
           display: none;
         }
       }
-      @media (min-width: 1400px) {
+      /* @media (min-width: 1400px) {
         .table-responsive {
           overflow-x: initial;
           -webkit-overflow-scrolling: initial;
         }
-      }
+      } */
       @media (min-width: 1200px) {
         .header {
           width: calc(100% - 100px) !important;
@@ -116,7 +116,7 @@
       data-header-position="fixed"
     >
       <!-- Sidebar Start -->
-      <aside class="left-sidebar background">
+      <aside class="left-sidebar background" style="z-index: 1100">
         <!-- Sidebar scroll-->
         <div>
           <div
@@ -159,6 +159,18 @@
                     <i class="ti ti-layout-dashboard"></i>
                   </span>
                   <span class="hide-menu">Імпорт-експорт</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./notebook.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-notebook"></i>
+                  </span>
+                  <span class="hide-menu">Зошит</span>
                 </a>
               </li>
             </ul>
@@ -456,7 +468,7 @@
                   </div>
                   <br />
                   <br />
-                  <div class="table table-responsive">
+                  <div class="table tcont">
                     <div
                       href="javascript:void(0)"
                       class="d-flex align-items-center gap-2 dropdown-item justify-content-end p-3"
@@ -474,7 +486,11 @@
                       class="table table-hover mb-0 align-middle bg-white"
                       id="myTable"
                     >
-                      <thead class="text-dark bg-light sticky-top">
+                      <thead
+                        class="text-dark bg-light sticky-top"
+                        id="th1"
+                        style="z-index: 13"
+                      >
                         <tr>
                           <th class="border-bottom-0">
                             <h6 class="fw-semibold mb-0">Екіпаж</h6>
@@ -2566,5 +2582,24 @@
         });
       }
     </script>
+    <!-- <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        const table = document.getElementById('myTable');
+        const tcont = document.querySelector('.zzz');
+        const observer = new ResizeObserver((entries) => {
+          for (let entry of entries) {
+            const { width } = entry.contentRect;
+            // console.log(width, tcont.clientWidth);
+            if (width > tcont.clientWidth) {
+              tcont.classList.add('table-responsive');
+            } else {
+              tcont.classList.remove('table-responsive');
+            }
+          }
+        });
+
+        observer.observe(table);
+      });
+    </script> -->
   </body>
 </html>

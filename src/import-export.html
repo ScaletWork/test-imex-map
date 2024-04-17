@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="background">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -163,6 +163,18 @@
                   <span class="hide-menu">Імпорт-експорт</span>
                 </a>
               </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./notebook.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-notebook"></i>
+                  </span>
+                  <span class="hide-menu">Зошит</span>
+                </a>
+              </li>
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
@@ -261,53 +273,80 @@
           <div class="form-group row">
             <div class="card w-100 background">
               <div class="card-body p-4">
-                <form style="margin-top: 50px">
-                  <div class="row mb-3">
-                    <div class="col-md-6">
-                      <input type="date" class="form-control" />
-                    </div>
-                    <div class="col-md-6">
-                      <input type="date" class="form-control" />
-                    </div>
-                  </div>
-                  <br />
-                  <div class="mb-3 form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" />
-                    <label class="form-check-label">Мої</label>
-                  </div>
-                  <div class="mb-3 form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" />
-                    <label class="form-check-label">Експорт</label>
-                  </div>
-                  <div class="mb-3 form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" />
-                    <label class="form-check-label">Імпорт</label>
-                  </div>
-                  <div class="mb-3 form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" />
-                    <label class="form-check-label">Україна</label>
-                  </div>
-                  <div class="mb-3 form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" />
-                    <label class="form-check-label">Європа</label>
-                  </div>
-                  <div class="mb-3 form-check form-check-inline">
-                    <input type="checkbox" class="form-check-input" />
-                    <label class="form-check-label">без Екіпажу</label>
-                  </div>
-
-                  <div class="card-body p-4 w">
-                    <button
-                      type="button"
-                      class="btn btn-light m-1"
-                      id="showModalBtn"
-                      data-bs-toggle="modal"
-                      data-bs-target="#filtersModal"
+                <div
+                  class="accordion"
+                  id="accordionFilters"
+                  style="margin-top: 50px"
+                >
+                  <div class="accordion-item border-0 background">
+                    <h2
+                      class="accordion-header fs-5 cursor-pointer"
+                      id="headingOne"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
                     >
-                      Додати фільтр
-                    </button>
+                      <i class="ti ti-filter p-2"></i>
+                      Фільтри
+                    </h2>
+                    <div
+                      id="collapseOne"
+                      class="accordion-collapse collapse show"
+                      aria-labelledby="headingOne"
+                      data-bs-parent="#accordionFilters"
+                    >
+                      <div class="accordion-body">
+                        <form style="margin-top: 50px">
+                          <div class="row mb-3">
+                            <div class="col-md-6">
+                              <input type="date" class="form-control" />
+                            </div>
+                            <div class="col-md-6">
+                              <input type="date" class="form-control" />
+                            </div>
+                          </div>
+                          <div class="mb-3 form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" />
+                            <label class="form-check-label">Мої</label>
+                          </div>
+                          <div class="mb-3 form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" />
+                            <label class="form-check-label">Експорт</label>
+                          </div>
+                          <div class="mb-3 form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" />
+                            <label class="form-check-label">Імпорт</label>
+                          </div>
+                          <div class="mb-3 form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" />
+                            <label class="form-check-label">Україна</label>
+                          </div>
+                          <div class="mb-3 form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" />
+                            <label class="form-check-label">Європа</label>
+                          </div>
+                          <div class="mb-3 form-check form-check-inline">
+                            <input type="checkbox" class="form-check-input" />
+                            <label class="form-check-label">без Екіпажу</label>
+                          </div>
+
+                          <div class="card-body p-4 w">
+                            <button
+                              type="button"
+                              class="btn btn-light m-1"
+                              id="showModalBtn"
+                              data-bs-toggle="modal"
+                              data-bs-target="#filtersModal"
+                            >
+                              Додати фільтр
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
                   </div>
-                </form>
+                </div>
               </div>
             </div>
           </div>
@@ -322,12 +361,24 @@
           </div>
           <!--  Row 2 -->
           <div class="row">
-            <div class="col-lg-12 d-flex align-items-stretch">
+            <div class="col-lg-12 d-flex align-items-stretch p-0">
               <div class="card w-100 background">
                 <div
                   href="javascript:void(0)"
                   class="d-flex align-items-center gap-2 dropdown-item justify-content-end p-3"
                 >
+                  <p
+                    class="mb-0 fs-3 d-flex align-items-center cursor-pointer hide-all"
+                  >
+                    Сховати все
+                    <i class="ti ti-eye-off fs-6 ms-2 cu"></i>
+                  </p>
+                  <p
+                    class="mb-0 fs-3 d-flex align-items-center cursor-pointer show-all"
+                  >
+                    Показати все
+                    <i class="ti ti-eye fs-6 ms-2 cu"></i>
+                  </p>
                   <p
                     class="mb-0 fs-3 d-flex align-items-center cursor-pointer"
                     data-bs-toggle="modal"
@@ -337,23 +388,55 @@
                     <i class="ti ti-settings fs-6 ms-2 cu"></i>
                   </p>
                 </div>
-                <div class="card-body p-4">
-                  <div class="accordion">
+                <div
+                  class="card-body p-0 pt-0 pb-0 d-flex flex-wrap justify-content-between"
+                >
+                  <div
+                    class="accordion accordion-table"
+                    style="width: calc(100% - 45px)"
+                  >
                     <div class="accordion-item">
-                      <h2 class="accordion-header">
+                      <h2 class="accordion-header d-flex background">
+                        <span class="card-title fw-semibold p-3 m-0 ms-3">
+                          20.12.2023
+                        </span>
+                        <form action="/transportation-details/add" method="get">
+                          <button
+                            type="submit"
+                            class="btn fs-5 p-1 mt-2"
+                            style="border-radius: 50%"
+                            data-bs-trigger="hover"
+                            data-bs-toggle="popover"
+                            data-bs-placement="top"
+                            data-bs-content="Створити нове замовлення"
+                          >
+                            <i class="ti ti-truck fs-7 text-dark"></i>
+                          </button>
+                        </form>
+                        <form
+                          action="/transportation-details/empty"
+                          method="get"
+                        >
+                          <button
+                            type="submit"
+                            class="btn fs-5 p-1 ms-4 mt-2"
+                            style="border-radius: 50%"
+                            data-bs-trigger="hover"
+                            data-bs-toggle="popover"
+                            data-bs-placement="top"
+                            data-bs-content="Створити пусту подачу"
+                          >
+                            <i class="ti ti-wash-dry fs-7 text-dark"></i>
+                          </button>
+                        </form>
                         <button
-                          class="accordion-button"
-                          style="background-color: white"
+                          class="background accordion-button ps-0 pt-0 pb-0 shadow-none"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#id1"
                           aria-expanded="true"
                           aria-controls="id1"
-                        >
-                          <span class="card-title fw-semibold p-2">
-                            20.12.2023
-                          </span>
-                        </button>
+                        ></button>
                       </h2>
                       <div id="id1" class="accordion-collapse collapse show">
                         <div class="accordion-body p-0">
@@ -486,7 +569,17 @@
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
-                                    <span>+10 +12 завантаження о 10:00</span>
+                                    <span
+                                      >+10 +12
+                                      <input
+                                        value="завантаження о 10:00"
+                                        type="text"
+                                        style="
+                                          background-color: inherit;
+                                          outline: none;
+                                          border: none;
+                                        "
+                                    /></span>
                                   </td>
                                   <td
                                     class="border border-1 border-dark-subtle cursor-pointer"
@@ -1781,8 +1874,8 @@
                       </div>
                     </div>
                   </div>
-                  <div class="mt-3 coment-btn">
-                    <button class="btn">
+                  <div class="coment-btn w-20">
+                    <button class="btn p-0 pt-3 m-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -1806,23 +1899,55 @@
                     </button>
                   </div>
                 </div>
-                <div class="card-body p-4">
-                  <div class="accordion">
+                <div
+                  class="card-body p-0 pt-0 pb-0 d-flex flex-wrap justify-content-between"
+                >
+                  <div
+                    class="accordion accordion-table"
+                    style="width: calc(100% - 45px)"
+                  >
                     <div class="accordion-item">
-                      <h2 class="accordion-header">
+                      <h2 class="accordion-header d-flex background">
+                        <span class="card-title fw-semibold p-3 m-0 ms-3">
+                          20.12.2023
+                        </span>
+                        <form action="/transportation-details/add" method="get">
+                          <button
+                            type="submit"
+                            class="btn fs-5 p-1 mt-2"
+                            style="border-radius: 50%"
+                            data-bs-trigger="hover"
+                            data-bs-toggle="popover"
+                            data-bs-placement="top"
+                            data-bs-content="Створити нове замовлення"
+                          >
+                            <i class="ti ti-truck fs-7 text-dark"></i>
+                          </button>
+                        </form>
+                        <form
+                          action="/transportation-details/empty"
+                          method="get"
+                        >
+                          <button
+                            type="submit"
+                            class="btn fs-5 p-1 ms-4 mt-2"
+                            style="border-radius: 50%"
+                            data-bs-trigger="hover"
+                            data-bs-toggle="popover"
+                            data-bs-placement="top"
+                            data-bs-content="Створити пусту подачу"
+                          >
+                            <i class="ti ti-wash-dry fs-7 text-dark"></i>
+                          </button>
+                        </form>
                         <button
-                          class="accordion-button"
-                          style="background-color: white"
+                          class="background accordion-button ps-0 pt-0 pb-0 shadow-none"
                           type="button"
                           data-bs-toggle="collapse"
                           data-bs-target="#id2"
                           aria-expanded="true"
                           aria-controls="id2"
-                        >
-                          <span class="card-title fw-semibold p-2">
-                            20.12.2023
-                          </span>
-                        </button>
+                        ></button>
                       </h2>
                       <div id="id2" class="accordion-collapse collapse show">
                         <div class="accordion-body p-0">
@@ -1955,7 +2080,17 @@
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
-                                    <span>+10 +12 завантаження о 10:00</span>
+                                    <span
+                                      >+10 +12
+                                      <input
+                                        value="завантаження о 10:00"
+                                        type="text"
+                                        style="
+                                          background-color: inherit;
+                                          outline: none;
+                                          border: none;
+                                        "
+                                    /></span>
                                   </td>
                                   <td
                                     class="border border-1 border-dark-subtle cursor-pointer"
@@ -3250,8 +3385,1519 @@
                       </div>
                     </div>
                   </div>
-                  <div class="mt-3 coment-btn">
-                    <button class="btn">
+                  <div class="coment-btn w-20">
+                    <button class="btn p-0 pt-3 m-0">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-file-earmark-plus"
+                        style="margin-right: 10px"
+                        viewBox="0 0 16 16"
+                        data-bs-trigger="hover"
+                        data-bs-toggle="popover"
+                        data-bs-placement="right"
+                        data-bs-content="Додати потреби"
+                      >
+                        <path
+                          d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5"
+                        />
+                        <path
+                          d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card-body p-0 pt-0 pb-0 d-flex flex-wrap justify-content-between"
+                >
+                  <div
+                    class="accordion accordion-table"
+                    style="width: calc(100% - 45px)"
+                  >
+                    <div class="accordion-item">
+                      <h2 class="accordion-header d-flex background">
+                        <span class="card-title fw-semibold p-3 m-0 ms-3">
+                          20.12.2023
+                        </span>
+                        <form action="/transportation-details/add" method="get">
+                          <button
+                            type="submit"
+                            class="btn fs-5 p-1 mt-2"
+                            style="border-radius: 50%"
+                            data-bs-trigger="hover"
+                            data-bs-toggle="popover"
+                            data-bs-placement="top"
+                            data-bs-content="Створити нове замовлення"
+                          >
+                            <i class="ti ti-truck fs-7 text-dark"></i>
+                          </button>
+                        </form>
+                        <form
+                          action="/transportation-details/empty"
+                          method="get"
+                        >
+                          <button
+                            type="submit"
+                            class="btn fs-5 p-1 ms-4 mt-2"
+                            style="border-radius: 50%"
+                            data-bs-trigger="hover"
+                            data-bs-toggle="popover"
+                            data-bs-placement="top"
+                            data-bs-content="Створити пусту подачу"
+                          >
+                            <i class="ti ti-wash-dry fs-7 text-dark"></i>
+                          </button>
+                        </form>
+                        <button
+                          class="background accordion-button ps-0 pt-0 pb-0 shadow-none"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#id4"
+                          aria-expanded="true"
+                          aria-controls="id4"
+                        ></button>
+                      </h2>
+                      <div id="id4" class="accordion-collapse collapse show">
+                        <div class="accordion-body p-0">
+                          <div class="table-responsive mt-3">
+                            <table
+                              class="table table-sm text-nowrap mb-0 align-middle"
+                              id="your-table-id"
+                            >
+                              <thead>
+                                <tr>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th></th>
+                                  <th class="text-center">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="icon icon-tabler icon-tabler-pencil"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
+                                      fill="none"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      data-bs-trigger="hover"
+                                      data-bs-toggle="popover"
+                                      data-bs-placement="top"
+                                      data-bs-content="Вибір екіпажу"
+                                    >
+                                      <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                      />
+                                      <path
+                                        d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"
+                                      />
+                                      <path d="M13.5 6.5l4 4" />
+                                    </svg>
+                                  </th>
+                                  <th class="text-center">
+                                    <svg
+                                      xmlns="http://www.w3.org/2000/svg"
+                                      class="icon icon-tabler icon-tabler-pencil"
+                                      width="24"
+                                      height="24"
+                                      viewBox="0 0 24 24"
+                                      stroke-width="2"
+                                      stroke="currentColor"
+                                      fill="none"
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      data-bs-trigger="hover"
+                                      data-bs-toggle="popover"
+                                      data-bs-placement="top"
+                                      data-bs-content="Додати примітки"
+                                    >
+                                      <path
+                                        stroke="none"
+                                        d="M0 0h24v24H0z"
+                                        fill="none"
+                                      />
+                                      <path
+                                        d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4"
+                                      />
+                                      <path d="M13.5 6.5l4 4" />
+                                    </svg>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody style="color: black">
+                                <tr style="background-color: #d4ace1">
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">
+                                      1
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 100 100"
+                                        style="width: 25px; height: 25px"
+                                      >
+                                        <text
+                                          x="5"
+                                          y="55"
+                                          font-family="Arial"
+                                          font-size="50"
+                                          font-weight="bold"
+                                          fill="red"
+                                        >
+                                          D
+                                        </text>
+                                        <text
+                                          x="37"
+                                          y="70"
+                                          font-family="Arial"
+                                          font-size="50"
+                                          font-weight="bold"
+                                          fill="red"
+                                        >
+                                          R
+                                        </text>
+                                      </svg>
+                                    </h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-1">Berlin, DE - Київ, UA</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Fererro, шоколад</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>реф</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span
+                                      >+10 +12
+                                      <input
+                                        value="завантаження о 10:00"
+                                        type="text"
+                                        style="
+                                          background-color: inherit;
+                                          outline: none;
+                                          border: none;
+                                        "
+                                    /></span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle cursor-pointer"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <input
+                                      type="text"
+                                      style="
+                                        background-color: inherit;
+                                        outline: none;
+                                        border: none;
+                                      "
+                                    />
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.175);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-1">
+                                      2
+                                      <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 100 100"
+                                        style="width: 25px; height: 25px"
+                                      >
+                                        <text
+                                          x="5"
+                                          y="55"
+                                          font-family="Arial"
+                                          font-size="50"
+                                          font-weight="bold"
+                                          fill="blue"
+                                        >
+                                          D
+                                        </text>
+                                        <text
+                                          x="37"
+                                          y="70"
+                                          font-family="Arial"
+                                          font-size="50"
+                                          font-weight="bold"
+                                          fill="blue"
+                                        >
+                                          R
+                                        </text>
+                                      </svg>
+                                    </h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Ладижин, UA - London, GB</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">МХП, курка</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>реф</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="mb-1">+4 +10</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    11546 Михно
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <input
+                                      type="text"
+                                      style="
+                                        background-color: inherit;
+                                        outline: none;
+                                        border: none;
+                                      "
+                                    />
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.3);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">3</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Мілан, IT - Oslo, SE</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    відміна
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <input
+                                      type="text"
+                                      style="
+                                        background-color: inherit;
+                                        outline: none;
+                                        border: none;
+                                      "
+                                    />
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 205, 123, 0.5);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">4</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> завантаження о
+                                    13:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 145, 255, 0.35);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">5</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Київ, UA - Львів, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    перенесено на 25.01
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgb(0, 145, 255, 0.15);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">5</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Київ, UA - Львів, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    перенесено на 25.01
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">14</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> +12 +20
+                                    завантаження о 15:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    без екіпажу
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(255, 0, 0, 0.135);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">6</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Львів, UA - Одеса, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Комбінат, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="bborder border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  ></td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    без екіпажу
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    проблема з вантажем
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="background-color: rgb(203, 242, 155)"
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-1">7</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="mb-1"
+                                      >Berlin, DE - Київ, UA
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Fererro, шоколад</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>реф</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>+10 +12 завантаження о 10:00</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(255, 0, 0, 0.553);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-1">8</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Ладижин, UA - London, GB</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">МХП, курка</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>реф</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="mb-1">+4 +10</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    11546 Михно
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>ЕКМТ</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.3);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">9</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Мілан, IT - Oslo, SE</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    відміна
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.3);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">10</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Мілан, IT - Oslo, SE</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    відміна
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.3);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">11</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Мілан, IT - Oslo, SE</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    відміна
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.3);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">12</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Мілан, IT - Oslo, SE</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    відміна
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 205, 123, 0.5);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">13</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> завантаження о
+                                    13:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">14</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> +12 +20
+                                    завантаження о 15:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    без екіпажу
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 205, 123, 0.5);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">15</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> завантаження о
+                                    13:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 205, 123, 0.5);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">16</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> завантаження о
+                                    13:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 205, 123, 0.5);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">17</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> завантаження о
+                                    13:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.3);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">18</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Мілан, IT - Oslo, SE</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    відміна
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 205, 123, 0.5);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">19</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <font color="red">ADR</font> завантаження о
+                                    13:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 205, 123, 0.5);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">20</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Madrid, ES - Житомир, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class=""> Гансек тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span style="color: red">ADR</span>
+                                    завантаження о 13:30
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>можливо на 21.12</span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(122, 0, 163, 0.325);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-1">21</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="mb-1"
+                                      >Berlin, DE - Київ, UA
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Fererro, шоколад</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>реф</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>+10 +12 завантаження о 10:00</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(122, 0, 163, 0.325);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-1">22</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="mb-1"
+                                      >Berlin, DE - Київ, UA
+                                    </span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Fererro, шоколад</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>реф</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Антон Улицький</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>+10 +12 завантаження о 10:00</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    3159 Сулько
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 145, 255, 0.35);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">23</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Київ, UA - Львів, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    перенесено на 25.01
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 145, 255, 0.35);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">24</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Київ, UA - Львів, UA</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    перенесено на 25.01
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span></span>
+                                  </td>
+                                </tr>
+                                <tr
+                                  style="
+                                    background-color: rgba(0, 255, 153, 0.3);
+                                  "
+                                >
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="mb-0">25</h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>Мілан, IT - Oslo, SE</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span class="">Ганекс, тнп</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <span>тент</span>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <p class="mb-0">Оксана Бойко</p>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                    onclick="redirectToLink1()"
+                                  >
+                                    відміна
+                                  </td>
+                                  <td
+                                    class="border border-1 border-dark-subtle"
+                                  >
+                                    <h6 class="fw-semibold mb-1"></h6>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="coment-btn w-20">
+                    <button class="btn p-0 pt-3 m-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"

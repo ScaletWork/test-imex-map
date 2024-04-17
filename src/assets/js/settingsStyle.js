@@ -6,7 +6,6 @@ const radioButtonsFw = document.querySelectorAll(
 );
 
 const content = document.querySelectorAll('.container-fluid');
-console.log(content);
 const backgroundsElements = document.querySelectorAll('.background');
 const backgroundVariants = document.getElementsByName('background-variant');
 
@@ -74,7 +73,6 @@ function applyInitialBackgroundClass() {
   });
 }
 function applySelectedBackgroundClass(event) {
-  console.log(event.target);
   backgroundsElements.forEach(function (element) {
     element.classList.remove(
       'background-blue',

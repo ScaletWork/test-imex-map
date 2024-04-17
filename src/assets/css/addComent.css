@@ -1,7 +1,7 @@
 .text-field {
   background-color: none;
   outline: none;
-  width: 80%;
+  width: 90%;
   margin-right: 5%;
   border: 1px solid black;
   border-radius: 2px;
@@ -12,4 +12,5 @@
   padding: 10px; */
   /* border-radius: 20px; */
   padding: 5px;
+  width: 95%;
 }

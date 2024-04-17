@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const parentBlock = this.closest('.coment-btn');
 
     // Вставляємо новий блок перед батьківським блоком
-    parentBlock.parentNode.insertBefore(fieldBlock, parentBlock);
-
+    // parentBlock.parentNode.insertBefore(fieldBlock, parentBlock);
+    parentBlock.insertAdjacentElement('afterend', fieldBlock);
     // Обробник події для кнопки видалення
     deleteIcon.addEventListener('click', function () {
       fieldBlock.remove();

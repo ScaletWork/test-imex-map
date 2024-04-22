@@ -311,7 +311,7 @@
                     <div
                       class="d-sm-flex d-block align-items-center justify-content-between mb-9"
                     >
-                      <div class="mb-5 mb-sm-5">
+                      <div class="mb-5 mb-sm-5 fle">
                         <h5 class="card-title fw-semibold">
                           Нове завантаження
                         </h5>
@@ -873,7 +873,7 @@
                     <!-- Eighth Line: One Input Number, One Input Select, One Checkbox -->
                     <div class="" id="loadings">
                       <div class="row" th:each="loading, i: *{loadings}">
-                        <div class="accordion" style="max-width: 50%">
+                        <div class="accordion col-md-6">
                           <div
                             class="accordion-item border-0 card p-4 background col-md-6 loading-form w-100"
                           >
@@ -1118,7 +1118,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="accordion" style="max-width: 50%">
+                        <div class="accordion col-md-6">
                           <div
                             class="w-100 card p-4 col-md-6 loading-form accordion-item background border-0"
                           >
@@ -1664,7 +1664,7 @@
           const country = data.querySelector('.country').value;
 
           span.innerHTML = `
-                <span>Дата: ${date},  Місто: ${city}, Країна: ${country}</span>
+                <span> ${date} ${city}, ${country}</span>
             `;
         }
         button.addEventListener('click', function (event) {
@@ -1677,7 +1677,7 @@
             const country = data.querySelector('.country').value;
 
             additionalValuesSpan.innerHTML = `
-                <span>Дата: ${date},  Місто: ${city}, Країна: ${country}</span>
+                <span> ${date} ${city}, ${country}</span>
             `;
           } else {
             additionalValuesSpan.innerHTML = '';

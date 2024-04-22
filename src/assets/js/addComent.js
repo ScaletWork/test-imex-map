@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Знаходження батьківського блоку
     const parentBlock = this.closest('.coment-btn');
 
+    console.log(parentBlock);
     // Вставляємо новий блок перед батьківським блоком
     // parentBlock.parentNode.insertBefore(fieldBlock, parentBlock);
     parentBlock.insertAdjacentElement('afterend', fieldBlock);

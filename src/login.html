@@ -10,6 +10,7 @@
       href="assets/images/logos/favicon.png"
     />
     <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
   </head>
 
   <body>
@@ -41,7 +42,7 @@
                     />
                   </div>
 
-                  <form>
+                  <form id="login-form">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label"
                         >Логін</label
@@ -64,15 +65,22 @@
                       />
                     </div>
                     <br />
-                    <a
+                    <input
+                      type="submit"
+                      class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
+                      id="login-btn"
+                    />
+                    <!-- <a
+                      id="login-btn"
                       href="./import-export.html"
                       class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
                       >Зайти в систему</a
-                    >
+                    > -->
                     <div
                       class="d-flex align-items-center justify-content-center"
                     ></div>
                   </form>
+                  <div class="loader"></div>
                 </div>
               </div>
             </div>
@@ -82,5 +90,6 @@
     </div>
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/login.js"></script>
   </body>
 </html>

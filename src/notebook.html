@@ -80,9 +80,17 @@
         width: 100%;
         margin: auto;
       }
+      .other-card-col {
+        position: absolute;
+        right: -250px;
+        width: 250px;
+        top: 0;
+      }
       .container-card {
         columns: 7 200px;
-        /* max-height: 80vh; */
+        width: calc(100% - 250px);
+        margin-left: 0;
+        position: relative;
       }
       .inactive {
         border: 1px solid red;
@@ -187,10 +195,18 @@
           min-width: 200px; */
         }
       }
-      @media (max-width: 650px) {
-        .card-col {
-          /* width: calc(50% - 0.5rem);
-          min-width: 200px; */
+      @media (max-width: 500px) {
+        .other-card-col {
+          position: static;
+          right: -250px;
+          width: auto;
+          top: 0;
+        }
+        .container-card {
+          columns: 7 200px;
+          width: 100%;
+          margin-left: 0;
+          position: relative;
         }
       }
       @media (max-width: 450px) {
@@ -425,11 +441,26 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid background gap-2 container-card">
-          <div class="card card-col mb-2">
+        <div class="container-fluid background gap-2 container-card accordion">
+          <div class="card card-col mb-2 accordion-item">
             <div
-              class="card-header fw-bolder justify-content-between d-flex p-3"
+              class="card-header fw-bolder justify-content-between d-flex p-3 accordion-header"
+              style="background-color: #b7b7b7"
             >
+              <button
+                style="
+                  padding: 0;
+                  width: 20px;
+                  background-color: transparent;
+                  box-shadow: none;
+                "
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              ></button>
               <span class="fs-3 text-dark">DE / AT / CH</span>
               <span class="fs-3 text-dark">25</span>
               <div class="dropstart cursor-pointer">
@@ -444,7 +475,10 @@
                 </ul>
               </div>
             </div>
-            <div class="card-body p-2 card-body-col">
+            <div
+              id="collapseOne"
+              class="card-body p-2 card-body-col accordion-collapse collapse show"
+            >
               <div class="card w-100 card-item mb-1 inactive">
                 <div class="card-body p-2 row">
                   <div
@@ -3503,10 +3537,25 @@
               </div>
             </div>
           </div>
-          <div class="card card-col mb-2">
+          <div class="card card-col mb-2 accordion-item">
             <div
-              class="card-header fw-bolder justify-content-between d-flex p-3"
+              class="accordion-header card-header fw-bolder justify-content-between d-flex p-3"
+              style="background-color: #b7b7b7"
             >
+              <button
+                style="
+                  padding: 0;
+                  width: 20px;
+                  background-color: transparent;
+                  box-shadow: none;
+                "
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="true"
+                aria-controls="collapseTwo"
+              ></button>
               <span class="fs-3 text-dark">BE / NL</span>
               <span class="fs-3 text-dark">6</span>
               <div class="dropstart cursor-pointer">
@@ -3521,7 +3570,10 @@
                 </ul>
               </div>
             </div>
-            <div class="card-body p-2 card-body-col">
+            <div
+              id="collapseTwo"
+              class="card-body p-2 card-body-col accordion-collapse collapse show"
+            >
               <div class="card w-100 card-item mb-1">
                 <div class="card-body p-2 row">
                   <div
@@ -4268,12 +4320,27 @@
               </div>
             </div>
           </div>
-          <div class="card card-col mb-2">
+          <div class="card card-col mb-2 accordion-item other-card-col">
             <div
-              class="card-header fw-bolder justify-content-between d-flex p-3"
+              class="card-header fw-bolder justify-content-between d-flex p-3 accordion-header"
+              style="background-color: #b7b7b7"
             >
-              <span class="fs-3 text-dark">FR</span>
-              <span class="fs-3 text-dark">1</span>
+              <button
+                style="
+                  padding: 0;
+                  width: 20px;
+                  background-color: transparent;
+                  box-shadow: none;
+                "
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="true"
+                aria-controls="collapseThree"
+              ></button>
+              <span class="fs-3 text-dark">Other</span>
+              <span class="fs-3 text-dark">25</span>
               <div class="dropstart cursor-pointer">
                 <i
                   class="ti ti-dots fs-5"
@@ -4286,842 +4353,11 @@
                 </ul>
               </div>
             </div>
-            <div class="card-body p-2 card-body-col">
-              <div class="card w-100 card-item mb-1">
-                <div class="card-body p-2 row">
-                  <div
-                    class="col-2 d-flex align-items-center p-0 justify-content-center"
-                  >
-                    <span class="fs-3">1</span>
-                  </div>
-                  <div class="col-8 ps-0">
-                    <div class="d-flex justify-content-between">
-                      <div>
-                        <span class="fw-bolder">DE</span> - <span> 11 </span>
-                      </div>
-
-                      <span>AA1937XX</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <span>07/10</span
-                      ><span>
-                        <i class="ti ti-alert-triangle fs-5" style="color: red"
-                          ><i
-                            class="ti ti-number-1 fs-5"
-                            style="margin-left: -7px"
-                          ></i
-                        ></i>
-                        <i class="ti ti-truck fs-5" style="color: blue"></i>
-                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
-                        <i
-                          class="ti ti-box-multiple-2 fs-5"
-                          style="color: darkgoldenrod"
-                        ></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-2 p-1">
-                    <div
-                      class="dropend cursor-pointer m-auto"
-                      style="display: inline-block"
-                    >
-                      <i
-                        class="ti ti-checklist fs-6"
-                        onclick="checkDropdownPosition(this)"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        data-bs-display="static"
-                      ></i>
-                      <div
-                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
-                        style="break-inside: avoid-column"
-                      >
-                        <table class="table border-1 border-dark table-sm">
-                          <thead>
-                            <tr class="background-darkgrey">
-                              <th scope="col">Дата, час</th>
-                              <th scope="col">Стан</th>
-                              <th scope="col">Місцезнаходження</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card card-col mb-2">
             <div
-              class="card-header fw-bolder justify-content-between d-flex p-3"
+              id="collapseThree"
+              class="card-body p-2 card-body-col accordion-collapse collapse show"
             >
-              <span class="fs-3 text-dark">PL</span>
-              <span class="fs-3 text-dark">2</span>
-              <div class="dropstart cursor-pointer">
-                <i
-                  class="ti ti-dots fs-5"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                ></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Редагувати</a></li>
-                  <li><a class="dropdown-item" href="#">Видалити</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body p-2 card-body-col">
-              <div class="card w-100 card-item mb-1">
-                <div class="card-body p-2 row">
-                  <div
-                    class="col-2 d-flex align-items-center p-0 justify-content-center"
-                  >
-                    <span class="fs-3">1</span>
-                  </div>
-                  <div class="col-8 ps-0">
-                    <div class="d-flex justify-content-between">
-                      <div>
-                        <span class="fw-bolder">DE</span> - <span> 11 </span>
-                      </div>
-
-                      <span>AA1937XX</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <span>07/10</span
-                      ><span>
-                        <i class="ti ti-alert-triangle fs-5" style="color: red"
-                          ><i
-                            class="ti ti-number-1 fs-5"
-                            style="margin-left: -7px"
-                          ></i
-                        ></i>
-                        <i class="ti ti-truck fs-5" style="color: blue"></i>
-                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
-                        <i
-                          class="ti ti-box-multiple-2 fs-5"
-                          style="color: darkgoldenrod"
-                        ></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-2 p-1">
-                    <div
-                      class="dropend cursor-pointer m-auto"
-                      style="display: inline-block"
-                    >
-                      <i
-                        class="ti ti-checklist fs-6"
-                        onclick="checkDropdownPosition(this)"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        data-bs-display="static"
-                      ></i>
-                      <div
-                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
-                        style="break-inside: avoid-column"
-                      >
-                        <table class="table border-1 border-dark table-sm">
-                          <thead>
-                            <tr class="background-darkgrey">
-                              <th scope="col">Дата, час</th>
-                              <th scope="col">Стан</th>
-                              <th scope="col">Місцезнаходження</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card w-100 card-item mb-1">
-                <div class="card-body p-2 row">
-                  <div
-                    class="col-2 d-flex align-items-center p-0 justify-content-center"
-                  >
-                    <span class="fs-3">2</span>
-                  </div>
-                  <div class="col-8 ps-0">
-                    <div class="d-flex justify-content-between">
-                      <div>
-                        <span class="fw-bolder">DE</span> - <span> 11 </span>
-                      </div>
-
-                      <span>AA1937XX</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <span>07/10</span
-                      ><span>
-                        <i class="ti ti-alert-triangle fs-5" style="color: red"
-                          ><i
-                            class="ti ti-number-1 fs-5"
-                            style="margin-left: -7px"
-                          ></i
-                        ></i>
-                        <i class="ti ti-truck fs-5" style="color: blue"></i>
-                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
-                        <i
-                          class="ti ti-box-multiple-2 fs-5"
-                          style="color: darkgoldenrod"
-                        ></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-2 p-1">
-                    <div
-                      class="dropend cursor-pointer m-auto"
-                      style="display: inline-block"
-                    >
-                      <i
-                        class="ti ti-checklist fs-6"
-                        onclick="checkDropdownPosition(this)"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        data-bs-display="static"
-                      ></i>
-                      <div
-                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
-                        style="break-inside: avoid-column"
-                      >
-                        <table class="table border-1 border-dark table-sm">
-                          <thead>
-                            <tr class="background-darkgrey">
-                              <th scope="col">Дата, час</th>
-                              <th scope="col">Стан</th>
-                              <th scope="col">Місцезнаходження</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card card-col mb-2">
-            <div
-              class="card-header fw-bolder justify-content-between d-flex p-3"
-            >
-              <span class="fs-3 text-dark">RO</span>
-              <span class="fs-3 text-dark">1</span>
-              <div class="dropstart cursor-pointer">
-                <i
-                  class="ti ti-dots fs-5"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                ></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Редагувати</a></li>
-                  <li><a class="dropdown-item" href="#">Видалити</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body p-2 card-body-col">
-              <div class="card w-100 card-item mb-1">
-                <div class="card-body p-2 row">
-                  <div
-                    class="col-2 d-flex align-items-center p-0 justify-content-center"
-                  >
-                    <span class="fs-3">1</span>
-                  </div>
-                  <div class="col-8 ps-0">
-                    <div class="d-flex justify-content-between">
-                      <div>
-                        <span class="fw-bolder">DE</span> - <span> 11 </span>
-                      </div>
-
-                      <span>AA1937XX</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <span>07/10</span
-                      ><span>
-                        <i class="ti ti-alert-triangle fs-5" style="color: red"
-                          ><i
-                            class="ti ti-number-1 fs-5"
-                            style="margin-left: -7px"
-                          ></i
-                        ></i>
-                        <i class="ti ti-truck fs-5" style="color: blue"></i>
-                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
-                        <i
-                          class="ti ti-box-multiple-2 fs-5"
-                          style="color: darkgoldenrod"
-                        ></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-2 p-1">
-                    <div
-                      class="dropend cursor-pointer m-auto"
-                      style="display: inline-block"
-                    >
-                      <i
-                        class="ti ti-checklist fs-6"
-                        onclick="checkDropdownPosition(this)"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        data-bs-display="static"
-                      ></i>
-                      <div
-                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
-                        style="break-inside: avoid-column"
-                      >
-                        <table class="table border-1 border-dark table-sm">
-                          <thead>
-                            <tr class="background-darkgrey">
-                              <th scope="col">Дата, час</th>
-                              <th scope="col">Стан</th>
-                              <th scope="col">Місцезнаходження</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card card-col mb-2">
-            <div
-              class="card-header fw-bolder justify-content-between d-flex p-3"
-            >
-              <span class="fs-3 text-dark">GB</span>
-              <span class="fs-3 text-dark">2</span>
-              <div class="dropstart cursor-pointer">
-                <i
-                  class="ti ti-dots fs-5"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                ></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Редагувати</a></li>
-                  <li><a class="dropdown-item" href="#">Видалити</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body p-2 card-body-col">
-              <div class="card w-100 card-item mb-1">
-                <div class="card-body p-2 row">
-                  <div
-                    class="col-2 d-flex align-items-center p-0 justify-content-center"
-                  >
-                    <span class="fs-3">1</span>
-                  </div>
-                  <div class="col-8 ps-0">
-                    <div class="d-flex justify-content-between">
-                      <div>
-                        <span class="fw-bolder">DE</span> - <span> 11 </span>
-                      </div>
-
-                      <span>AA1937XX</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <span>07/10</span
-                      ><span>
-                        <i class="ti ti-alert-triangle fs-5" style="color: red"
-                          ><i
-                            class="ti ti-number-1 fs-5"
-                            style="margin-left: -7px"
-                          ></i
-                        ></i>
-                        <i class="ti ti-truck fs-5" style="color: blue"></i>
-                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
-                        <i
-                          class="ti ti-box-multiple-2 fs-5"
-                          style="color: darkgoldenrod"
-                        ></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-2 p-1">
-                    <div
-                      class="dropend cursor-pointer m-auto"
-                      style="display: inline-block"
-                    >
-                      <i
-                        class="ti ti-checklist fs-6"
-                        onclick="checkDropdownPosition(this)"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        data-bs-display="static"
-                      ></i>
-                      <div
-                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
-                        style="break-inside: avoid-column"
-                      >
-                        <table class="table border-1 border-dark table-sm">
-                          <thead>
-                            <tr class="background-darkgrey">
-                              <th scope="col">Дата, час</th>
-                              <th scope="col">Стан</th>
-                              <th scope="col">Місцезнаходження</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card w-100 card-item mb-1">
-                <div class="card-body p-2 row">
-                  <div
-                    class="col-2 d-flex align-items-center p-0 justify-content-center"
-                  >
-                    <span class="fs-3">2</span>
-                  </div>
-                  <div class="col-8 ps-0">
-                    <div class="d-flex justify-content-between">
-                      <div>
-                        <span class="fw-bolder">DE</span> - <span> 11 </span>
-                      </div>
-
-                      <span>AA1937XX</span>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                      <span>07/10</span
-                      ><span>
-                        <i class="ti ti-alert-triangle fs-5" style="color: red"
-                          ><i
-                            class="ti ti-number-1 fs-5"
-                            style="margin-left: -7px"
-                          ></i
-                        ></i>
-                        <i class="ti ti-truck fs-5" style="color: blue"></i>
-                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
-                        <i
-                          class="ti ti-box-multiple-2 fs-5"
-                          style="color: darkgoldenrod"
-                        ></i>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="col-2 p-1">
-                    <div
-                      class="dropend cursor-pointer m-auto"
-                      style="display: inline-block"
-                    >
-                      <i
-                        class="ti ti-checklist fs-6"
-                        onclick="checkDropdownPosition(this)"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                        data-bs-display="static"
-                      ></i>
-                      <div
-                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
-                        style="break-inside: avoid-column"
-                      >
-                        <table class="table border-1 border-dark table-sm">
-                          <thead>
-                            <tr class="background-darkgrey">
-                              <th scope="col">Дата, час</th>
-                              <th scope="col">Стан</th>
-                              <th scope="col">Місцезнаходження</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                            <tr>
-                              <td>09.04.2024 14:22</td>
-                              <td>Стоянка</td>
-                              <td>PL Lebork, кв. 84</td>
-                            </tr>
-                            <tr>
-                              <td>04.04.2024 15:35</td>
-                              <td>Подача</td>
-                              <td>MD Otaci</td>
-                            </tr>
-                            <tr>
-                              <td>26.03.2024 14:22</td>
-                              <td>Розмитнення</td>
-                              <td>UA Петропавлівська Борщагівка</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card card-col mb-2">
-            <div
-              class="card-header fw-bolder justify-content-between d-flex p-3"
-            >
-              <span class="fs-3 text-dark">Lees</span>
-              <span class="fs-3 text-dark">5</span>
-              <div class="dropstart cursor-pointer">
-                <i
-                  class="ti ti-dots fs-5"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                ></i>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Редагувати</a></li>
-                  <li><a class="dropdown-item" href="#">Видалити</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="card-body p-2 card-body-col">
-              <div class="card w-100 card-item mb-1">
+              <div class="card w-100 card-item mb-1 inactive">
                 <div class="card-body p-2 row">
                   <div
                     class="col-2 d-flex align-items-center p-0 justify-content-center"
@@ -5263,17 +4499,18 @@
                     <div class="d-flex justify-content-between">
                       <span>07/10</span
                       ><span>
-                        <i
-                          class="ti ti-alert-triangle fs-5"
-                          style="color: red"
-                        ></i>
-                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                        <i class="ti ti-alert-triangle fs-5" style="color: red"
                           ><i
-                            class="ti ti-snowflake fs-5"
-                            style="margin-left: -9px"
+                            class="ti ti-number-1 fs-5"
+                            style="margin-left: -7px"
                           ></i
                         ></i>
+                        <i class="ti ti-truck fs-5" style="color: blue"></i>
                         <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                        <i
+                          class="ti ti-box-multiple-2 fs-5"
+                          style="color: darkgoldenrod"
+                        ></i>
                       </span>
                     </div>
                   </div>
@@ -5379,24 +4616,14 @@
                   <div class="col-8 ps-0">
                     <div class="d-flex justify-content-between">
                       <div>
-                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                        <span class="fw-bolder">AT</span> - <span> 12 </span>
                       </div>
 
-                      <span>AA1937XX</span>
+                      <span>KA3310XA</span>
                     </div>
                     <div class="d-flex justify-content-between">
                       <span>07/10</span
                       ><span>
-                        <i
-                          class="ti ti-alert-triangle fs-5"
-                          style="color: red"
-                        ></i>
-                        <i class="ti ti-snowflake fs-5" style="color: violet"
-                          ><i
-                            class="ti ti-snowflake fs-5"
-                            style="margin-left: -9px"
-                          ></i
-                        ></i>
                         <i class="ti ti-book-2 fs-5" style="color: green"></i>
                       </span>
                     </div>
@@ -5503,6 +4730,117 @@
                   <div class="col-8 ps-0">
                     <div class="d-flex justify-content-between">
                       <div>
+                        <span class="fw-bolder">CH</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA0000XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>09/10</span><span> </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">5</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
                         <span class="fw-bolder">DE</span> - <span> 11 </span>
                       </div>
 
@@ -5622,7 +4960,2341 @@
                   <div
                     class="col-2 d-flex align-items-center p-0 justify-content-center"
                   >
-                    <span class="fs-3">5</span>
+                    <span class="fs-3">6</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">7</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">8</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">9</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">10</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">11</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">12</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">13</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">14</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">15</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">16</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">17</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1 inactive">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">18</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">19</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i class="ti ti-alert-triangle fs-5" style="color: red"
+                          ><i
+                            class="ti ti-number-1 fs-5"
+                            style="margin-left: -7px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-truck fs-5" style="color: blue"></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                        <i
+                          class="ti ti-box-multiple-2 fs-5"
+                          style="color: darkgoldenrod"
+                        ></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">20</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">AT</span> - <span> 12 </span>
+                      </div>
+
+                      <span>KA3310XA</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">21</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">CH</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA0000XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>09/10</span><span> </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">22</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1 inactive">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">23</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">24</span>
+                  </div>
+                  <div class="col-8 ps-0">
+                    <div class="d-flex justify-content-between">
+                      <div>
+                        <span class="fw-bolder">DE</span> - <span> 11 </span>
+                      </div>
+
+                      <span>AA1937XX</span>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                      <span>07/10</span
+                      ><span>
+                        <i
+                          class="ti ti-alert-triangle fs-5"
+                          style="color: red"
+                        ></i>
+                        <i class="ti ti-snowflake fs-5" style="color: violet"
+                          ><i
+                            class="ti ti-snowflake fs-5"
+                            style="margin-left: -9px"
+                          ></i
+                        ></i>
+                        <i class="ti ti-book-2 fs-5" style="color: green"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-2 p-1">
+                    <div
+                      class="dropend cursor-pointer m-auto"
+                      style="display: inline-block"
+                    >
+                      <i
+                        class="ti ti-checklist fs-6"
+                        onclick="checkDropdownPosition(this)"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                        data-bs-display="static"
+                      ></i>
+                      <div
+                        class="dropdown-menu dropdown-menu-start dropdown-menu-sm-start dropdown-menu-my"
+                        style="break-inside: avoid-column"
+                      >
+                        <table class="table border-1 border-dark table-sm">
+                          <thead>
+                            <tr class="background-darkgrey">
+                              <th scope="col">Дата, час</th>
+                              <th scope="col">Стан</th>
+                              <th scope="col">Місцезнаходження</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                            <tr>
+                              <td>09.04.2024 14:22</td>
+                              <td>Стоянка</td>
+                              <td>PL Lebork, кв. 84</td>
+                            </tr>
+                            <tr>
+                              <td>04.04.2024 15:35</td>
+                              <td>Подача</td>
+                              <td>MD Otaci</td>
+                            </tr>
+                            <tr>
+                              <td>26.03.2024 14:22</td>
+                              <td>Розмитнення</td>
+                              <td>UA Петропавлівська Борщагівка</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card w-100 card-item mb-1">
+                <div class="card-body p-2 row">
+                  <div
+                    class="col-2 d-flex align-items-center p-0 justify-content-center"
+                  >
+                    <span class="fs-3">25</span>
                   </div>
                   <div class="col-8 ps-0">
                     <div class="d-flex justify-content-between">

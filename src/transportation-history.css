@@ -1,0 +1,126 @@
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: calc(100% - 10px);
+  margin-top: 75px;
+}
+ul.custom-list {
+  list-style: none; /* Видаляємо стандартний маркер */
+  padding-left: 0;
+}
+
+ul.custom-list li {
+  position: relative; /* Для розміщення псевдоелемента відносно li */
+  padding: 10px;
+  padding-left: 30px; /* Відступ для маркера */
+}
+
+ul.custom-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px; /* Задаємо розміри */
+  height: 25px;
+  background-color: #007bff; /* Зовнішній колір */
+  border-radius: 50%; /* Робимо коло */
+}
+
+ul.custom-list li::after {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 11px;
+  height: 11px;
+  background-color: #007bff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px white;
+}
+ul.custom-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px; /* Задаємо розміри */
+  height: 25px;
+  background-color: #007bff; /* Зовнішній колір */
+  border-radius: 50%; /* Робимо коло */
+}
+
+ul.custom-list .unloading::after {
+  background-color: white;
+}
+ul.custom-list .comment::before {
+  background-color: white;
+}
+ul.custom-list .waiting::before {
+  background-color: white;
+}
+ul.custom-list .waiting::after {
+  background-color: red;
+}
+
+li .list-container::before {
+  content: '';
+  position: absolute; /* Абсолютне позиціонування */
+  left: 10px; /* Вирівнювання зліва */
+  top: 0; /* Від верхнього краю елемента */
+  bottom: 50%; /* До середини елемента */
+  width: 5px; /* Ширина смужки */
+  background-color: #007bff; /* Колір смужки */
+}
+
+/* Стилі для псевдоелемента after */
+li .list-container::after {
+  content: '';
+  position: absolute; /* Абсолютне позиціонування */
+  left: 10px; /* Вирівнювання зліва */
+  top: 50%; /* Від середини елемента */
+  bottom: 0; /* До нижнього краю елемента */
+  width: 5px; /* Ширина смужки */
+  background-color: #007bff; /* Колір смужки */
+}
+
+/* Приховати псевдоелемент before для першого елемента */
+li:first-child .list-container::before {
+  display: none;
+}
+
+/* Приховати псевдоелемент after для останнього елемента */
+li:last-child .list-container::after {
+  display: none;
+}
+
+/* Якщо в списку тільки один елемент, приховати обидва псевдоелементи */
+li:only-child .list-container::before,
+li:only-child .list-container::after {
+  display: none;
+}
+.bad-status {
+  background-color: #ffb2b2;
+  border: 2px solid #c99494;
+  color: #ff0000;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.good-status {
+  background-color: #aaf4aa;
+  border: 2px solid #8ba78b;
+  color: #007900;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+.normal-status {
+  background-color: #ffbf36;
+  border: 2px solid #a07923;
+  color: #795900;
+  padding: 4px 8px;
+  border-radius: 20px;
+  font-weight: bold;
+}

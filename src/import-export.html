@@ -175,6 +175,44 @@
                   <span class="hide-menu">Зошит</span>
                 </a>
               </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./manager.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-list-check"></i>
+                  </span>
+                  <span class="hide-menu">Зошит</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./planer.html"
+                  aria-expanded="false"
+                  style="position: relative;"
+                >
+                  <span>
+                    <i class="ti ti-clipboard"></i>
+                  </span>
+                  <span class="hide-menu">Планер</span>
+                  <span style="position: absolute; font-weight: bold; right: 15px; bottom: -0px; background-color: red; color: white; border-radius: 40px; display: flex; justify-content: center; align-items: center; width: 20px; height: 20px; font-size: 12px;">2</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./index.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-map"></i>
+                  </span>
+                  <span class="hide-menu">Карта</span>
+                </a>
+              </li>
             </ul>
           </nav>
           <!-- End Sidebar navigation -->
@@ -387,6 +425,13 @@
                     Налаштування таблиці
                     <i class="ti ti-settings fs-6 ms-2 cu"></i>
                   </p>
+                  <p
+                    class="mb-0 fs-3 d-flex align-items-center cursor-pointer show-all"
+                    id="export-button"
+                  >
+                    Експортувати в Excel
+                    <i class="ti ti-file-export fs-6 ms-2 cu"></i>
+                  </p>
                 </div>
                 <div
                   class="card-body p-0 pt-0 pb-0 d-flex flex-wrap justify-content-between"
@@ -410,7 +455,139 @@
                             data-bs-placement="top"
                             data-bs-content="Створити нове замовлення"
                           >
-                            <i class="ti ti-truck fs-7 text-dark"></i>
+                            <svg
+                              width="38"
+                              height="28"
+                              viewBox="0 0 1555 1000"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M1137 813.108H1241.5V616.333H656V322.889C600.333 322.889 477.8 322.889 433 322.889C388.2 322.889 358.667 369.015 349.5 392.079L297 616.333V813.108H377.5M606.5 813.108H913.5M382 556.957L414 415.142C416.833 407.454 427.8 392.079 449 392.079C470.2 392.079 549.833 392.079 587 392.079V556.957H382Z"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <path
+                                d="M590.5 809.674C590.5 862.833 546.496 906.5 491.5 906.5C436.504 906.5 392.5 862.833 392.5 809.674C392.5 756.515 436.504 712.848 491.5 712.848C546.496 712.848 590.5 756.515 590.5 809.674Z"
+                                stroke="black"
+                                stroke-width="36"
+                              />
+                              <path
+                                d="M1122.5 809.674C1122.5 862.833 1078.5 906.5 1023.5 906.5C968.504 906.5 924.5 862.833 924.5 809.674C924.5 756.515 968.504 712.848 1023.5 712.848C1078.5 712.848 1122.5 756.515 1122.5 809.674Z"
+                                stroke="black"
+                                stroke-width="36"
+                              />
+                              <path
+                                d="M530 810.164C530 830.899 512.797 848.17 491 848.17C469.203 848.17 452 830.899 452 810.164C452 789.429 469.203 772.158 491 772.158C512.797 772.158 530 789.429 530 810.164Z"
+                                stroke="black"
+                                stroke-width="29"
+                              />
+                              <path
+                                d="M1062 810.164C1062 830.899 1044.8 848.17 1023 848.17C1001.2 848.17 984 830.899 984 810.164C984 789.429 1001.2 772.158 1023 772.158C1044.8 772.158 1062 789.429 1062 810.164Z"
+                                stroke="black"
+                                stroke-width="29"
+                              />
+                              <rect
+                                x="751.5"
+                                y="335.645"
+                                width="198"
+                                height="194.321"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="805"
+                                y1="478.932"
+                                x2="805"
+                                y2="373.92"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="788.5"
+                                y1="390.77"
+                                x2="895.5"
+                                y2="390.77"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <rect
+                                x="1041.5"
+                                y="335.645"
+                                width="198"
+                                height="194.321"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="1095"
+                                y1="478.932"
+                                x2="1095"
+                                y2="373.92"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="1078.5"
+                                y1="390.77"
+                                x2="1185.5"
+                                y2="390.77"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <rect
+                                x="751.5"
+                                y="57.9023"
+                                width="198"
+                                height="194.321"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="805"
+                                y1="201.189"
+                                x2="805"
+                                y2="96.1775"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="788.5"
+                                y1="113.027"
+                                x2="895.5"
+                                y2="113.027"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <rect
+                                x="1041.5"
+                                y="57.9023"
+                                width="198"
+                                height="194.321"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="1095"
+                                y1="201.189"
+                                x2="1095"
+                                y2="96.1775"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <line
+                                x1="1078.5"
+                                y1="113.027"
+                                x2="1185.5"
+                                y2="113.027"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <path
+                                d="M527.326 806.684L335.63 712.882L399.273 860.029L309.326 897.5L178.23 594.395L263.746 558.77L456.394 654.775L391.799 505.425L481.746 467.954L612.842 771.059L527.326 806.684ZM542.896 442.48L806.534 332.651L837.974 405.344L672.259 474.379L690.361 516.232L832.149 457.164L862.255 526.773L720.467 585.84L740.474 632.099L909.291 561.772L940.731 634.464L673.992 745.584L542.896 442.48ZM1218.41 518.788L1099.13 350.622L1097.36 351.36L1137.76 552.382L1030.09 597.237L827.66 323.85L929.571 281.396L1038.89 438.631L1040.66 437.893L1000.91 251.677L1097.5 211.438L1208.59 367.935L1210.36 367.197L1168.84 181.719L1266.32 141.11L1326.08 473.933L1218.41 518.788Z"
+                                fill="#04BB00"
+                              />
+                            </svg>
                           </button>
                         </form>
                         <form
@@ -426,7 +603,43 @@
                             data-bs-placement="top"
                             data-bs-content="Створити пусту подачу"
                           >
-                            <i class="ti ti-wash-dry fs-7 text-dark"></i>
+                            <svg
+                              width="38"
+                              height="28"
+                              viewBox="0 0 1555 1000"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M1129.91 747.5H1235.57V547H643.569V248C587.284 248 463.39 248 418.092 248C372.795 248 342.934 295 333.665 318.5L280.582 547V747.5H360.965M593.519 747.5H901.401M366.526 486.5L398.881 342C401.746 334.167 412.835 318.5 434.27 318.5C455.706 318.5 536.223 318.5 573.803 318.5V486.5H366.526Z"
+                                stroke="black"
+                                stroke-width="35"
+                              />
+                              <path
+                                d="M577.542 744C577.542 798.489 532.824 843 477.242 843C421.66 843 376.943 798.489 376.943 744C376.943 689.511 421.66 645 477.242 645C532.824 645 577.542 689.511 577.542 744Z"
+                                stroke="black"
+                                stroke-width="36"
+                              />
+                              <path
+                                d="M1115.45 744C1115.45 798.489 1070.73 843 1015.15 843C959.569 843 914.851 798.489 914.851 744C914.851 689.511 959.569 645 1015.15 645C1070.73 645 1115.45 689.511 1115.45 744Z"
+                                stroke="black"
+                                stroke-width="36"
+                              />
+                              <path
+                                d="M516.331 744.5C516.331 765.889 498.755 783.5 476.737 783.5C454.718 783.5 437.142 765.889 437.142 744.5C437.142 723.111 454.718 705.5 476.737 705.5C498.755 705.5 516.331 723.111 516.331 744.5Z"
+                                stroke="black"
+                                stroke-width="29"
+                              />
+                              <path
+                                d="M1054.24 744.5C1054.24 765.889 1036.66 783.5 1014.64 783.5C992.626 783.5 975.051 765.889 975.051 744.5C975.051 723.111 992.626 705.5 1014.64 705.5C1036.66 705.5 1054.24 723.111 1054.24 744.5Z"
+                                stroke="black"
+                                stroke-width="29"
+                              />
+                              <path
+                                d="M141.501 671.598L349.975 584.078L374.703 641.696L243.663 696.708L257.9 729.882L370.021 682.812L393.701 737.985L281.58 785.055L297.317 821.721L430.81 765.678L455.539 823.296L244.612 911.846L141.501 671.598ZM687.026 726.115L649.857 639.514C645.261 628.805 640.916 617.717 636.821 606.248C632.859 594.449 629.697 584.512 627.334 576.437C624.971 568.363 623.457 563.229 622.792 561.036L621.39 561.624L646.732 743.031L586.117 768.478L471.579 624.929L470.177 625.517C471.31 627.514 473.992 632.158 478.224 639.448C482.589 646.407 487.687 655.394 493.517 666.409C499.247 677.191 504.41 687.937 509.006 698.645L546.174 785.246L475.048 815.106L371.936 574.858L481.254 528.966L577.192 652.299L578.593 651.711L555.183 497.929L660.647 453.654L763.758 693.902L687.026 726.115ZM825.441 384.471C840.391 378.195 855.204 376.098 869.88 378.179C884.457 380.027 897.613 385.631 909.349 394.99C920.985 404.117 930.001 416.13 936.395 431.029L938.343 435.569C944.738 450.468 947.263 465.343 945.918 480.195C944.573 495.046 939.56 508.415 930.878 520.302C922.096 531.956 910.231 540.921 895.281 547.197L837.469 571.467L870.741 648.989L793.307 681.497L690.196 441.249L825.441 384.471ZM813.34 515.247L845.224 501.861C853.4 498.429 858.574 493.784 860.746 487.927C863.152 481.971 862.807 475.385 859.709 468.169L858.51 465.375C855.313 457.925 850.763 453.104 844.86 450.912C839.09 448.389 832.118 448.843 823.942 452.275L792.058 465.661L813.34 515.247ZM1090.66 345.66L1167.4 524.449L1089.96 556.956L1013.23 378.167L934.045 411.41L907.668 349.952L1143.12 251.106L1169.5 312.564L1090.66 345.66ZM1413.6 421.09L1336.17 453.597L1296.15 360.362L1137.4 253.506L1226.4 216.145L1306.97 276.695L1308.37 276.106L1320.3 176.724L1404.74 141.275L1373.58 327.854L1413.6 421.09Z"
+                                fill="#D50000"
+                              />
+                            </svg>
                           </button>
                         </form>
                         <button
@@ -448,7 +661,12 @@
                               <thead>
                                 <tr>
                                   <th></th>
-                                  <th></th>
+                                  <th
+                                    th:text="${transportation.key}"
+                                    style="visibility: hidden"
+                                  >
+                                    20.06.2024
+                                  </th>
                                   <th></th>
                                   <th></th>
                                   <th></th>
@@ -559,7 +777,9 @@
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
-                                    <p class="mb-1">Berlin, DE - Київ, UA</p>
+                                    <p class="mb-1">
+                                      <a href="asdasd">Berlin, DE - Київ, UA</a>
+                                    </p>
                                   </td>
                                   <td
                                     class="border border-1 border-dark-subtle"
@@ -574,24 +794,14 @@
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
-                                    <p class="mb-0">Антон Улицький</p>
+                                    <span class="mb-0">Улицький А.В.</span>
+                                    <span><svg  xmlns="http://www.w3.org/2000/svg"  width="15"  height="15"  viewBox="0 0 24 24"  fill="currentColor"  class="icon icon-tabler icons-tabler-filled icon-tabler-heart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6.979 3.074a6 6 0 0 1 4.988 1.425l.037 .033l.034 -.03a6 6 0 0 1 4.733 -1.44l.246 .036a6 6 0 0 1 3.364 10.008l-.18 .185l-.048 .041l-7.45 7.379a1 1 0 0 1 -1.313 .082l-.094 -.082l-7.493 -7.422a6 6 0 0 1 3.176 -10.215z" /></svg></span>
+                                    
                                   </td>
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
-                                    <span
-                                      >+10 +12
-                                      <input
-                                        class="table-input"
-                                        oninput="resizeInput(this)"
-                                        value=""
-                                        type="text"
-                                        style="
-                                          background-color: inherit;
-                                          outline: none;
-                                          border: none;
-                                        "
-                                    /></span>
+                                    +14 +18
                                   </td>
                                   <td
                                     class="border border-1 border-dark-subtle cursor-pointer"
@@ -666,7 +876,15 @@
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
-                                    <p class="mb-0">Антон Улицький</p>
+                                    <span class="mb-0">Антон Улицький</span>
+                                    
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                        <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></span>
+                                    
+                              
+                                    </svg>
                                   </td>
                                   <td
                                     class="border border-1 border-dark-subtle"
@@ -798,11 +1016,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.175);
-                                  "
-                                >
+                                <tr style="background-color: #7fe6bd">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -880,11 +1094,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -934,11 +1144,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -982,11 +1188,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1029,11 +1231,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgb(0, 145, 255, 0.15);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1057,7 +1255,13 @@
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
-                                    <p class="mb-0">Оксана Бойко</p>
+                                    <span class="mb-0">Оксана Бойко</span>
+                                    
+                                      <span><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-eye">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                                        <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" /></span>
+                                    
                                   </td>
                                   <td
                                     class="border border-1 border-dark-subtle"
@@ -1120,11 +1324,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(255, 0, 0, 0.135);
-                                  "
-                                >
+                                <tr style="background-color: #ff0000">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1212,11 +1412,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(255, 0, 0, 0.553);
-                                  "
-                                >
+                                <tr style="background-color: #ff0000">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1259,11 +1455,7 @@
                                     <span>ЕКМТ</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1306,11 +1498,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1353,11 +1541,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1400,11 +1584,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1447,11 +1627,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1539,11 +1715,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1587,11 +1759,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1635,11 +1803,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1683,11 +1847,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1730,11 +1890,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1778,11 +1934,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1826,11 +1978,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(122, 0, 163, 0.325);
-                                  "
-                                >
+                                <tr style="background-color: #7a00a3">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1875,11 +2023,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(122, 0, 163, 0.325);
-                                  "
-                                >
+                                <tr style="background-color: #7a00a3">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1924,11 +2068,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -1971,11 +2111,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2018,11 +2154,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2107,7 +2239,7 @@
                     <div class="accordion-item">
                       <h2 class="accordion-header d-flex background">
                         <span class="card-title fw-semibold p-3 m-0 ms-3">
-                          20.12.2023
+                          21.12.2023
                         </span>
                         <form action="/transportation-details/add" method="get">
                           <button
@@ -2154,10 +2286,10 @@
                               class="table table-sm text-nowrap mb-0 align-middle"
                               id="your-table-id"
                             >
-                              <thead>
+                              <thead style="display: none">
                                 <tr>
                                   <th></th>
-                                  <th></th>
+                                  <th>21.12.2024</th>
                                   <th></th>
                                   <th></th>
                                   <th></th>
@@ -2309,11 +2441,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.175);
-                                  "
-                                >
+                                <tr style="background-color: #7fe6bd">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2391,11 +2519,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2445,11 +2569,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2493,11 +2613,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2540,11 +2656,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgb(0, 145, 255, 0.15);
-                                  "
-                                >
+                                <tr style="background-color: rgb(0, 145, 255)">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2631,11 +2743,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(255, 0, 0, 0.135);
-                                  "
-                                >
+                                <tr style="background-color: #ff0000">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2723,11 +2831,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(255, 0, 0, 0.553);
-                                  "
-                                >
+                                <tr style="background-color: #ff0000">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2770,11 +2874,7 @@
                                     <span>ЕКМТ</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2817,11 +2917,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2864,11 +2960,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2911,11 +3003,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -2958,11 +3046,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3050,11 +3134,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3098,11 +3178,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3146,11 +3222,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3194,11 +3266,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3241,11 +3309,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3289,11 +3353,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3337,11 +3397,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(122, 0, 163, 0.325);
-                                  "
-                                >
+                                <tr style="background-color: #7a00a3">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3386,11 +3442,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(122, 0, 163, 0.325);
-                                  "
-                                >
+                                <tr style="background-color: #7a00a3">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3435,11 +3487,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3482,11 +3530,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3529,11 +3573,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3618,7 +3658,7 @@
                     <div class="accordion-item">
                       <h2 class="accordion-header d-flex background">
                         <span class="card-title fw-semibold p-3 m-0 ms-3">
-                          20.12.2023
+                          23.12.2023
                         </span>
                         <form action="/transportation-details/add" method="get">
                           <button
@@ -3665,10 +3705,10 @@
                               class="table table-sm text-nowrap mb-0 align-middle"
                               id="your-table-id"
                             >
-                              <thead>
+                              <thead style="display: none">
                                 <tr>
                                   <th></th>
-                                  <th></th>
+                                  <th>22.12.2024</th>
                                   <th></th>
                                   <th></th>
                                   <th></th>
@@ -3820,11 +3860,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.175);
-                                  "
-                                >
+                                <tr style="background-color: #7fe6bd">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3902,11 +3938,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -3956,11 +3988,7 @@
                                     />
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4004,11 +4032,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4051,11 +4075,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgb(0, 145, 255, 0.15);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4142,11 +4162,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(255, 0, 0, 0.135);
-                                  "
-                                >
+                                <tr style="background-color: #ff0000">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4234,11 +4250,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(255, 0, 0, 0.553);
-                                  "
-                                >
+                                <tr style="background-color: #ff0000">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4281,11 +4293,7 @@
                                     <span>ЕКМТ</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4328,11 +4336,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4375,11 +4379,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4422,11 +4422,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4469,11 +4465,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4561,11 +4553,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4609,11 +4597,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4657,11 +4641,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4705,11 +4685,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4752,11 +4728,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4800,11 +4772,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 205, 123, 0.5);
-                                  "
-                                >
+                                <tr style="background-color: #d2ffed">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4848,11 +4816,7 @@
                                     <span>можливо на 21.12</span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(122, 0, 163, 0.325);
-                                  "
-                                >
+                                <tr style="background-color: #7a00a3">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4897,11 +4861,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(122, 0, 163, 0.325);
-                                  "
-                                >
+                                <tr style="background-color: #7a00a3">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4946,11 +4906,7 @@
                                     <h6 class="fw-semibold mb-1"></h6>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -4993,11 +4949,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 145, 255, 0.35);
-                                  "
-                                >
+                                <tr style="background-color: #0091ff">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -5040,11 +4992,7 @@
                                     <span></span>
                                   </td>
                                 </tr>
-                                <tr
-                                  style="
-                                    background-color: rgba(0, 255, 153, 0.3);
-                                  "
-                                >
+                                <tr style="background-color: #b2ffe0">
                                   <td
                                     class="border border-1 border-dark-subtle"
                                   >
@@ -6237,7 +6185,71 @@
         </div>
       </div>
     </div>
+    <script
+      src="http://code.jquery.com/jquery-latest.min.js"
+      type="text/javascript"
+    ></script>
+    <script type="text/javascript">
+      var tableToExcel = (function () {
+        var uri = 'data:application/vnd.ms-excel;base64,',
+          template =
+            '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+          base64 = function (s) {
+            return window.btoa(unescape(encodeURIComponent(s)));
+          },
+          format = function (s, c) {
+            return s.replace(/{(\w+)}/g, function (m, p) {
+              return c[p];
+            });
+          };
+        return function (tables, name) {
+          var tableHTML = '';
+          tables.each(function () {
+            var tableClone = $(this).clone();
+            tableClone.find('tr').each(function () {
+              var $row = $(this);
+              var rowStyle = $row.attr('style') || '';
+              var bgColor = $row.css('background-color');
+              $row.css('background-color', ''); // Прибираємо фон з tr
 
+              $row.find('th:first, td:first').remove(); // Видалити перший стовпець
+              var cellCount = $row.find('th, td').length;
+              $row.find('th, td').each(function (index) {
+                var $cell = $(this);
+                var styles = $cell.attr('style') || '';
+                // if ($cell.hasClass('border')) {
+                //     styles += 'border: 1px solid #5a6a85;';
+                // }
+                if (bgColor) {
+                  styles += 'background-color:' + bgColor + ';';
+                }
+                if (index >= cellCount) {
+                  styles += 'background-color: white;';
+                }
+                styles += 'mso-number-format:"\@";';
+                $cell.attr('style', styles);
+                if ($cell.find('input').length > 0) {
+                  $cell.text($cell.find('input').val()); // Замінити input на його значення
+                }
+                if ($cell.find('a').length > 0) {
+                  $cell.text($cell.find('a').text()); // Замінити посилання на текст
+                }
+              });
+            });
+            tableHTML += tableClone.html() + '<br>';
+          });
+          var ctx = { worksheet: name || 'Worksheet', table: tableHTML };
+          window.location.href = uri + base64(format(template, ctx));
+        };
+      })();
+
+      $('#export-button').on('click', function () {
+        var tables = $('table.table');
+        tableToExcel(tables, 'TablesExport');
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="assets/libs/xlsx-js-style/dist/xlsx.bundle.js"></script>
     <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
     <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/sidebarmenu.js"></script>

@@ -21,6 +21,7 @@
   "dependencies": {
     "apexcharts": "^3.37.0",
     "bootstrap": "^5.2.3",
-    "jquery": "^3.6.3"
+    "jquery": "^3.6.3",
+    "xlsx-js-style": "^1.2.0"
   }
 }

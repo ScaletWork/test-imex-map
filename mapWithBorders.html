@@ -268,11 +268,7 @@
                 </a>
               </li>
               <li class="sidebar-item">
-                <a
-                  class="sidebar-link"
-                  href="./index.html"
-                  aria-expanded="false"
-                >
+                <a class="sidebar-link" href="./map.html" aria-expanded="false">
                   <span>
                     <i class="ti ti-map"></i>
                   </span>
@@ -372,7 +368,7 @@
         <!-- Шаблон попапа -->
         <div id="popup-template" style="display: none">
           <div class="container p-2" style="width: 400px">
-            <h5 class="text-center" id="popup-coordinates"></h5>
+            <h5 class="text-center" id="popup-country"></h5>
             <ul id="item-list" class="list-group mb-2">
               <li class="list-group-item d-flex flex-column gap-1">
                 <div
@@ -468,70 +464,46 @@
     <script src="clock.js"></script>
     <!-- Скрипт попапа -->
     <script>
-      const capitals = [
-        { name: "Австрія", lat: 48.2082, lng: 16.3738 },
-        { name: "Албанія", lat: 41.3275, lng: 19.8189 },
-        { name: "Андорра", lat: 42.5078, lng: 1.5211 },
-        { name: "Бельгія", lat: 50.8503, lng: 4.3517 },
-        { name: "Болгарія", lat: 42.6975, lng: 23.3242 },
-        { name: "Боснія і Герцеговина", lat: 43.8563, lng: 18.4131 },
-        { name: "Ватикан", lat: 41.9029, lng: 12.4534 },
-        { name: "Велика Британія", lat: 51.5074, lng: -0.1278 },
-        { name: "Угорщина", lat: 47.4979, lng: 19.0402 },
-        { name: "Німеччина", lat: 52.52, lng: 13.405 },
-        { name: "Греція", lat: 37.9838, lng: 23.7275 },
-        { name: "Данія", lat: 55.6761, lng: 12.5683 },
-        { name: "Ірландія", lat: 53.3498, lng: -6.2603 },
-        { name: "Ісландія", lat: 64.1355, lng: -21.8954 },
-        { name: "Іспанія", lat: 40.4168, lng: -3.7038 },
-        { name: "Італія", lat: 41.9028, lng: 12.4964 },
-        { name: "Косово", lat: 42.6629, lng: 21.1655 },
-        { name: "Латвія", lat: 56.9496, lng: 24.1052 },
-        { name: "Литва", lat: 54.6872, lng: 25.2797 },
-        { name: "Ліхтенштейн", lat: 47.1416, lng: 9.5215 },
-        { name: "Люксембург", lat: 49.6117, lng: 6.1319 },
-        { name: "Мальта", lat: 35.8997, lng: 14.5146 },
-        { name: "Молдова", lat: 47.0105, lng: 28.8638 },
-        { name: "Монако", lat: 43.7384, lng: 7.4246 },
-        { name: "Нідерланди", lat: 52.3676, lng: 4.9041 },
-        { name: "Норвегія", lat: 59.9139, lng: 10.7522 },
-        { name: "Польща", lat: 52.2298, lng: 21.0122 },
-        { name: "Португалія", lat: 38.7169, lng: -9.1399 },
-        { name: "Румунія", lat: 44.4268, lng: 26.1025 },
-        { name: "Сан-Марино", lat: 43.9333, lng: 12.45 },
-        { name: "Північна Македонія", lat: 41.9981, lng: 21.4254 },
-        { name: "Сербія", lat: 44.7866, lng: 20.4489 },
-        { name: "Словаччина", lat: 48.1486, lng: 17.1077 },
-        { name: "Словенія", lat: 46.0511, lng: 14.5051 },
-        { name: "Україна", lat: 50.4501, lng: 30.5234 },
-        { name: "Фінляндія", lat: 60.1695, lng: 24.9354 },
-        { name: "Франція", lat: 48.8566, lng: 2.3522 },
-        { name: "Хорватія", lat: 45.815, lng: 15.9819 },
-        { name: "Чорногорія", lat: 42.4304, lng: 19.2594 },
-        { name: "Чехія", lat: 50.0755, lng: 14.4378 },
-        { name: "Швейцарія", lat: 46.9481, lng: 7.4474 },
-        { name: "Швеція", lat: 59.3293, lng: 18.0686 },
-        { name: "Естонія", lat: 59.437, lng: 24.7536 },
-      ];
+      // Инициализация карты
+      const map = L.map("map").setView([20, 10], 2);
 
-      const map = L.map("map").setView([50, 10], 4);
+      // Подключение базовой карты
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
-      capitals.forEach((capital) => {
-        const marker = L.marker([capital.lat, capital.lng]).addTo(map);
-        marker.on("click", function (e) {
-          const popupContent = document
-            .getElementById("popup-template")
-            .cloneNode(true);
-          popupContent.style.display = "block";
-          popupContent.querySelector("#popup-coordinates").textContent =
-            capital.name;
+      // Загрузка и отображение границ стран
+      fetch(
+        "https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          L.geoJson(data, {
+            style: {
+              color: "#c55101",
+              weight: 1,
+              fillOpacity: 0.2,
+            },
+            onEachFeature: function (feature, layer) {
+              layer.on("click", function (e) {
+                const countryName =
+                  feature.properties.name || "Неизвестная страна";
+                openPopup(e.latlng, countryName);
+              });
+            },
+          }).addTo(map);
+        })
+        .catch((error) => console.error("Ошибка загрузки GeoJSON:", error));
 
-          L.popup().setLatLng(e.latlng).setContent(popupContent).openOn(map);
-        });
-      });
+      function openPopup(latlng, countryName) {
+        const popupContent = document
+          .getElementById("popup-template")
+          .cloneNode(true);
+        popupContent.style.display = "block";
+        popupContent.querySelector("#popup-country").textContent = countryName;
+
+        L.popup().setLatLng(latlng).setContent(popupContent).openOn(map);
+      }
 
       function addItem() {
         const itemList = document.querySelector("#item-list");

@@ -1,0 +1,40 @@
+.background-blue {
+  /* background-color: #eaf0ff; */
+  background-color: rgb(251, 251, 255) !important;
+}
+.background-red {
+  /* background-color: #ffecef; */
+  background-color: rgb(255, 251, 251) !important;
+}
+.background-green {
+  /* background-color: #edffec; */
+  background-color: rgb(251, 255, 251) !important;
+}
+.background-brown {
+  /* background-color: #feece2; */
+  background-color: rgb(255, 253, 251) !important;
+}
+.background-lightgrey {
+  background-color: #f9f9f9 !important;
+}
+.background-darkgrey {
+  background-color: #eaeaea !important;
+}
+.background-violet {
+  background-color: rgb(255, 251, 255) !important;
+}
+.background-default {
+  background-color: #ffffff !important;
+}
+.form-control {
+  background-color: #ffffff;
+}
+.form-check-input {
+  background-color: #ffffff;
+}
+.form-select {
+  background-color: #ffffff;
+}
+.hidden {
+  display: none;
+}

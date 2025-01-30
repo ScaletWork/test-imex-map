@@ -1,0 +1,2611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agrotep</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/logos/favicon.png"
+    />
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="assets/css/settingStyle.css" />
+    <style>
+      tbody,
+      thead {
+        text-wrap: wrap;
+      }
+      .bd-wrapper {
+        margin-left: 270px;
+      }
+      .table-row {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+      }
+
+      .table-row:hover {
+        background-color: #f8f9fa;
+      }
+
+      .table-row > div {
+        padding: 10px;
+        border: 1px solid #dee2e6;
+      }
+      .logo-img-small {
+        display: none;
+      }
+      .side-wd {
+        width: 270px !important;
+      }
+      .side-hide {
+        display: block !important;
+      }
+      @media (max-width: 2850px) {
+        .bd-wrapper {
+          margin-left: 100px;
+        }
+        .left-sidebar {
+          width: 100px;
+          border-right: 1px solid #ddd;
+        }
+        .hide-menu {
+          display: none;
+        }
+        .logo-img {
+          display: none;
+        }
+        .logo-img-small {
+          display: block;
+        }
+        .logo-img-small img {
+          width: 55px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .bd-wrapper {
+          margin-left: 10px;
+        }
+        .left-sidebar {
+          width: 270px;
+          border-right: 1px solid #ddd;
+        }
+        .hide-menu {
+          display: block;
+        }
+        .logo-img {
+          display: block;
+        }
+        .logo-img-small {
+          display: none;
+        }
+      }
+      /* @media (min-width: 1400px) {
+        .table-responsive {
+          overflow-x: initial;
+          -webkit-overflow-scrolling: initial;
+        }
+      } */
+      @media (min-width: 1200px) {
+        .header {
+          width: calc(100% - 100px) !important;
+        }
+        @media (min-width: 2850px) {
+          .bd-wrapper {
+            margin-left: 270px;
+          }
+          .header {
+            width: calc(100% - 270px) !important;
+          }
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--  Body Wrapper -->
+    <div
+      class="page-wrapper"
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin6"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+      data-header-position="fixed"
+    >
+      <!-- Sidebar Start -->
+      <aside class="left-sidebar background" style="z-index: 1100">
+        <!-- Sidebar scroll-->
+        <div>
+          <div
+            class="brand-logo d-flex align-items-center justify-content-between"
+          >
+            <div class="text-nowrap logo-img">
+              <img src="assets/images/logos/dark-logo.png" width="180" alt="" />
+            </div>
+            <div class="text-nowrap logo-img-small">
+              <img
+                src="assets/images/logos/favicon.png"
+                id="togl-side-btn"
+                width="180"
+                alt="icon"
+                style="cursor: pointer"
+              />
+            </div>
+
+            <div
+              class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"
+              id="sidebarCollapse"
+            >
+              <i class="ti ti-x fs-8"></i>
+            </div>
+          </div>
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+            <ul id="sidebarnav">
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                <span class="hide-menu">Логістика</span>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./import-export.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Імпорт-експорт</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./notebook.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-notebook"></i>
+                  </span>
+                  <span class="hide-menu">Зошит</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="./manager.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-list-check"></i>
+                  </span>
+                  <span class="hide-menu">Зошит</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!--  Sidebar End -->
+      <!--  Main wrapper -->
+      <div class="bd-wrapper">
+        <!--  Header Start -->
+        <header class="app-header header background">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav">
+              <li class="nav-item d-block d-xl-none">
+                <a
+                  class="nav-link sidebartoggler nav-icon-hover"
+                  id="headerCollapse"
+                  href="javascript:void(0)"
+                >
+                  <i class="ti ti-menu-2"></i>
+                </a>
+              </li>
+            </ul>
+            <div
+              class="navbar-collapse justify-content-end px-0"
+              id="navbarNav"
+            >
+              <ul
+                class="navbar-nav flex-row ms-auto align-items-center justify-content-end"
+              >
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link nav-icon-hover"
+                    href="javascript:void(0)"
+                    id="drop2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="assets/images/profile/user-1.jpg"
+                      alt=""
+                      width="35"
+                      height="35"
+                      class="rounded-circle"
+                    />
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+                    aria-labelledby="drop2"
+                  >
+                    <div class="message-body">
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-user fs-6"></i>
+                        <p class="mb-0 fs-3">Мій Профіль</p>
+                      </a>
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-list-check fs-6"></i>
+                        <p class="mb-0 fs-3">Мої Задачі</p>
+                      </a>
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                        data-bs-toggle="modal"
+                        data-bs-target="#settingsModal"
+                      >
+                        <i class="ti ti-settings fs-6"></i>
+                        <p class="mb-0 fs-3">Мої Налаштування</p>
+                      </a>
+                      <a
+                        href="./login.html"
+                        class="btn btn-outline-primary mx-3 mt-2 d-block"
+                        >Вийти з системи</a
+                      >
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <!--  Header End -->
+
+        <div class="container-fluid background">
+          <!--  Row 1 -->
+          <div class="form-group row">
+            <div class="card w-100 background">
+              <div class="card-body p-4">
+                <form style="margin-top: 50px">
+                  <div class="card-body p-4 mt-3">
+                    <div class="table-responsive">
+                      <table
+                        class="table text-nowrap mb-0 align-middle bg-white table-sm"
+                      >
+                        <tbody>
+                          <tr class="border border-1">
+                            <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-0">19.12.2023</h6>
+                            </td>
+                            <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-1">
+                                Львів, UA - Одеса, UA
+                              </h6>
+                              <span class="fw-normal">Комбінат, тнп</span>
+                            </td>
+                            <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-1">тент</h6>
+                            </td>
+                            <td class="border-bottom-0">
+                              <p class="mb-0 fw-normal">Оксана Бойко</p>
+                            </td>
+                            <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-1"></h6>
+                            </td>
+                            <td class="border-bottom-0"></td>
+                            <td class="border-bottom-0">
+                              <h6 class="fw-semibold mb-1"></h6>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <br />
+                    <div class="d-flex flex-column">
+                      <div class="d-flex justify-content-around flex-wrap">
+                        <div
+                          class="card p-2 d-flex flex-column background"
+                          style="width: 120px"
+                        >
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            ЕКМТ
+                          </label>
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            без ЕКМТ
+                          </label>
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            віза GBR
+                          </label>
+                        </div>
+                        <div
+                          class="card p-2 d-flex flex-column background"
+                          style="width: 120px"
+                        >
+                          <label class="form-check-label text-danger mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            ADR
+                          </label>
+                          <label class="form-check-label text-danger mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            ADR1
+                          </label>
+                        </div>
+                        <div
+                          class="card p-2 d-flex flex-column background"
+                          style="width: 120px"
+                        >
+                          <label class="form-check-label text-success mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            ГОТ
+                          </label>
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            НЕГОТ
+                          </label>
+                        </div>
+                        <div
+                          class="card p-2 d-flex flex-column background"
+                          style="width: 120px"
+                        >
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            в парку
+                          </label>
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            не в парку
+                          </label>
+                        </div>
+                        <div
+                          class="card p-2 d-flex flex-column background"
+                          style="width: 120px"
+                        >
+                          <label class="form-check-label text-primary mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            АТ
+                          </label>
+                          <label class="form-check-label text-danger mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            ВПТ
+                          </label>
+                        </div>
+                        <div
+                          class="card p-2 d-flex flex-column background"
+                          style="width: 120px"
+                        >
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            тент
+                          </label>
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            реф
+                          </label>
+                        </div>
+                        <div
+                          class="card p-2 d-flex flex-column background"
+                          style="width: 120px"
+                        >
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            double
+                          </label>
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            multi
+                          </label>
+                          <label class="form-check-label mb-2">
+                            <input type="checkbox" class="form-check-input" />
+                            textile
+                          </label>
+                        </div>
+                      </div>
+                      <div class="m-auto">
+                        <label class="form-check-label m-2">
+                          <input type="checkbox" class="form-check-input" />
+                          Наявність наступного завантаження
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3">
+                    <div class="col d-flex justify-content-center">
+                      <p><u>екіпаж не обраний</u></p>
+                    </div>
+                  </div>
+                  <div class="row align-items-center mb-3">
+                    <div class="col-md-6">
+                      <label for="inputNumber">Радіус, км</label>
+                      <input
+                        type="number"
+                        id="inputNumber"
+                        class="form-control"
+                        value="300"
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <label for="selectInput">Пошук авто</label>
+                      <select id="selectInput" class="form-select">
+                        <option value="option1"></option>
+                        <option value="option1">
+                          АА1111ДД/ІІ9999УУ Суліма Н.В. АТ
+                        </option>
+                        <option value="option2">
+                          АА2222ПП/ІІ8888УУ Соловей К.С. АТ
+                        </option>
+                        <option value="option3">
+                          АА3333ЛЛ/ІІ7777УУ Федоров Д.Л. АТ
+                        </option>
+                        <option value="option4">
+                          АА4444СС/ІІ6666УУ Репик Р.Р. АТ
+                        </option>
+                        <option value="option5">
+                          АА5555НН/ІІ5555УУ Йосин Л.Л. АТ
+                        </option>
+                        <option value="option6">
+                          АА6666КК/ІІ4444УУ Колгейт Р.Т. АТ
+                        </option>
+                        <option value="option7">
+                          АА7777РР/ІІ3333УУ Філ Д.О. ВПТ
+                        </option>
+                        <option value="option8">
+                          АА8888ГГ/ІІ2222УУ Міл А.В. АТ
+                        </option>
+                        <option value="option9">
+                          АА9999ББ/ІІ1111УУ Токар Ю.М. ВПТ
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                  <div class="table tcont">
+                    <div
+                      href="javascript:void(0)"
+                      class="d-flex align-items-center gap-2 dropdown-item justify-content-end p-3"
+                    >
+                      <p
+                        class="mb-0 fs-3 d-flex align-items-center cursor-pointer"
+                        data-bs-toggle="modal"
+                        data-bs-target="#settingsTableModal"
+                      >
+                        Налаштування таблиці
+                        <i class="ti ti-settings fs-6 ms-2 cu"></i>
+                      </p>
+                    </div>
+                    <table
+                      class="table table-hover mb-0 align-middle bg-white"
+                      id="myTable"
+                    >
+                      <thead
+                        class="text-dark bg-light sticky-top"
+                        id="th1"
+                        style="z-index: 13"
+                      >
+                        <tr>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Екіпаж</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">ТЗ</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Вивантаження</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Оперативний стан</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Статус</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Примітки</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Де зараз</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">r, км</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">ЕКМТ</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">АДР</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">Віза GBR</h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">
+                              Наявність наступного завантаження
+                            </h6>
+                          </th>
+                          <th class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">У парку</h6>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА6539РМ/АА6897РВ</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="text-black">Мороз А. В.</span>
+                            </a>
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >08.02.2022 Київ UA</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black">26.05, 11:53</span>
+                              </a>
+                            </p>
+                            <p class="">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black">Парк</span>
+                              </a>
+                            </p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-success text-danger"
+                                >Не готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black"
+                                  >КА1697МС/АА7362ХІ</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="text-black">Демченко Б. І.</span>
+                            </a>
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="pointer text-danger">ВП</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-black"></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black">18.01, 16:19</span>
+                              </a>
+                            </p>
+                            <p class="">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black">Парк</span>
+                              </a>
+                            </p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-success text-danger"
+                                >У Плані</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА9660ХН/АА1523ХК</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="text-black">Комаренко С. В.</span>
+                            </a>
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >24.01.2024 Nossen D</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 10:28</span>
+                              </a>
+                            </h6>
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="fw-normal text-black"
+                                  >Розвантаження</span
+                                >
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span
+                                class="mb-0 fw-normal text-success text-success"
+                                >Готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2 mb-1">
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА3228ЕІ/АА4283ХІ</span
+                                >
+                              </a>
+                            </h6>
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="text-black">Федченко О. М.</span>
+                            </a>
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >27.01.2024 Требухів UA</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 09:45</span>
+                              </a>
+                            </h6>
+                            <h6>
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black">Рух</span>
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-success text-info"
+                                >В роботі</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2 mb-1">
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА9986ХО/АА7172ХІ</span
+                                >
+                              </a>
+                            </h6>
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="text-black">Черемис А. В.</span>
+                            </a>
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >26.01.2024 Aldeatejada E</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 13:10</span>
+                              </a>
+                            </h6>
+                            <h6>
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black">Стоянка</span>
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-success text-success"
+                                >Готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Сірецький А.О. 15/01/2024: 16 днів 23.01.24.
+                                +17 днів після розвантаження два дні відпочинку
+                                ( 18.01.24. в 20:00 починається двохсуточний
+                                )</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">1216</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">ЄКМТ D 2024р.</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-danger"></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/205811/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА6539РМ/АА6897РВ</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="text-black">Мороз А. В.</span>
+                            </a>
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >08.02.2022 Київ UA</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black">26.05, 11:53</span>
+                              </a>
+                            </p>
+                            <p class="">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black">Парк</span>
+                              </a>
+                            </p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-success text-danger"
+                                >Не готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black"
+                                  >КА1697МС/АА7362ХІ</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="text-black">Демченко Б. І.</span>
+                            </a>
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="pointer text-danger">ВП</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-black"></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black">18.01, 16:19</span>
+                              </a>
+                            </p>
+                            <p class="">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black">Парк</span>
+                              </a>
+                            </p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-success text-danger"
+                                >У Плані</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА9660ХН/АА1523ХК</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="text-black">Комаренко С. В.</span>
+                            </a>
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >24.01.2024 Nossen D</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 10:28</span>
+                              </a>
+                            </h6>
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="fw-normal text-black"
+                                  >Розвантаження</span
+                                >
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span
+                                class="mb-0 fw-normal text-success text-success"
+                                >Готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2 mb-1">
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА3228ЕІ/АА4283ХІ</span
+                                >
+                              </a>
+                            </h6>
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="text-black">Федченко О. М.</span>
+                            </a>
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >27.01.2024 Требухів UA</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 09:45</span>
+                              </a>
+                            </h6>
+                            <h6>
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black">Рух</span>
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-success text-info"
+                                >В роботі</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2 mb-1">
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА9986ХО/АА7172ХІ</span
+                                >
+                              </a>
+                            </h6>
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="text-black">Черемис А. В.</span>
+                            </a>
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >26.01.2024 Aldeatejada E</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 13:10</span>
+                              </a>
+                            </h6>
+                            <h6>
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black">Стоянка</span>
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-success text-success"
+                                >Готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Сірецький А.О. 15/01/2024: 16 днів 23.01.24.
+                                +17 днів після розвантаження два дні відпочинку
+                                ( 18.01.24. в 20:00 починається двохсуточний
+                                )</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">1216</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">ЄКМТ D 2024р.</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-danger"></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/205811/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА6539РМ/АА6897РВ</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="text-black">Мороз А. В.</span>
+                            </a>
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >08.02.2022 Київ UA</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black">26.05, 11:53</span>
+                              </a>
+                            </p>
+                            <p class="">
+                              <a
+                                href="/truck/assign/155151/to/transportation/6"
+                              >
+                                <span class="text-black">Парк</span>
+                              </a>
+                            </p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-success text-danger"
+                                >Не готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black"
+                                  >КА1697МС/АА7362ХІ</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="text-black">Демченко Б. І.</span>
+                            </a>
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="pointer text-danger">ВП</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-black"></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <p class="">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black">18.01, 16:19</span>
+                              </a>
+                            </p>
+                            <p class="">
+                              <a href="/truck/assign/52631/to/transportation/6">
+                                <span class="text-black">Парк</span>
+                              </a>
+                            </p>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/52631/to/transportation/6">
+                              <span class="mb-0 text-success text-danger"
+                                >У Плані</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <p class="mb-1">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА9660ХН/АА1523ХК</span
+                                >
+                              </a>
+                            </p>
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="text-black">Комаренко С. В.</span>
+                            </a>
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >24.01.2024 Nossen D</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 10:28</span>
+                              </a>
+                            </h6>
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/175981/to/transportation/6"
+                              >
+                                <span class="fw-normal text-black"
+                                  >Розвантаження</span
+                                >
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/175981/to/transportation/6">
+                              <span
+                                class="mb-0 fw-normal text-success text-success"
+                                >Готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2 mb-1">
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА3228ЕІ/АА4283ХІ</span
+                                >
+                              </a>
+                            </h6>
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="text-black">Федченко О. М.</span>
+                            </a>
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >27.01.2024 Требухів UA</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 09:45</span>
+                              </a>
+                            </h6>
+                            <h6>
+                              <a
+                                href="/truck/assign/184151/to/transportation/6"
+                              >
+                                <span class="text-black">Рух</span>
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/184151/to/transportation/6">
+                              <span class="mb-0 text-success text-info"
+                                >В роботі</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Голуб А.М. 08/01/2024: 30 дней 10.01.2024 на
+                                мерседес сервис</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black">3007</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >ЄКМТ D; HU; I 2024р.</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <span class="mb-0 text-danger">АДР1</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/155151/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span>25.01.2024 Elsenfeld D</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/155151/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                        <tr class="border border-1">
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2 mb-1">
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black"
+                                  >АА9986ХО/АА7172ХІ</span
+                                >
+                              </a>
+                            </h6>
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="text-black">Черемис А. В.</span>
+                            </a>
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="pointer text-primary">АТ</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">Реф</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >26.01.2024 Aldeatejada E</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <h6 class="fs-2">
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black">24.01, 13:10</span>
+                              </a>
+                            </h6>
+                            <h6>
+                              <a
+                                href="/truck/assign/205811/to/transportation/6"
+                              >
+                                <span class="text-black">Стоянка</span>
+                              </a>
+                            </h6>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-success text-success"
+                                >Готовий</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black"
+                                >Сірецький А.О. 15/01/2024: 16 днів 23.01.24.
+                                +17 днів після розвантаження два дні відпочинку
+                                ( 18.01.24. в 20:00 починається двохсуточний
+                                )</span
+                              >
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">UA</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0 distance">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">1216</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-black">ЄКМТ D 2024р.</span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <span class="mb-0 text-danger"></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a
+                              href="/truck/assign/205811/to/transportation/6"
+                              class="text-black"
+                            >
+                              <span></span>
+                            </a>
+                          </td>
+                          <td class="border-bottom-0">
+                            <a href="/truck/assign/205811/to/transportation/6">
+                              <label>
+                                <input
+                                  type="checkbox"
+                                  class="form-check-input"
+                                  disabled="disabled"
+                                  checked="checked"
+                                />
+                              </label>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="settingsModal"
+          tabindex="-1"
+          aria-labelledby="settingsModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" style="max-width: 700px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title fs-7" id="settingsModalLabel">
+                  Налаштування інтерфейсу
+                </h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body row">
+                <div class="font-size-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Розмір шрифту</h5>
+                  <label for="fs-2" class="m-2"
+                    >1<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-2"
+                      value="fs-2"
+                  /></label>
+                  <label for="fs-3" class="m-2"
+                    >2<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-size"
+                      id="fs-3"
+                      value="fs-3"
+                  /></label>
+                  <label for="fs-4" class="m-2"
+                    >3<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-4"
+                      value="fs-4"
+                  /></label>
+                  <label for="fs-5" class="m-2"
+                    >4<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-5"
+                      value="fs-5"
+                  /></label>
+                  <label for="fs-6" class="m-2"
+                    >5<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-size"
+                      id="fs-6"
+                      value="fs-6"
+                  /></label>
+                </div>
+                <div class="fotn-weight-block col-sm-6 text-center mt-3">
+                  <h5 class="mb-3">Насиченість шрифту</h5>
+                  <label for="font-weight-1" class="m-2"
+                    >тонкий<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-1"
+                      value="fw-lighter"
+                  /></label>
+                  <label for="font-weight-2" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-2"
+                      value="fw-normal"
+                  /></label>
+                  <label for="font-weight-3" class="m-2"
+                    >жирний<input
+                      class="ms-1"
+                      type="radio"
+                      name="font-weight"
+                      id="font-weight-3"
+                      value="fw-bolder"
+                  /></label>
+                </div>
+                <div class="background-variants-block mt-3 text-center">
+                  <h5 class="mb-3">Налаштування кольору фону</h5>
+                  <label for="background-blue" class="m-2"
+                    >синій<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-blue"
+                  /></label>
+                  <label for="background-green" class="m-2"
+                    >зелений<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-green"
+                  /></label>
+                  <label for="background-red" class="m-2"
+                    >червоний<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-red"
+                  /></label>
+                  <label for="background-lightgrey" class="m-2"
+                    >світлосірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-lightgrey"
+                  /></label>
+                  <label for="background-darkgrey" class="m-2"
+                    >темносірий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-darkgrey"
+                  /></label>
+                  <label for="background-brown" class="m-2"
+                    >коричневий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-brown"
+                  /></label>
+                  <label for="background-violet" class="m-2"
+                    >фіолетовий<input
+                      class="ms-1"
+                      type="radio"
+                      name="background-variant"
+                      id="background-violet"
+                  /></label>
+                  <label for="background-default" class="m-2"
+                    >стандартний<input
+                      class="ms-1"
+                      checked
+                      type="radio"
+                      name="background-variant"
+                      id="background-default"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Save changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="modal fade"
+          id="settingsTableModal"
+          tabindex="-1"
+          aria-labelledby="settingsTableModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" style="max-width: 700px">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title fs-7" id="settingsTableModalLabel">
+                  Налаштування інтерфейсу
+                </h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body row">
+                <div class="style-color-block text-center mt-3">
+                  <h5 class="mb-3">Налаштування вигляду таблиці</h5>
+
+                  <label for="typeTable" class="m-2"
+                    >розмір таблиці
+                    <input class="ms-1" type="checkbox" id="typeTable"
+                  /></label>
+                  <label for="bordersCheck" class="m-2"
+                    >рамки
+                    <input class="ms-1" type="checkbox" id="bordersCheck"
+                  /></label>
+                </div>
+                <div class="hiden-colums-block text-center mt-3">
+                  <h5 class="mb-3">Налаштування відображення колонок</h5>
+                  <label for="crewCheck" class="m-2"
+                    >екіпаж
+                    <input checked class="ms-1" type="checkbox" id="crewCheck"
+                  /></label>
+                  <label for="truckTypeCheck" class="m-2"
+                    >тип авто
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="truckTypeCheck"
+                  /></label>
+                  <label for="unloadCheck" class="m-2"
+                    >Вивантаження
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="unloadCheck"
+                  /></label>
+                  <label for="stateCheck" class="m-2"
+                    >Оперативний стан
+                    <input checked class="ms-1" type="checkbox" id="stateCheck"
+                  /></label>
+                  <label for="statusCheck" class="m-2"
+                    >Статус
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="statusCheck"
+                  /></label>
+                  <label for="infoCheck" class="m-2"
+                    >інформація
+                    <input checked class="ms-1" type="checkbox" id="infoCheck"
+                  /></label>
+                  <label for="whereCheck" class="m-2"
+                    >Де зараз
+                    <input checked class="ms-1" type="checkbox" id="whereCheck"
+                  /></label>
+                  <label for="radiusCheck" class="m-2"
+                    >Радіус
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="radiusCheck"
+                  /></label>
+                  <label for="ekmtCheck" class="m-2"
+                    >ЕКМТ
+                    <input checked class="ms-1" type="checkbox" id="ekmtCheck"
+                  /></label>
+                  <label for="adrCheck" class="m-2"
+                    >АДР
+                    <input checked class="ms-1" type="checkbox" id="adrCheck"
+                  /></label>
+                  <label for="gbrCheck" class="m-2"
+                    >Віза GBR
+                    <input checked class="ms-1" type="checkbox" id="gbrCheck"
+                  /></label>
+                  <label for="nextLoadCheck" class="m-2"
+                    >Наявність наступного завантаження
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="nextLoadCheck"
+                  /></label>
+                  <label for="inParkCheck" class="m-2"
+                    >У парку
+                    <input
+                      checked
+                      class="ms-1"
+                      type="checkbox"
+                      id="inParkCheck"
+                  /></label>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Закрити
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Зберегти налаштування
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/sidebarmenu.js"></script>
+    <script src="../assets/js/app.min.js"></script>
+    <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="../assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="assets/js/settingsStyle.js"></script>
+    <script src="assets/js/settingsTableSelectTruck.js"></script>
+    <script>
+      var rows = document
+        .getElementById('myTable')
+        .getElementsByTagName('tbody')[0]
+        .getElementsByTagName('tr');
+
+      for (var i = 0; i < rows.length; i++) {
+        rows[i].addEventListener('click', function () {
+          var userConfirmed = confirm(
+            'Ви дійсно хочете обрати екіпаж АА5555НН/ІІ5555УУ Юсь В.П., у якого розвантаження в радіусі 250 км від завантаження 29.01?'
+          );
+          // Check the user's choice
+          if (userConfirmed) {
+            // User clicked "Yes", perform the desired action here
+            window.location.href = './import-export.html';
+          } else {
+          }
+        });
+      }
+    </script>
+    <!-- <script>
+      window.addEventListener('DOMContentLoaded', function () {
+        const table = document.getElementById('myTable');
+        const tcont = document.querySelector('.zzz');
+        const observer = new ResizeObserver((entries) => {
+          for (let entry of entries) {
+            const { width } = entry.contentRect;
+            // console.log(width, tcont.clientWidth);
+            if (width > tcont.clientWidth) {
+              tcont.classList.add('table-responsive');
+            } else {
+              tcont.classList.remove('table-responsive');
+            }
+          }
+        });
+
+        observer.observe(table);
+      });
+    </script> -->
+  </body>
+</html>

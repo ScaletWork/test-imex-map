@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Tabs Synchronization</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .tab-content-group {
+        display: none;
+      }
+      .tab-content-group.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Tabs -->
+    <nav class="position-relative">
+      <div
+        class="nav nav-tabs justify-content-around position-absolute"
+        style="top: -39px; left: 30px"
+        id="nav-tab"
+        role="tablist"
+      >
+        <button
+          class="nav-link active p-2"
+          id="one-day-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#tab-content-1"
+          type="button"
+          role="tab"
+          aria-controls="tab-content-1"
+          aria-selected="true"
+        >
+          1d
+        </button>
+        <button
+          class="nav-link p-2"
+          id="two-day-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#tab-content-2"
+          type="button"
+          role="tab"
+          aria-controls="tab-content-2"
+          aria-selected="false"
+        >
+          2d
+        </button>
+        <button
+          class="nav-link p-2"
+          id="three-day-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#tab-content-3"
+          type="button"
+          role="tab"
+          aria-controls="tab-content-3"
+          aria-selected="false"
+        >
+          3d
+        </button>
+      </div>
+    </nav>
+
+    <!-- Content Groups -->
+    <div class="tab-content">
+      <div class="tab-content-group active" id="tab-content-1">
+        <ul class="list-group-flush custom-list m-0">
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:35 12.08.24</span>
+              <span>Київ</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content-group" id="tab-content-2">
+        <ul class="list-group-flush custom-list m-0">
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:35 12.08.24</span>
+              <span>Київ</span>
+            </div>
+          </li>
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>19:22 13.08.24</span>
+              <span>Одеса</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content-group" id="tab-content-3">
+        <ul class="list-group-flush custom-list m-0">
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:35 12.08.24</span>
+              <span>Київ</span>
+            </div>
+          </li>
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>19:22 13.08.24</span>
+              <span>Одеса</span>
+            </div>
+          </li>
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:00 14.08.24</span>
+              <span>Львів</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tab-content">
+      <div class="tab-content-group active" id="tab-content-1">
+        <ul class="list-group-flush custom-list m-0">
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:35 12.08.24</span>
+              <span>Київ</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content-group" id="tab-content-2">
+        <ul class="list-group-flush custom-list m-0">
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:35 12.08.24</span>
+              <span>Київ</span>
+            </div>
+          </li>
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>19:22 13.08.24</span>
+              <span>Одеса</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="tab-content-group" id="tab-content-3">
+        <ul class="list-group-flush custom-list m-0">
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:35 12.08.24</span>
+              <span>Київ</span>
+            </div>
+          </li>
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>19:22 13.08.24</span>
+              <span>Одеса</span>
+            </div>
+          </li>
+          <li>
+            <div
+              style="height: 44px"
+              class="d-flex align-items-start w-100 list-container flex-column"
+            >
+              <span>12:00 14.08.24</span>
+              <span>Львів</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript Bundle with Popper -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.querySelectorAll('#nav-tab button').forEach((tab) => {
+        tab.addEventListener('click', () => {
+          const targetId = tab.getAttribute('data-bs-target');
+
+          // Hide all content groups
+          document.querySelectorAll('.tab-content-group').forEach((group) => {
+            group.classList.remove('active');
+          });
+
+          // Show the selected content group
+          document.querySelectorAll(targetId).forEach((content) => {
+            content.classList.add('active');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

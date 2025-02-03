@@ -45,6 +45,34 @@
         height: 100vh;
         z-index: 1;
       }
+      .sidebarMap {
+        position: fixed;
+        right: -400px;
+        top: 0;
+        width: 400px;
+        height: 100vh;
+        background: white;
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: right 0.3s ease-in-out;
+        overflow-y: auto;
+        padding: 10px;
+        z-index: 1;
+        margin-top: 70px;
+        padding-bottom: 70px;
+      }
+      .toolbar {
+        display: flex;
+        justify-content: center !important;
+        margin-bottom: 10px;
+      }
+      .no-border {
+        border: none !important;
+        outline: none !important;
+        box-shadow: none !important;
+      }
+      .sidebarMap.active {
+        right: 0;
+      }
       .small-text {
         font-size: 12px;
         color: gray;
@@ -365,36 +393,144 @@
         </header>
         <div id="map"></div>
 
-        <!-- Шаблон попапа -->
-        <div id="popup-template" style="display: none">
-          <div class="container p-2" style="width: 400px">
-            <h5 class="text-center" id="popup-country"></h5>
+        <!-- Боковая панель -->
+        <div id="sidebarMap" class="sidebarMap">
+          <div class="container p-3">
+            <div
+              class="toolbar d-flex justify-content-between align-items-center gap-2"
+            >
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="routeButton"
+                onclick="startRouting()"
+                style="display: block"
+              >
+                Прокласти із <span id="route-country"></span>
+              </button>
+              <button
+                type="button"
+                class="btn btn-warning"
+                id="routeCancelButton"
+                onclick="resetRoute()"
+                style="display: none"
+              >
+                Скинути маршрут
+              </button>
+            </div>
+            <h5 class="text-center" id="sidebar-country"></h5>
             <ul id="item-list" class="list-group mb-2">
-              <li class="list-group-item d-flex flex-column gap-1">
+              <li class="list-group-item d-flex flex-column gap-2 p-3">
                 <div
                   class="d-flex justify-content-between align-items-center gap-2"
                 >
                   <span class="item-number">1.</span>
                   <input
                     type="text"
-                    class="form-control me-2"
-                    value="Елемент 1"
-                    style="border: none; outline: none; box-shadow: none"
+                    class="form-control me-2 no-border"
+                    value="Дефолтний елемент"
                   />
                   <i
                     class="ti ti-x"
                     style="color: red; font-size: 24px; cursor: pointer"
+                    onclick="removeItem(this)"
                   ></i>
                 </div>
+                <div class="d-flex flex-column gap-1">
+                  <strong>Тип операції:</strong>
+                  <div class="d-flex gap-2">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="importCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="importCheck-${Date.now()}"
+                        >Імпорт</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="exportCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="exportCheck-${Date.now()}"
+                        >Експорт</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="transitCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="transitCheck-${Date.now()}"
+                        >Транзит</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <strong>Категорія:</strong>
+                  <div class="d-flex gap-2">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="driverCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="driverCheck-${Date.now()}"
+                        >Водій</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="cargoCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="cargoCheck-${Date.now()}"
+                        >Вантаж</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="transportCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="transportCheck-${Date.now()}"
+                        >Транспорт</label
+                      >
+                    </div>
+                  </div>
+                </div>
                 <span class="small-text"
-                  >Дата: <span class="date"></span> | Автор: Белих. Я.</span
+                  >Дата: 03.02.2025 | Автор: Белих. Я.</span
                 >
               </li>
             </ul>
+
             <button class="btn btn-primary w-100 mb-2" onclick="addItem()">
               Додати елемент
             </button>
-            <button class="btn btn-success w-100">Зберегти</button>
+            <button class="btn btn-success w-100 mb-2">Зберегти</button>
+            <button class="btn btn-danger w-100" onclick="closeSidebar()">
+              Закрити
+            </button>
           </div>
         </div>
       </div>
@@ -464,52 +600,163 @@
     <script src="clock.js"></script>
     <!-- Скрипт попапа -->
     <script>
+      let startPoint = null;
+      let routeLayer = null;
+      let isRouting = false;
+      let isEndRouting = false;
+      let markers = [];
+
+      let countryName = "";
+      let endCountry = "";
+
       const map = L.map("map").setView([50, 10], 4);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
       map.on("click", function (e) {
-        fetch(
-          `https://nominatim.openstreetmap.org/reverse?lat=${e.latlng.lat}&lon=${e.latlng.lng}&format=json`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            const countryName = data.address?.country || "Невідома країна";
-            openPopup(e.latlng, countryName);
-          })
-          .catch(() => openPopup(e.latlng, "Невідома країна"));
+        if (!isRouting && !isEndRouting) {
+          fetch(
+            `https://nominatim.openstreetmap.org/reverse?lat=${e.latlng.lat}&lon=${e.latlng.lng}&format=json`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              countryName = data.address?.country || "Невідома країна";
+              startPoint = e.latlng;
+              openSidebar(countryName);
+            })
+            .catch(() => openSidebar("Невідома країна"));
+        } else if (isEndRouting) {
+          if (
+            document.getElementById("sidebarMap").classList.contains("active")
+          ) {
+            closeSidebar();
+          } else {
+            openSidebar(countryName, isEndRouting, [countryName, endCountry]);
+          }
+        } else {
+          createRoute(startPoint, e.latlng);
+        }
       });
 
-      function openPopup(latlng, countryName) {
-        const popupContent = document
-          .getElementById("popup-template")
-          .cloneNode(true);
-        popupContent.style.display = "block";
-        popupContent.querySelector("#popup-country").textContent = countryName;
-
-        L.popup().setLatLng(latlng).setContent(popupContent).openOn(map);
+      function openSidebar(countryName, isRoute = false, routeCountries = []) {
+        if (countryName === "Невідома країна") {
+          return null;
+        }
+        const sidebar = document.getElementById("sidebarMap");
+        sidebar.classList.add("active");
+        document.getElementById("sidebar-country").textContent = isRoute
+          ? "Маршрут: " + routeCountries.join(" - ")
+          : countryName;
+        document.getElementById("route-country").textContent = countryName;
+        document.getElementById("routeButton").style.display = isRoute
+          ? "none"
+          : "block";
       }
 
       function addItem() {
-        const itemList = document.querySelector("#item-list");
+        const itemList = document.getElementById("item-list");
         if (!itemList) return;
 
         const newItem = document.createElement("li");
-        newItem.className = "list-group-item d-flex flex-column";
+        newItem.className = "list-group-item d-flex flex-column gap-1";
         newItem.innerHTML = `
-      <div class="d-flex justify-content-between align-items-center gap-2">
-        <span class="item-number"></span>
-        <input type="text" class="form-control me-2" value="Новий елемент" />
-                 <i
-                    class="ti ti-x"
-                    style="color: red; font-size: 24px; cursor: pointer"
-                  ></i>
-      </div>
-      <span class="small-text">Дата: ${new Date().toLocaleDateString()} | Автор: Белих. Я.</span>
-    `;
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <span class="item-number"></span>
+            <input type="text" class="form-control me-2" value="Новий елемент" />
+            <i class="ti ti-x" style="color: red; font-size: 24px; cursor: pointer" onclick="removeItem(this)"></i>
+          </div>
+<div class="d-flex flex-column gap-1">
+                  <strong>Тип операції:</strong>
+                  <div class="d-flex gap-2">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="importCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="importCheck-${Date.now()}"
+                        >Імпорт</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="exportCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="exportCheck-${Date.now()}"
+                        >Експорт</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="transitCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="transitCheck-${Date.now()}"
+                        >Транзит</label
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex flex-column gap-1">
+                  <strong>Категорія:</strong>
+                  <div class="d-flex gap-2">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="driverCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="driverCheck-${Date.now()}"
+                        >Водій</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="cargoCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="cargoCheck-${Date.now()}"
+                        >Вантаж</label
+                      >
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="transportCheck-${Date.now()}"
+                      />
+                      <label
+                        class="form-check-label"
+                        for="transportCheck-${Date.now()}"
+                        >Транспорт</label
+                      >
+                    </div>
+                  </div>
+                </div>
+          <span class="small-text">Дата: ${new Date().toLocaleDateString()} | Автор: Белих. Я.</span>
+        `;
 
         itemList.appendChild(newItem);
+        updateItemNumbers();
+      }
+
+      function removeItem(element) {
+        element.closest("li").remove();
         updateItemNumbers();
       }
 
@@ -522,6 +769,69 @@
           }
         });
       }
+
+      function closeSidebar() {
+        document.getElementById("sidebarMap").classList.remove("active");
+      }
+
+      function updateRouteButtons() {
+        document.getElementById("routeButton").style.display = isRouting
+          ? "none"
+          : "block";
+        document.getElementById("routeCancelButton").style.display = isRouting
+          ? "block"
+          : "none";
+      }
+
+      function startRouting() {
+        isRouting = true;
+        closeSidebar();
+        const marker = L.marker(startPoint).addTo(map);
+        markers.push(marker); // Добавляем в массив
+        updateRouteButtons();
+      }
+
+      function createRoute(start, end) {
+        if (routeLayer) {
+          map.removeLayer(routeLayer);
+        }
+
+        routeLayer = L.polyline([start, end], { color: "blue" }).addTo(map);
+        markers.push(L.marker(end).addTo(map)); // Добавляем в массив
+
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?lat=${end.lat}&lon=${end.lng}&format=json`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            endCountry = data.address?.country || "Невідома країна";
+            isRouting = false;
+            isEndRouting = true;
+            openSidebar("Маршрут", true, [
+              document.getElementById("route-country").textContent,
+              endCountry,
+            ]);
+          });
+      }
+
+      function resetRoute() {
+        if (routeLayer) {
+          map.removeLayer(routeLayer);
+          routeLayer = null;
+        }
+
+        markers.forEach((marker) => map.removeLayer(marker));
+        markers = []; // Очищаем массив
+
+        startPoint = null;
+        isRouting = false;
+        isEndRouting = false;
+        endCountry = "";
+        updateRouteButtons();
+        closeSidebar();
+      }
+
+      updateRouteButtons();
     </script>
   </body>
 </html>

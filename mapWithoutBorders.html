@@ -60,10 +60,10 @@
         margin-top: 70px;
         padding-bottom: 70px;
       }
-      .toolbar {
-        display: flex;
-        justify-content: center !important;
-        margin-bottom: 10px;
+      .form-check-input,
+      .form-check-label,
+      .form-check {
+        cursor: pointer;
       }
       .no-border {
         border: none !important;
@@ -78,6 +78,47 @@
         color: gray;
         margin-left: 30px;
       }
+
+      .sub-list {
+        padding-left: 20px;
+        margin-top: 5px;
+        font-size: 14px;
+        color: gray;
+      }
+
+      .sub-list li {
+        position: relative;
+        cursor: initial;
+      }
+
+      .sub-list li::before {
+        content: "- ";
+        position: absolute;
+        left: -15px;
+        color: gray;
+      }
+
+      .tooltip {
+        visibility: hidden;
+        background-color: rgba(0, 0, 0, 0.75);
+        color: white;
+        text-align: center;
+        padding: 5px;
+        border-radius: 5px;
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltip-trigger:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+      }
+
       .leaflet-popup-content {
         width: 400px !important;
       }
@@ -92,6 +133,119 @@
       }
       .side-hide {
         display: block !important;
+      }
+      .context-menu {
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1000;
+      }
+
+      .menu-item {
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .menu-item:hover {
+        background: #f5f5f5;
+      }
+
+      #save-route {
+        background-color: #28a745; /* Зеленый фон */
+        color: white; /* Белый текст */
+        font-weight: bold; /* Жирный текст */
+        border-radius: 5px; /* Скругленные углы */
+        text-align: center;
+        margin-top: 5px; /* Отступ сверху */
+      }
+
+      #save-route:hover {
+        background-color: #218838; /* Чуть темнее при наведении */
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .menu-item {
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 14px;
+        color: #333;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .menu-item:hover {
+        background-color: #f0f0f0;
+        color: #007bff;
+      }
+
+      /*История*/
+      #history-button {
+        position: absolute;
+        top: 100px;
+        left: 120px;
+        background-color: white;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 1000;
+        font-size: 20px;
+      }
+
+      #history {
+        position: absolute;
+        top: 100px;
+        left: 180px;
+        max-width: 800px;
+        max-height: 300px;
+        overflow-y: auto;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none;
+      }
+
+      #history::before {
+        content: "";
+        position: absolute;
+        top: -10px; /* Расположить над блоком */
+        left: 20px; /* Смещение от левого края */
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid white;
+      }
+
+      .history-item {
+        margin: 5px 0;
+      }
+
+      .history-item span {
+        font-weight: bold;
+      }
+
+      .history-item .delete {
+        color: red;
+      }
+
+      .history-item .edit {
+        color: blue;
+      }
+
+      .history-item .add {
+        color: green;
       }
 
       @media (max-width: 2850px) {
@@ -391,34 +545,48 @@
             </div>
           </nav>
         </header>
+
+        <!-- Карта -->
         <div id="map"></div>
+
+        <!-- Меню на правую кнопку мыши -->
+        <div id="map-context-menu" class="context-menu hidden">
+          <div class="menu-item" id="from-here">Маршрут звідси</div>
+          <div class="menu-item" id="to-here">Маршрут сюди</div>
+          <div class="menu-item" id="add-waypoint">Додати проміжню точку</div>
+          <div class="menu-item" id="clear-route">Очистити маршрут</div>
+          <div class="menu-item" id="save-route">Відобразити документи</div>
+        </div>
+
+        <!-- История действий -->
+
+        <!-- Кнопка для открытия истории -->
+        <div id="history-button"><i class="ti ti-history"></i></div>
+
+        <!-- Блок с историей -->
+        <div id="history">
+          <div class="history-item">
+            <span>10.02.2025 9:56:59</span> Ярослав Белих
+            <span class="delete">видалення</span> RNDP Нідерланди, Т1
+            Нідерланди, EX1 Україна
+          </div>
+          <div class="history-item">
+            <span>9.02.2025 10:00:01</span> Люда Розарьонова
+            <span class="edit">редагування</span> Сертифікат якості Транзит ->
+            Сертифікат якості Транзит, Імпорт
+          </div>
+          <div class="history-item">
+            <span>23.01.2025 12:59:01</span> Артем Сарахман
+            <span class="add">додавання</span> Пакувальний лист
+          </div>
+        </div>
 
         <!-- Боковая панель -->
         <div id="sidebarMap" class="sidebarMap">
           <div class="container p-3">
-            <div
-              class="toolbar d-flex justify-content-between align-items-center gap-2"
-            >
-              <button
-                type="button"
-                class="btn btn-primary"
-                id="routeButton"
-                onclick="startRouting()"
-                style="display: block"
-              >
-                Прокласти із <span id="route-country"></span>
-              </button>
-              <button
-                type="button"
-                class="btn btn-warning"
-                id="routeCancelButton"
-                onclick="resetRoute()"
-                style="display: none"
-              >
-                Скинути маршрут
-              </button>
-            </div>
             <h5 class="text-center" id="sidebar-country"></h5>
+
+            <!-- Редактируемый список по стране -->
             <ul id="item-list" class="list-group mb-2">
               <li class="list-group-item d-flex flex-column gap-2 p-3">
                 <div
@@ -524,13 +692,50 @@
               </li>
             </ul>
 
-            <button class="btn btn-primary w-100 mb-2" onclick="addItem()">
-              Додати елемент
-            </button>
-            <button class="btn btn-success w-100 mb-2">Зберегти</button>
-            <button class="btn btn-danger w-100" onclick="closeSidebar()">
-              Закрити
-            </button>
+            <!-- Статичный список по маршруту -->
+            <ul id="route-list" class="list-group mb-2">
+              <li class="list-group-item d-flex flex-column gap-2 p-3">
+                <span class="item-number">1. Україна</span>
+                <div
+                  class="d-flex justify-content-between align-items-center gap-2"
+                >
+                  <div>
+                    <ul class="sub-list">
+                      <li class="tooltip-trigger">
+                        <b>РНДП</b> <span>(Імпорт, Вантаж)</span>
+                        <span class="tooltip"
+                          >Дата: 03.02.2025 | Автор: Белих. Я.</span
+                        >
+                      </li>
+                      <li class="tooltip-trigger">
+                        <b>КППП</b> <span>(Імпорт, Вантаж)</span>
+                        <span class="tooltip"
+                          >Дата: 03.02.2025 | Автор: Белих. Я.</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="d-flex gap-2">
+              <button
+                class="btn btn-primary btn-sm flex-grow-1 btn-add-doc"
+                onclick="addItem()"
+              >
+                Додати
+              </button>
+              <button class="btn btn-success btn-sm flex-grow-1 btn-save-doc">
+                Зберегти
+              </button>
+              <button
+                class="btn btn-danger btn-sm flex-grow-1"
+                onclick="closeSidebar()"
+              >
+                Закрити
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -598,64 +803,213 @@
     </script>
 
     <script src="clock.js"></script>
-    <!-- Скрипт попапа -->
+    <!-- Скрипт карты -->
     <script>
+      // Координаты начала и конца маршрута
       let startPoint = null;
+      let endPoint = null;
+      let startMarker = null;
+      let endMarker = null;
+
+      //Ваще хз для чего эт
       let routeLayer = null;
-      let isRouting = false;
-      let isEndRouting = false;
+
+      //Метки на карте
       let markers = [];
 
-      let countryName = "";
-      let endCountry = "";
+      // Хранение промежуточных точек
+      let waypoints = [];
+      let waypointMarkers = [];
 
+      //Название страны в сайдбаре
+      let countryName = "";
+
+      // Инициализация карты Leaflet
       const map = L.map("map").setView([50, 10], 4);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors",
       }).addTo(map);
 
-      map.on("click", function (e) {
-        if (!isRouting && !isEndRouting) {
-          fetch(
-            `https://nominatim.openstreetmap.org/reverse?lat=${e.latlng.lat}&lon=${e.latlng.lng}&format=json`
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              countryName = data.address?.country || "Невідома країна";
-              startPoint = e.latlng;
-              openSidebar(countryName);
-            })
-            .catch(() => openSidebar("Невідома країна"));
-        } else if (isEndRouting) {
-          if (
-            document.getElementById("sidebarMap").classList.contains("active")
-          ) {
-            closeSidebar();
-          } else {
-            openSidebar(countryName, isEndRouting, [countryName, endCountry]);
-          }
+      // Контекстное меню
+      const contextMenu = document.getElementById("map-context-menu");
+      const toHereOption = document.getElementById("to-here");
+      const fromHereOption = document.getElementById("from-here");
+      const clearRouteOption = document.getElementById("clear-route");
+      const addWaypointOption = document.getElementById("add-waypoint");
+      const saveRouteOption = document.getElementById("save-route");
+
+      //кнопочки
+      const btnAddDoc = document.querySelector(".btn-add-doc");
+      const btnSaveDoc = document.querySelector(".btn-save-doc");
+
+      //Списки
+      const routeList = document.getElementById("route-list");
+      const itemList = document.getElementById("item-list");
+      routeList.style.display = "none";
+
+      // Кнопка для показа/скрытия истории
+      const historyButton = document.getElementById("history-button");
+      const historyContainer = document.getElementById("history");
+
+      historyButton.addEventListener("click", () => {
+        historyContainer.style.display =
+          historyContainer.style.display === "none" ||
+          historyContainer.style.display === ""
+            ? "block"
+            : "none";
+      });
+
+      // Обработчик события правой кнопки мыши на карте
+      map.on("contextmenu", (e) => {
+        // Показываем меню
+
+        contextMenu.style.display = "block";
+        contextMenu.style.top = `${e.originalEvent.pageY}px`;
+        contextMenu.style.left = `${e.originalEvent.pageX}px`;
+
+        // Сохраняем координаты клика
+        const { lat, lng } = e.latlng;
+        toHereOption.dataset.lat = lat;
+        toHereOption.dataset.lng = lng;
+        fromHereOption.dataset.lat = lat;
+        fromHereOption.dataset.lng = lng;
+        addWaypointOption.dataset.lat = e.latlng.lat;
+        addWaypointOption.dataset.lng = e.latlng.lng;
+
+        // Показываем опцию "Добавить промежуточную точку" только если есть начальная и конечная точки
+        if (startPoint && endPoint) {
+          addWaypointOption.style.display = "block";
+          saveRouteOption.style.display = "block";
         } else {
-          createRoute(startPoint, e.latlng);
+          addWaypointOption.style.display = "none";
+          saveRouteOption.style.display = "none";
         }
       });
 
-      function openSidebar(countryName, isRoute = false, routeCountries = []) {
+      // Закрытие меню при клике вне него
+      document.addEventListener("click", (e) => {
+        if (!contextMenu.contains(e.target)) {
+          contextMenu.style.display = "none";
+        }
+      });
+
+      // Событие клика по пункту "Сюда"
+      toHereOption.addEventListener("click", () => {
+        const lat = parseFloat(toHereOption.dataset.lat);
+        const lng = parseFloat(toHereOption.dataset.lng);
+
+        // Удаляем предыдущий маркер конечной точки, если он есть
+        if (endMarker) {
+          map.removeLayer(endMarker);
+        }
+
+        endPoint = { lat, lng };
+        endMarker = createDraggableMarker(endPoint, "red", "end");
+        markers.push(endMarker);
+
+        console.log(`Конечная точка: [${lat}, ${lng}]`);
+        contextMenu.style.display = "none";
+
+        if (startPoint && endPoint) {
+          createRoute(startPoint, endPoint);
+        }
+      });
+
+      // Событие клика по пункту "Отсюда"
+      fromHereOption.addEventListener("click", () => {
+        const lat = parseFloat(fromHereOption.dataset.lat);
+        const lng = parseFloat(fromHereOption.dataset.lng);
+
+        // Удаляем предыдущий маркер начальной точки, если он есть
+        if (startMarker) {
+          map.removeLayer(startMarker);
+        }
+
+        startPoint = { lat, lng };
+        startMarker = createDraggableMarker(startPoint, "green", "start");
+        markers.push(startMarker);
+
+        console.log(`Начальная точка: [${lat}, ${lng}]`);
+        contextMenu.style.display = "none";
+
+        if (startPoint && endPoint) {
+          createRoute(startPoint, endPoint);
+        }
+      });
+
+      // Событие клика по пункту "Добавить промежуточную точку"
+      addWaypointOption.addEventListener("click", () => {
+        const lat = parseFloat(addWaypointOption.dataset.lat);
+        const lng = parseFloat(addWaypointOption.dataset.lng);
+
+        const waypoint = { lat, lng };
+        waypoints.push(waypoint);
+
+        const marker = createDraggableMarker(
+          waypoint,
+          "blue",
+          "waypoint",
+          waypoints.length - 1
+        );
+        waypointMarkers.push(marker);
+
+        console.log(`Добавлена промежуточная точка: [${lat}, ${lng}]`);
+        contextMenu.style.display = "none";
+
+        createRoute();
+      });
+
+      // Событие клика по пункту "Очистить маршрут"
+      clearRouteOption.addEventListener("click", () => {
+        contextMenu.style.display = "none";
+        closeSidebar();
+        resetRoute();
+        itemList.style.display = "block";
+        routeList.style.display = "none";
+        btnAddDoc.style.display = "block";
+        btnSaveDoc.style.display = "block";
+        console.log(`Маршрут очищен`);
+      });
+
+      // Событие клика по пункту "Сохранить маршрут"
+      saveRouteOption.addEventListener("click", () => {
+        itemList.style.display = "none";
+        routeList.style.display = "block";
+        btnAddDoc.style.display = "none";
+        btnSaveDoc.style.display = "none";
+        openSidebar("", ["Украина", "Польша", "Омерика"]);
+      });
+
+      map.on("click", function (e) {
+        fetch(
+          `https://nominatim.openstreetmap.org/reverse?lat=${e.latlng.lat}&lon=${e.latlng.lng}&format=json`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            itemList.style.display = "block";
+            routeList.style.display = "none";
+            btnAddDoc.style.display = "block";
+            btnSaveDoc.style.display = "block";
+            countryName = data.address?.country || "Невідома країна";
+            startPoint = e.latlng;
+            console.log(e.latlng.lat, e.latlng.lng);
+            openSidebar(countryName);
+          })
+          .catch(() => openSidebar("Невідома країна"));
+      });
+
+      function openSidebar(countryName, routeCountries = []) {
         if (countryName === "Невідома країна") {
           return null;
         }
         const sidebar = document.getElementById("sidebarMap");
         sidebar.classList.add("active");
-        document.getElementById("sidebar-country").textContent = isRoute
-          ? "Маршрут: " + routeCountries.join(" - ")
-          : countryName;
-        document.getElementById("route-country").textContent = countryName;
-        document.getElementById("routeButton").style.display = isRoute
-          ? "none"
-          : "block";
+        document.getElementById("sidebar-country").textContent =
+          routeCountries.length ? routeCountries.join(" - ") : countryName;
       }
 
+      //Добавить айтем в список
       function addItem() {
-        const itemList = document.getElementById("item-list");
         if (!itemList) return;
 
         const newItem = document.createElement("li");
@@ -755,11 +1109,13 @@
         updateItemNumbers();
       }
 
+      //Делитнуть айтем из списка
       function removeItem(element) {
         element.closest("li").remove();
         updateItemNumbers();
       }
 
+      //Обновляет список, мини реакт кароч
       function updateItemNumbers() {
         const items = document.querySelectorAll("#item-list .list-group-item");
         items.forEach((item, index) => {
@@ -770,68 +1126,104 @@
         });
       }
 
+      //Ну тута понятно
       function closeSidebar() {
+        btnAddDoc.style.display = "block";
+        btnSaveDoc.style.display = "block";
+        itemList.style.display = "block";
+        routeList.style.display = "none";
         document.getElementById("sidebarMap").classList.remove("active");
       }
 
-      function updateRouteButtons() {
-        document.getElementById("routeButton").style.display = isRouting
-          ? "none"
-          : "block";
-        document.getElementById("routeCancelButton").style.display = isRouting
-          ? "block"
-          : "none";
-      }
-
-      function startRouting() {
-        isRouting = true;
-        closeSidebar();
-        const marker = L.marker(startPoint).addTo(map);
-        markers.push(marker); // Добавляем в массив
-        updateRouteButtons();
-      }
-
+      //Логика по прокладыванию маршрута
+      //шиза кароч
       function createRoute(start, end) {
+        if (!startPoint || !endPoint) return;
+
         if (routeLayer) {
           map.removeLayer(routeLayer);
         }
 
-        routeLayer = L.polyline([start, end], { color: "blue" }).addTo(map);
-        markers.push(L.marker(end).addTo(map)); // Добавляем в массив
+        // Формируем строку запроса для OSRM с промежуточными точками
+        const points = [startPoint, ...waypoints, endPoint]
+          .map((p) => `${p.lng},${p.lat}`)
+          .join(";");
 
         fetch(
-          `https://nominatim.openstreetmap.org/reverse?lat=${end.lat}&lon=${end.lng}&format=json`
+          `https://router.project-osrm.org/route/v1/driving/${points}?overview=full&geometries=geojson`
         )
           .then((response) => response.json())
           .then((data) => {
-            endCountry = data.address?.country || "Невідома країна";
-            isRouting = false;
-            isEndRouting = true;
-            openSidebar("Маршрут", true, [
-              document.getElementById("route-country").textContent,
-              endCountry,
-            ]);
-          });
+            if (data.routes && data.routes.length > 0) {
+              const routeCoords = data.routes[0].geometry.coordinates.map(
+                (coord) => [coord[1], coord[0]]
+              );
+
+              routeLayer = L.polyline(routeCoords, { color: "blue" }).addTo(
+                map
+              );
+              console.log("Маршрут построен.");
+            } else {
+              console.error("Не удалось построить маршрут");
+            }
+          })
+          .catch((error) => console.error("Ошибка запроса OSRM:", error));
       }
 
+      //Драгабельные метки, еще одна шиза
+      function createDraggableMarker(position, color, type, index = null) {
+        const marker = L.marker(position, {
+          draggable: true,
+          icon: L.divIcon({
+            className: `custom-marker-${color}`,
+            html: `<div style="width: 20px; height: 20px; background: ${color}; border-radius: 50%; border: 2px solid black;"></div>`,
+          }),
+        }).addTo(map);
+
+        marker.on("dragend", (e) => {
+          const { lat, lng } = e.target.getLatLng();
+
+          if (type === "start") {
+            startPoint = { lat, lng };
+          } else if (type === "end") {
+            endPoint = { lat, lng };
+          } else if (type === "waypoint" && index !== null) {
+            waypoints[index] = { lat, lng };
+          }
+
+          createRoute();
+        });
+
+        return marker;
+      }
+
+      //Сброс всего, мое любимое
       function resetRoute() {
         if (routeLayer) {
           map.removeLayer(routeLayer);
           routeLayer = null;
         }
 
+        if (startMarker) {
+          map.removeLayer(startMarker);
+          startMarker = null;
+        }
+
+        if (endMarker) {
+          map.removeLayer(endMarker);
+          endMarker = null;
+        }
+
         markers.forEach((marker) => map.removeLayer(marker));
         markers = []; // Очищаем массив
 
-        startPoint = null;
-        isRouting = false;
-        isEndRouting = false;
-        endCountry = "";
-        updateRouteButtons();
-        closeSidebar();
-      }
+        waypointMarkers.forEach((marker) => map.removeLayer(marker));
+        waypointMarkers = []; // Очищаем массив
+        waypoints = [];
 
-      updateRouteButtons();
+        startPoint = null;
+        endPoint = null;
+      }
     </script>
   </body>
 </html>
